@@ -1,3 +1,17 @@
+# CodersCamp 2020 - Projekt JavaScript
+## Pokemon Quiz
+
+### Zespół projektowy
+Mentor: [Łukasz Dutka](https://github.com/lukaszdutka)
+Uczestnicy:
+* [Kamil Arendarczyk](https://github.com/arendarczyk) (UX Designer)
+* [Aleksandra Cypko](https://github.com/AleksandraCyp) (Tech Lead)
+* [Małgorzata Dziewit](https://github.com/memeraki)
+* [Daria Dziubałtowska](https://github.com/daria305) (Product Owner)
+* [Agata Ludwiczyńska](https://github.com/AgataLudwiczynska)
+* [Mariusz Smarż](https://github.com/mariusz-sm) (Develepment Manager)
+
+
 **UWAGA! Zaczynając pracę nad projektem — nie róbcie forka.
 Jedna osoba z zespołu (np. Mentor) powinna użyć przycisku `Use this template` i dodać innych członków zespołu jako Collaborators do tego repozytorium.**
 
