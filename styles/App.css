@@ -16,9 +16,6 @@
 }
 body {
     max-height: 100vh;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: auto 35vh 30vh;
     padding: 1.5vw ;
     font-family: 'Montserrat', sans-serif;
    
@@ -30,8 +27,14 @@ body {
     font-size: 3.5vh;
 }
 
-div#headerWithLogo{
-    
+#pokequiz-app{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto 35vh 30vh;
+}
+
+div#headerWithLogo #pokemonLogo{
+    width: 50%;
 }
 div#headerWithLogo #quizLogo{
     padding-left: 5vw;
@@ -103,5 +106,5 @@ ul.bottomOfThePageOptions li{
 img#pikachuImg{
     grid-row-end: -1;
     grid-column-end: -1;
-    height: 90%;
+    height: 95%;
 }
