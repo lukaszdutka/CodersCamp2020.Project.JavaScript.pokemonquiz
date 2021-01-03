@@ -7,7 +7,7 @@
 import { getPokemonById, getTypeById } from "../api/pokemons.js";
 
 describe("Get pokemon details from API", function(){
-    test("Should return pokemon details based on its id.", function() {
+    test("Should return pokemon details based on its id.", async () => {
         expect(getPokemonById(2)).toEqual("Surprise 2")
     })
 
