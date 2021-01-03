@@ -16,17 +16,24 @@ export async function getPokemonById(id) {
     };
 
     const res = await fetch(`${POKEMON_API_BASE_URL}/pokemon/${id}`);
-    const jsonRes = await res.json()
+    const jsonRes = await res.json();
+
     const { id: pokeId, name, types, sprites: { other: { "official-artwork": { front_default: artworkUrl} } } } = jsonRes; 
     const pokeData = {
         id: pokeId,
         name: name,
         types: types.map(parseType),
         photoUrl: artworkUrl
-    }
+    };
     return pokeData
 };
 
-export function getTypeById(id) {
-    return id + "test"
+export async function getTypeById(id) {
+    const res = await fetch(`${POKEMON_API_BASE_URL}/type/${id}`);
+    const jsonRes = await res.json();
+    const { id: typeId , name: typeName } = jsonRes;
+    return {
+        id: typeId,
+        name: typeName
+    }
 }
