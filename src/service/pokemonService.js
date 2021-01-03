@@ -1,4 +1,7 @@
-import { getPokemonById, getTypeById } from "../api/pokemon"
+import {
+    getPokemonById,
+    //getTypeById
+} from "../api/pokemons";
 
 
 // example result of calling getPokemonById(1):
@@ -14,7 +17,7 @@ import { getPokemonById, getTypeById } from "../api/pokemon"
 //     correctAnswer: 'Bulbasaur' 
 // }
 
-class Question {
+export class Question {
 
     constructor(mode) {
         this.mode = mode;
