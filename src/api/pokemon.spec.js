@@ -1,17 +1,48 @@
+import { getPokemonById, getTypeById } from "./pokemons.js";
 
-// example result of calling getPokemonById(1):
-// { id: 1, name: 'Bulbasaur', photoUrl: 'someurl', types: [ { id: 3, name: 'grass' }, { id: 6, name: 'poison' } ] }
-// example result of calling getTypeById(3):
-// { id: 3, name: 'grass' }
+describe('Test pokemon API to get pokemon', () => {
 
-import { getPokemonById, getTypeById } from "../api/pokemons.js";
+    describe("Given pokemon id is 1", () => {
+        const pokeId = 1;
 
-describe("Get pokemon details from API", function(){
-    test("Should return pokemon details based on its id.", async () => {
-        expect(getPokemonById(2)).toEqual("Surprise 2")
-    })
+      describe("When asking for pokemon data", async () => {
+        const pokeData = await getPokemonById(pokeId);
 
-    test("Should return type details by its Id", function(){
-        expect(getTypeById(4)).toEqual("4test")
-    })
-})
+        describe("Then it should", () => {
+
+            it(`have data with id = ${pokeId}`, () => {
+                expect(pokeData.id).toEqual(pokeId);
+            })
+
+            it("have name: bulbasaur", () => {
+                expect(pokeData.name).toEqual("bulbasaur");
+            })
+
+            it("have url to an artwork image", () => {
+                expect(pokeData.url).toEqual("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png");
+            })
+
+            it("have array with a list of types and their ids", () => {
+                expect(pokeData).toEqual(
+                    expect.arrayContaining([
+                        expect.objectContaining({
+                            id: 4,
+                            type: "poisson"
+                        },
+                        {
+                            id: 12,
+                            type: "grass"
+                        }
+                        )
+                ]))
+            });
+        });
+      });
+    });
+  });
+
+// describe("Test pokemon API to get pokemon types", () => {
+//     describe("Given the type id is 4", () => {
+//         const typeId = 4;
+//     })
+// })
