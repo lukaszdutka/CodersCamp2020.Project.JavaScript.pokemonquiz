@@ -7,6 +7,14 @@
 // example result of calling getTypeById(3):
 // { id: 3, name: 'grass' }
 
+
+// example of getNextQuestion('guessName')
+// { 
+//     question: { pokemonName: 'Bulbasaur', pokemonUrl: 'someUrl', }, 
+//     answers: [ 'answer1', 'answer2', 'answer3', 'answer4', 'answer5-forTypes', 'answer6-forTypes', ], 
+//     correctAnswer: 'Bulbasaur' 
+// }
+
 class Question {
 
     //Random nr 1-151
@@ -16,7 +24,20 @@ class Question {
         return randomId;
     }
 
+    answers(numOfAnswers = 4) {
+        let answersArr = [];
+        for (let i = 1; i <= numOfAnswers; i++) {
+            answersArr.push(this.randomPokemonId());
+        }
+        return answersArr
+    }
+
+    correctAnswer(numOfAnswers = 4) {
+        return Math.floor(Math.random() * numOfAnswers) + 1;
+    }
+
     // getNextQuestion() {
+    //     currentId = randomPokemonId();
 
     // }
 
@@ -26,6 +47,8 @@ class Question {
 }
 
 
-const quziQestion = new Question();
+const quizQestion = new Question();
 
-console.log(quziQestion.randomPokemonId())
+//console.log(quizQestion.randomPokemonId())
+//console.log(quizQestion.answers())
+console.log(quizQestion.correctAnswer())
