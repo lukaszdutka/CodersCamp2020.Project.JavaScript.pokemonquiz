@@ -1,4 +1,3 @@
-import { App } from "../app/App"
 import { getPokemonById, getTypeById } from "../api/pokemon"
 
 
