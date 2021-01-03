@@ -17,6 +17,10 @@
 
 class Question {
 
+    constructor(mode) {
+        this.mode = mode;
+    }
+
     //Random nr 1-151
     randomPokemonId() {
         const firstGenPokemonLimit = 152
@@ -36,10 +40,38 @@ class Question {
         return Math.floor(Math.random() * numOfAnswers) + 1;
     }
 
-    // getNextQuestion() {
-    //     currentId = randomPokemonId();
+    getNextQuestion() {
+        const answersList = this.answers();
+        const correctAnswerId = () => answersList[this.correctAnswer];
+        answersList.map((id) => getPokemonById(id));
 
-    // }
+        
+        if (this.mode === 1) {
+            var currQuestion = {
+                pokemonUrl: getPokemonById(correctAnswerId).photoUrl
+            };
+
+            var answers = answersList.map( (id) => getPokemonById(id).name);
+            var correctAnswer = getPokemonById(correctAnswerId).name;
+
+        } else if (this.mode === 2) {
+            var currQuestion = {
+                pokemonName: getPokemonById(correctAnswerId).name
+            };
+
+            var answers = answersList.map( (id) => getPokemonById(id).photoUrl);
+            var correctAnswer = getPokemonById(correctAnswerId).photoUrl;
+        }
+        
+        const question = {
+            question: currQuestion,
+            answers: answers, 
+            correctAnswer: correctAnswer 
+        }
+
+        return question
+
+    }
 
     // checkAnswer() {
 
