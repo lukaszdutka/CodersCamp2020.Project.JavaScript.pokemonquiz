@@ -17,7 +17,7 @@ import {
 //     correctAnswer: 'Bulbasaur' 
 // }
 
-export class Question {
+export class QuestionService {
 
     constructor(mode) {
         this.mode = mode;

@@ -1,8 +1,8 @@
 import {
-    Question
-} from "./pokemonService";
+    QuestionService
+} from "./QuestionService";
 
-const quizQuestion = new Question();
+const quizQuestion = new QuestionService();
 
 describe('Test random pokemon id method', () => {
 
