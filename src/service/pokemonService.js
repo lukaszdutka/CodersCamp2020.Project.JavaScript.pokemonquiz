@@ -1,5 +1,5 @@
-// import { App } from "../app/App"
-// import { getPokemonById, getTypeById } from "../api/pokemon"
+import { App } from "../app/App"
+import { getPokemonById, getTypeById } from "../api/pokemon"
 
 
 // example result of calling getPokemonById(1):
@@ -61,26 +61,24 @@ class Question {
 
             var answers = answersList.map( (id) => getPokemonById(id).photoUrl);
             var correctAnswer = getPokemonById(correctAnswerId).photoUrl;
-        }
+        };
         
         const question = {
             question: currQuestion,
             answers: answers, 
             correctAnswer: correctAnswer 
-        }
+        };
 
-        return question
+        return question;
 
     }
 
-    // checkAnswer() {
-
-    // }
+    checkAnswer(question, userAnswer) {
+        let result = false;
+        if ( userAnswer == question.correctAnswer ) {
+            result = true;
+        };
+        
+        return result;
+    }
 }
-
-
-const quizQestion = new Question();
-
-//console.log(quizQestion.randomPokemonId())
-//console.log(quizQestion.answers())
-console.log(quizQestion.correctAnswer())
