@@ -5,9 +5,10 @@ describe('Test pokemon API to get pokemon', () => {
     describe("Given pokemon id is 1", () => {
         const pokeId = 1;
 
-      describe("When asking for pokemon data", async () => {
-        const pokeData = await getPokemonById(pokeId);
-
+      describe("When asking for pokemon data", () => {
+          let pokeData;
+          beforeAll( async () => {pokeData = await getPokemonById(pokeId)});
+          
         describe("Then it should", () => {
 
             it(`have data with id = ${pokeId}`, () => {
@@ -19,20 +20,21 @@ describe('Test pokemon API to get pokemon', () => {
             })
 
             it("have url to an artwork image", () => {
-                expect(pokeData.url).toEqual("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png");
+                expect(pokeData.photoUrl).toEqual("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png");
             })
 
             it("have array with a list of types and their ids", () => {
-                expect(pokeData).toEqual(
+                expect(pokeData.types).toEqual(
                     expect.arrayContaining([
-                        expect.objectContaining({
-                            id: 4,
-                            type: "poisson"
-                        },
-                        {
-                            id: 12,
-                            type: "grass"
-                        }
+                        expect.objectContaining(
+                            {
+                                id: 12,
+                                type: "grass"
+                            },
+                            {
+                                id: 4,
+                                type: "poisson"
+                            },
                         )
                 ]))
             });
