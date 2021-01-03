@@ -28,8 +28,19 @@ describe('Test correctAnswer method', () => {
     const correctAnswer = quizQuestion.correctAnswer();
 
     it("Should return number in range 1-4. The number show position of correct answer in quiz", () => {
-        expect(randomId).toBeGreaterThan(0);
-        expect(randomId).toBeLessThan(5);
+        expect(correctAnswer).toBeGreaterThan(0);
+        expect(correctAnswer).toBeLessThan(5);
+    })
+});
+
+describe('Test getNextQuestion method', () => {
+
+    const questionExample = quizQuestion.getNextQuestion();
+
+    it("Should return question object - example output for mode 1: question: { pokemonName: 'Bulbasaur', pokemonUrl: 'someUrl', }, answers: [ 'answer1', 'answer2', 'answer3', 'answer4', 'answer5-forTypes', 'answer6-forTypes', ], correctAnswer: 'Bulbasaur'  ", () => {
+        expect(questionExample).toHaveProperty('question');
+        expect(questionExample).toHaveProperty('answers');
+        expect(questionExample).toHaveProperty('correctAnswer');
     })
 });
 
