@@ -44,7 +44,7 @@ export class QuestionService {
 
     getNextQuestion() {
         const answersList = this.answers();
-        const correctAnswerId = () => answersList[this.correctAnswer];
+        const correctAnswerId = answersList[this.correctAnswer];
         answersList.map((id) => getPokemonById(id));
 
         
