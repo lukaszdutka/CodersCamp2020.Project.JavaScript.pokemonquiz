@@ -6,32 +6,33 @@ export async function getPokemonById(id) {
     const getTypeIdFromUrl = (url) => {
         const regex = /\/type\/(\d+)\/$/;
         return Number(regex.exec(url)[1])
-    }
+    };
 
     const parseType = (type) => {
         return {
-            id : getTypeIdFromUrl(type.type.url),
-            type : type.type.name
+            id: getTypeIdFromUrl(type.type.url),
+            type: type.type.name
         }
     };
 
     const res = await fetch(`${POKEMON_API_BASE_URL}/pokemon/${id}`);
     const jsonRes = await res.json();
 
-    const { id: pokeId, name, types, sprites: { other: { "official-artwork": { front_default: artworkUrl} } } } = jsonRes; 
-    const pokeData = {
-        id: pokeId,
-        name: name,
-        types: types.map(parseType),
-        photoUrl: artworkUrl
-    };
-    return pokeData
+    return {
+        id: jsonRes.id,
+        name: jsonRes.name,
+        types: jsonRes.types.map(parseType),
+        photoUrl: jsonRes.sprites.other["official-artwork"].front_default
+    }
 };
 
 export async function getTypeById(id) {
     const res = await fetch(`${POKEMON_API_BASE_URL}/type/${id}`);
     const jsonRes = await res.json();
-    const { id: typeId , name: typeName } = jsonRes;
+    const {
+        id: typeId,
+        name: typeName
+    } = jsonRes;
     return {
         id: typeId,
         name: typeName

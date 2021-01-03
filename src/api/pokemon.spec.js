@@ -1,67 +1,50 @@
-import { getPokemonById, getTypeById } from "./pokemons.js";
+import {
+    getPokemonById,
+    getTypeById
+} from "./pokemons.js";
 
 describe('Test pokemon API to get pokemon', () => {
 
-    describe("Given pokemon id is 1", () => {
-        const pokeId = 1;
+    it("Given pokemon id is 1 when asking for data, should get id, photoUrl, types, name of the pokemon", async () => {
+        //given
+        const pokemonId = 1;
 
-      describe("When asking for pokemon data", () => {
-          let pokeData;
-          beforeAll( async () => {pokeData = await getPokemonById(pokeId)});
-          
-        describe("Then it should", () => {
+        //when
+        const pokeData = await getPokemonById(pokemonId)
 
-            it(`have data with id = ${pokeId}`, () => {
-                expect(pokeData.id).toEqual(pokeId);
-            })
-
-            it("have name: bulbasaur", () => {
-                expect(pokeData.name).toEqual("bulbasaur");
-            })
-
-            it("have url to an artwork image", () => {
-                expect(pokeData.photoUrl).toEqual("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png");
-            })
-
-            it("have array with a list of types and their ids", () => {
-                expect(pokeData.types).toEqual(
-                    expect.arrayContaining([
-                        expect.objectContaining(
-                            {
-                                id: 12,
-                                type: "grass"
-                            },
-                            {
-                                id: 4,
-                                type: "poisson"
-                            },
-                        )
-                ]))
-            });
+        //then
+        expect(pokeData).toEqual({
+            id: 1,
+            name: "bulbasaur",
+            photoUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+            types: [{
+                    id: 12,
+                    type: "grass"
+                },
+                {
+                    id: 4,
+                    type: "poison"
+                }
+            ]
         });
-      });
-    });
-  });
+    })
+});
+
 
 describe("Test pokemon API to get pokemon types", () => {
 
-    describe("Given the type id is 4", () => {
+    it("Given the type id is 12 when asking for pokemon data, should return id and name of the type", async () => {
+        //given
         const typeId = 12;
 
-        describe("When asking for pokemon data", () => {
-            let typeData;
-            beforeAll( async () => {typeData = await getTypeById(typeId)});
-            describe("Then it should", () => {
-                it(`have type id = ${typeId} and type name: grass`, () => {
-                    expect(typeData).toEqual(
-                        expect.objectContaining({
-                            id: 12,
-                            name: "grass"
-                        })
-                    );
-                })
-            })
-        })
+        //when
+        const typeData = await getTypeById(typeId)
+
+        //then
+        expect(typeData).toEqual({
+                id: 12,
+                name: "grass"
+            }
+        );
     })
-    
 })
