@@ -1,6 +1,6 @@
 import {
     QuestionService
-} from "./QuestionService";
+} from "./questionService";
 
 const quizQuestion = new QuestionService();
 
