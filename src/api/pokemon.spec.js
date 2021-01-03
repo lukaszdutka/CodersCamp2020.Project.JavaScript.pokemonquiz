@@ -43,8 +43,25 @@ describe('Test pokemon API to get pokemon', () => {
     });
   });
 
-// describe("Test pokemon API to get pokemon types", () => {
-//     describe("Given the type id is 4", () => {
-//         const typeId = 4;
-//     })
-// })
+describe("Test pokemon API to get pokemon types", () => {
+
+    describe("Given the type id is 4", () => {
+        const typeId = 12;
+
+        describe("When asking for pokemon data", () => {
+            let typeData;
+            beforeAll( async () => {typeData = await getTypeById(typeId)});
+            describe("Then it should", () => {
+                it(`have type id = ${typeId} and type name: grass`, () => {
+                    expect(typeData).toEqual(
+                        expect.objectContaining({
+                            id: 12,
+                            name: "grass"
+                        })
+                    );
+                })
+            })
+        })
+    })
+    
+})
