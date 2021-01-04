@@ -2,7 +2,7 @@ export const showStartingPage = () => {
     const appScreen = document.querySelector('#pokequiz-app');
     const startingPageTemplate = 
     `<div id="headerWithLogo" class="firstColumn spanInPortrait">
-        <img src="https://flarrow.pl/wp-content/uploads/2019/07/International_Pok%C3%A9mon_logo.svg_.png" alt='Pokemon' id='pokemonLogo'/>
+        <img src="./static/assets/ui/logo.png" alt='Pokemon' id='pokemonLogo'/>
         <p id='quizLogo' class='fancyFontStyle'>Quiz</p>
     </div>
 
@@ -29,6 +29,6 @@ export const showStartingPage = () => {
         <li id='leaderboard'><i class="fa fa-trophy"></i></li>
     </ul>
 
-    <img src='https://assets.pokemon.com//assets/cms2/img/video-games/_tiles/pokemon-sword-shield/distributions/pikachu/inline/world.png' alt='Pikachu' id='pikachuImg' class="secondColumn"/>`
+    <img src='./static/assets/ui/pikach1.png' alt='Pikachu' id='pikachuImg' class="secondColumn"/>`
     appScreen.innerHTML = startingPageTemplate;
 }
