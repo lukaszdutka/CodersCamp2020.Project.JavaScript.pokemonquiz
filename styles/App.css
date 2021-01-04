@@ -39,6 +39,8 @@ body {
     grid-column: 2;
 }
 
+/* div headerWithLogo */
+
 div#headerWithLogo #pokemonLogo{
     height: 18vh;
 }
@@ -47,6 +49,8 @@ div#headerWithLogo #quizLogo{
     font-family: 'Secular One', sans-serif;
     font-size: 8.5vh
 }
+
+/* ul selectModeMenu */
 
 ul#selectModeMenu{
     grid-row: span 2/4;
@@ -63,6 +67,8 @@ ul#selectModeMenu li{
     width: 60%;
     text-align:center;
 }
+
+/* div EnterName */
 
 div#enterNameAndPlayMenu{
     grid-row: 2;
@@ -87,7 +93,10 @@ div#enterNameAndPlayMenu #playerIcon{
 div#enterNameAndPlayMenu #enterYourNameInput{
     border:none;
     border-bottom: black solid 1px;
+    padding: 2% 5%;
 }
+
+/* div buttonPlay */
 
 div#startGame{
     grid-row-start: 3;
@@ -98,6 +107,8 @@ div#startGame #startGameButton{
     width: 40%;
     border-color: transparent;
 }
+
+/* ul bottomOfThePageOptions */
 
 ul.bottomOfThePageOptions{
     grid-row-end:-1;
@@ -115,6 +126,8 @@ ul.bottomOfThePageOptions li{
     text-align: center;
     line-height: 8.5vh;
 }
+
+/* pikachu */
 
 img#pikachuImg{
     grid-row-end: -1;
