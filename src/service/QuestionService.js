@@ -2,6 +2,7 @@ import {
     getPokemonById,
     //getTypeById
 } from "../api/pokemons";
+import { WHO_IS_THAT_POKEMON } from "./modes";
 
 
 // example result of calling getPokemonById(1):
@@ -23,26 +24,11 @@ export class QuestionService {
         this.mode = mode;
     }
 
-    //Random nr 1-151
-    randomPokemonId() {
-        const firstGenPokemonLimit = 152
-        let randomId = Math.floor(Math.random() * firstGenPokemonLimit)
-        return randomId;
-    }
-
-    answers(numOfAnswers = 4) {
-        let answersArr = [];
-        for (let i = 1; i <= numOfAnswers; i++) {
-            answersArr.push(this.randomPokemonId());
+    async getNextQuestion(pokemonIds) {
+        
+        if (!pokemonIds || pokemonIds.length != 4) {
+            throw new Error('pokemonIds is not an array of 4 elements')
         }
-        return answersArr
-    }
-
-    correctAnswer(numOfAnswers = 4) {
-        return Math.floor(Math.random() * numOfAnswers) + 1;
-    }
-
-    getNextQuestion() {
         const answersList = this.answers();
         const correctAnswerId = answersList[this.correctAnswer() - 1];
         console.log("Correct answer ID value " + correctAnswerId);
@@ -59,12 +45,11 @@ export class QuestionService {
         const pokePromises = answersList.map( id => getPokemonById(id))
         console.log("Promises: " + pokePromises)
 
-        Promise.all(pokePromises).then( (objs) => {
-            console.log("Answer list: " + objs)
-        });
+        const answersObj = await Promise.all(pokePromises);
 
+        console.log("Answer 1: " + answersObj[0].name);
         
-        if (this.mode === 1) {
+        if (this.mode === WHO_IS_THAT_POKEMON) {
             var currQuestion = {
                 pokemonUrl: getPokemonById(correctAnswerId).photoUrl
             };

@@ -1,0 +1,1 @@
+export const WHO_IS_THAT_POKEMON = 'WHO_IS_THAT_POKEMON';
