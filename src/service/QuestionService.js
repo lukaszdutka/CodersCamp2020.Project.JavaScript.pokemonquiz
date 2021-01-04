@@ -44,23 +44,24 @@ export class QuestionService {
 
     getNextQuestion() {
         const answersList = this.answers();
-        // console.log("List of ID answers " + answersList);
-        // console.log("Correct answer nr: " + this.correctAnswer());
         const correctAnswerId = answersList[this.correctAnswer() - 1];
-        // console.log("Correct answer ID value " + correctAnswerId);
+        console.log("Correct answer ID value " + correctAnswerId);
 
         // Created to see what will be print
-        getPokemonById(correctAnswerId).then(meta => {
-            const correctAnswerPoke = meta;
-            console.log(correctAnswerPoke.name);
-        });
+        // getPokemonById(correctAnswerId).then(meta => {
+        //     const correctAnswerPoke = meta;
+        //     console.log(correctAnswerPoke);
+        // });
 
-        // There is a problem. I don't know how to reslove this promise
-        answersList.map( async (id) => {
-            const meta = await getPokemonById(id);
-            return meta
+        console.log("answersList: " + answersList)
+        console.log("Is Array: " + Array.isArray(answersList))
+
+        const pokePromises = answersList.map( id => getPokemonById(id))
+        console.log("Promises: " + pokePromises)
+
+        Promise.all(pokePromises).then( (objs) => {
+            console.log("Answer list: " + objs)
         });
-        console.log("Answer list: " + answersList)
 
         
         if (this.mode === 1) {
