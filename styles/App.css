@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Ranchers&family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;900&family=Ranchers&family=Secular+One&display=swap');
 /* text on the web (font-weight: 600) */
 /* font-family: 'Raleway', sans-serif;
 /* "enter name" */
@@ -125,6 +125,7 @@ ul.bottomOfThePageOptions li{
     background-color: #3762AC;
     text-align: center;
     line-height: 8.5vh;
+    font-weight: 900;
 }
 
 /* pikachu */
