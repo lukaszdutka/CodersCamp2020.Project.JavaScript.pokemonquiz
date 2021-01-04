@@ -22,6 +22,7 @@ export class QuestionService {
 
     constructor(mode) {
         this.mode = mode;
+        this.correctAnswerIndex = 0; // range 0-3
     }
 
     async getNextQuestion(pokemonIds) {
@@ -35,15 +36,15 @@ export class QuestionService {
         
         if (this.mode === WHO_IS_THAT_POKEMON) {
             return {
-                question: answersObj[0].photoUrl , 
+                question: answersObj[this.correctAnswerIndex].photoUrl , 
                 answers: [ answersObj[0].name, answersObj[1].name, answersObj[2].name, answersObj[3].name ], 
-                correctAnswer: { value: answersObj[0].name, index: 0}
+                correctAnswer: { value: answersObj[this.correctAnswerIndex].name, index: this.correctAnswerIndex}
             }
         } else if (this.mode === WHAT_DOES_THIS_POKEMON_LOOK_LIKE ) {
             return {
-                question: answersObj[0].name , 
+                question: answersObj[this.correctAnswerIndex].name , 
                 answers: [ answersObj[0].photoUrl, answersObj[1].photoUrl, answersObj[2].photoUrl, answersObj[3].photoUrl ], 
-                correctAnswer: { value: answersObj[correctAnswer.index].photoUrl, index: 0 }
+                correctAnswer: { value: answersObj[this.correctAnswerIndex].photoUrl, index: this.correctAnswerIndex }
             }
         };
     }
