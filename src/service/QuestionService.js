@@ -43,14 +43,14 @@ export class QuestionService {
             return {
                 question: answersObj[0].name , 
                 answers: [ answersObj[0].photoUrl, answersObj[1].photoUrl, answersObj[2].photoUrl, answersObj[3].photoUrl ], 
-                correctAnswer: { name: answersObj[correctAnswer.index].photoUrl, index: 0 }
+                correctAnswer: { value: answersObj[correctAnswer.index].photoUrl, index: 0 }
             }
         };
     }
 
-    checkAnswer(question, userAnswer) {
+    checkAnswer(questionObj, userAnswer) {
         let result = false;
-        if ( userAnswer == question.correctAnswer ) {
+        if ( userAnswer == questionObj.correctAnswer.value ) {
             result = true;
         };
         

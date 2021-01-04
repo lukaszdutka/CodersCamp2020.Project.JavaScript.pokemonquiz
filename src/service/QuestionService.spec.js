@@ -30,3 +30,36 @@ describe('Test getNextQuestion method', () => {
         expect(question.answers[question.correctAnswer.index]).toEqual(question.correctAnswer.value);
     })
 });
+
+
+describe('Test checkAnswer method', () => {
+
+    it("Should return result true for user answer -> 'bulbasaur' ", async () => {
+        // Given
+        const pokomonIds = [1, 2, 3, 4];
+        const userAnswer = 'bulbasaur';
+
+        // When
+        const question = await quizQuestion.getNextQuestion(pokomonIds);
+
+        // Then
+        expect(quizQuestion.checkAnswer(question, userAnswer)).toEqual(true);
+        
+    })
+});
+
+describe('Test checkAnswer method', () => {
+
+    it("Should return result false for user answer -> 'venusaur' ", async () => {
+        // Given
+        const pokomonIds = [1, 2, 3, 4];
+        const userAnswer = 'venusaur';
+
+        // When
+        const question = await quizQuestion.getNextQuestion(pokomonIds);
+
+        // Then
+        expect(quizQuestion.checkAnswer(question, userAnswer)).toEqual(false);
+        
+    })
+});
