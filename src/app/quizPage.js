@@ -1,6 +1,5 @@
 // use to render the page for the first time, after the game start
 export function renderQuizPage(mode) {
-    console.log("test");
     const appScreen = document.querySelector('#pokequiz-app');
     const quizTemplate = document.getElementById('quiz-template');
     appScreen.innerHTML = quizTemplate.innerHTML;
@@ -19,6 +18,7 @@ export function renderQuizPage(mode) {
         questionNum: 1,
     }
     setupPageTitle(mode)
+    //TODO setupTimer()
     renderNextQuestion(generatedQuestion, mode)
 }
 
@@ -67,20 +67,20 @@ const createImgElement = (url) => {
 const updateAnswersList = (answersElement, questionSet, mode) => {
     // current version works only for text answer type
     //TODO add img version
-    console.log(answersElement);
+    
     if (mode.questionType == "text") {
         answersElement.classList.add("quiz-answer-text")
     }
     for (let answer of questionSet.answers) {
-        const answerElement = createAnswerElement(answer, mode)
-        // answersElement.appendChild(answerElement)
+        const answerElement = createAnswerElement(answer, mode);
+        answersElement.appendChild(answerElement);
     }
 }
 
 // returns first child element from tthe template
 // for template.content replacement, which is not fully supported yet
 const getTemplateContent = (template) => {
-    const dummyDiv = document.createElement("div");
+    const dummyDiv = document.createElement("div");  // 
     dummyDiv.innerHTML = template.innerHTML;
     return dummyDiv.children[0]
 }
@@ -89,15 +89,18 @@ const createAnswerElement = (answer, mode) => {
     const liTemplate = document.querySelector("#quiz-li");
     const li = getTemplateContent(liTemplate);
     const liFirstElem = li.children[0]
+
     if (mode.answerType === "image") {
         // first child of li receives an image
         liFirstElem.classList.add("question-img")
         const imgElem = createImgElement(answer)  // get img url
         liFirstElem.appendChild(imgElem)
 
-    } else if (mode.questionType === "text") {
+    } else if (mode.answerType === "text") {
         // first child of li receives text
         liFirstElem.classList.add("question-text")
-        questionElement.innerText = answer  // add question as an inner text
+        console.log(answer);
+        liFirstElem.innerText = answer  // add question as an inner text
     }
+    return li
 }

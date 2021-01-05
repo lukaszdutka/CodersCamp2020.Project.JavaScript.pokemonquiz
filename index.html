@@ -26,14 +26,15 @@
     </div>
 
     <template id="quiz-template">
-        <div class="quiz-top-bar">
+        <div class="quiz-top-bar progress-bar">
+            <div id="timer"></div>
             <div class="mode-title">
                 <h2></h2>
             </div>
-            <div class="progress-bar"></div>
+            <div id="question-counter"></div>
         </div>
         <div id="quiz-body">
-            <div id="question-counter"></div>
+            
             <div class="quiz-question"></div> <!--class question-img or question-text will be added in js script*/-->
             <div class="quiz-answers">
                 <ul class="quiz-answers-list"></ul>
