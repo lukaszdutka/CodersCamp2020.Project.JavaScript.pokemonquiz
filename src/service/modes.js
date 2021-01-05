@@ -6,9 +6,9 @@ export const WHO_IS_THAT_POKEMON = {
     answersNumber: 4
 };
 export const WHAT_DOES_THIS_POKEMON_LOOK_LIKE = {
-    name: WHAT_DOES_THIS_POKEMON_LOOK_LIKE,
+    name: 'WHAT_DOES_THIS_POKEMON_LOOK_LIKE',
     title: "What does this pokemon look like?",
-    questionType: "image",
-    answerType: "text",
+    questionType: "text",
+    answerType: "image",
     answersNumber: 4
 };
