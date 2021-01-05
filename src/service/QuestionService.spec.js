@@ -9,10 +9,10 @@ describe('Test getNextQuestion method', () => {
 
     it("Should return question object - example output for mode 1: question: 'bulbasaur' , answers: [ 'answer1', 'answer2', 'answer3', 'answer4' ], correctAnswer: { name: 'bulbasaur', index: 1 }  ", async () => {
         // Given
-        const pokomonIds = [1, 2, 3, 4];
+        const pokemonIds = [1, 2, 3, 4];
 
         // When
-        const question = await quizQuestion.getNextQuestion(pokomonIds);
+        const question = await quizQuestion.getNextQuestion(pokemonIds);
 
         // Then
         expect(question).toHaveProperty('question');
@@ -36,11 +36,11 @@ describe('Test checkAnswer method', () => {
 
     it("Should return result true for user answer -> 'bulbasaur' ", async () => {
         // Given
-        const pokomonIds = [1, 2, 3, 4];
+        const pokemonIds = [1, 2, 3, 4];
         const userAnswer = 'bulbasaur';
 
         // When
-        const question = await quizQuestion.getNextQuestion(pokomonIds);
+        const question = await quizQuestion.getNextQuestion(pokemonIds);
 
         // Then
         expect(quizQuestion.checkAnswer(question, userAnswer)).toBeTruthy();
@@ -52,11 +52,11 @@ describe('Test checkAnswer method', () => {
 
     it("Should return result false for user answer -> 'venusaur' ", async () => {
         // Given
-        const pokomonIds = [1, 2, 3, 4];
+        const pokemonIds = [1, 2, 3, 4];
         const userAnswer = 'venusaur';
 
         // When
-        const question = await quizQuestion.getNextQuestion(pokomonIds);
+        const question = await quizQuestion.getNextQuestion(pokemonIds);
 
         // Then
         expect(quizQuestion.checkAnswer(question, userAnswer)).toBeFalsy();
