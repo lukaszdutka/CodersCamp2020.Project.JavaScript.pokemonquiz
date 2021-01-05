@@ -10,7 +10,7 @@ export const App = ({options}) => {
 
    //add event listener to the help button 
    document.querySelector('#helpOption').addEventListener('click', () => {
-      showAPopUpScreen(document.querySelector('#helpSceen'))
+      showAPopUpScreen(document.querySelector('#helpScreen'))
    });
 }
 

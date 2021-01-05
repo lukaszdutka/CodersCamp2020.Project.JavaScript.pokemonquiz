@@ -1,7 +1,7 @@
 export const addHelpScreenTemplate = () => {
     const appScreen = document.querySelector('#pokequiz-app');
     const helpScreenTemplate = 
-   `<div class='popUpScreen' id='helpSceen'>
+   `<div class='popUpScreen' id='helpScreen'>
         <div class='popUpTitleArea'>
         <h1 class='popUpTitle'>HELP</h1>
         <p class='exitPopUpScreen'>&#10005;</p>
