@@ -1,4 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;900&family=Ranchers&family=Secular+One&display=swap');
+/* text on the web (font-weight: 600) */
+/* font-family: 'Raleway', sans-serif;
+/* "enter name" */
+/* font-family: 'Ranchers', cursive; */
+/* header Quiz */
+/* font-family: 'Secular One', sans-serif; */ 
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: #FFCB05;
+}
 body {
+    max-height: 100vh;
+    padding: 1.5vh 5vw ;
     font-family: 'Montserrat', sans-serif;
-    margin: 10; /* final version */
+}
+
+.buttonWithText{
+    border-radius: 7vh;
+    background-color: #3762AC;
+    font-size: 3.5vh;
+}
+
+#pokequiz-app{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr 25vh 10vh 28vh;
+}
+
+.firstColumn{
+    grid-column: 1;
+}
+.secondColumn{
+    grid-column: 2;
+}
+
+/* div headerWithLogo */
+
+#pokemonLogo{
+    height: 18vh;
+}
+#quizLogo{
+    padding-left: 15vh;
+    font-family: 'Secular One', sans-serif;
+    font-size: 8.5vh
+}
+
+/* ul selectModeMenu */
+
+#selectModeMenu{
+    grid-row: span 2/4;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 5%;
+    padding-left: 6%;
+    list-style:none;
+}
+#selectModeMenu li{
+    margin-bottom: 4px;
+    padding: 1vh 2.5vw;
+    width: 60%;
+    text-align:center;
+}
+
+/* div EnterName */
+
+#enterNameAndPlayMenu{
+    grid-row: 2;
+    justify-self: center;
+}
+
+#enterYourName{
+    padding-bottom: 5%;
+    font-family: 'Ranchers', cursive;
+    font-size: 5.5vh;
+}
+
+#enterYourNameArea{
+    display:flex;
+    justify-content: center;
+}
+
+#playerIcon{
+    height: 4vh;
+}
+
+#enterYourNameInput{
+    border:none;
+    border-bottom: black solid 1px;
+    padding: 2% 5%;
+}
+
+/* div buttonPlay */
+
+#startGame{
+    grid-row-start: 3;
+}
+#startGameButton{
+    margin-left:30%;
+    padding: 0.5% 2%;
+    width: 40%;
+    border-color: transparent;
+}
+
+/* ul bottomOfThePageOptions */
+
+ul.bottomOfThePageOptions{
+    grid-row-end:-1;
+    display: flex;
+    align-items: flex-end;
+    list-style:none;
+}
+ul.bottomOfThePageOptions li{
+    width: 8.5vh;
+    height: 8.5vh;
+    border-radius: 50%;
+    margin: 10px;
+    font-size: 5vh;
+    background-color: #3762AC;
+    text-align: center;
+    line-height: 8.5vh;
+    font-weight: 900;
+}
+
+/* pikachu */
+
+#pikachuImg{
+    grid-row-end: -1;
+    justify-self: end;
+    height: 100%;
+}
+
+@media(max-width:850px){
+    #pikachuImg{
+        justify-self: center;
+    }
+}
+
+@media(orientation:portrait){
+    #pokequiz-app{
+        grid-template-rows:  1fr 17vh 27vh 5vh 16vh;
+    }
+    .spanInPortrait{
+        grid-column: span 2/-1;
+    }
+    #enterNameAndPlayMenu{
+        padding-top: 4%;
+    }
+    #selectModeMenu{
+        grid-row: 3;
+        padding-left: 0;
+    }
+    #selectModeMenu li{
+        margin-left:10%;
+        width: 80%;
+        text-align: center;
+    }
+    #startGame{
+        grid-row:4;
+    }
+    #pikachuImg{
+        justify-self: end;
+    }
 }
