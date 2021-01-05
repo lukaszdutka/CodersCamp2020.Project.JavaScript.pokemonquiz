@@ -24,7 +24,7 @@ export const showStartingPage = () => {
         <input type='button' id='startGameButton' class="buttonWithText" value='PLAY'>
     </div>
 
-    <ul class='bottomOfThePageOptions' class="firstColumn">
+    <ul class='bottomOfThePageOptions firstColumn'>
         <li id='helpOption'>?</li>
         <li id='leaderboard'><i class="fa fa-trophy"></i></li>
     </ul>

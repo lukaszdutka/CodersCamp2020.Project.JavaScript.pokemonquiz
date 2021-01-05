@@ -41,10 +41,10 @@ body {
 
 /* div headerWithLogo */
 
-div#headerWithLogo #pokemonLogo{
+#pokemonLogo{
     height: 18vh;
 }
-div#headerWithLogo #quizLogo{
+#quizLogo{
     padding-left: 15vh;
     font-family: 'Secular One', sans-serif;
     font-size: 8.5vh
@@ -52,7 +52,7 @@ div#headerWithLogo #quizLogo{
 
 /* ul selectModeMenu */
 
-ul#selectModeMenu{
+#selectModeMenu{
     grid-row: span 2/4;
     display: flex;
     flex-direction: column;
@@ -61,7 +61,7 @@ ul#selectModeMenu{
     padding-left: 6%;
     list-style:none;
 }
-ul#selectModeMenu li{
+#selectModeMenu li{
     margin-bottom: 4px;
     padding: 1vh 2.5vw;
     width: 60%;
@@ -70,27 +70,27 @@ ul#selectModeMenu li{
 
 /* div EnterName */
 
-div#enterNameAndPlayMenu{
+#enterNameAndPlayMenu{
     grid-row: 2;
     justify-self: center;
 }
 
-div#enterNameAndPlayMenu #enterYourName{
+#enterYourName{
     padding-bottom: 5%;
     font-family: 'Ranchers', cursive;
     font-size: 5.5vh;
 }
 
-div#enterNameAndPlayMenu #enterYourNameArea{
+#enterYourNameArea{
     display:flex;
     justify-content: center;
 }
 
-div#enterNameAndPlayMenu #playerIcon{
+#playerIcon{
     height: 4vh;
 }
 
-div#enterNameAndPlayMenu #enterYourNameInput{
+#enterYourNameInput{
     border:none;
     border-bottom: black solid 1px;
     padding: 2% 5%;
@@ -98,10 +98,10 @@ div#enterNameAndPlayMenu #enterYourNameInput{
 
 /* div buttonPlay */
 
-div#startGame{
+#startGame{
     grid-row-start: 3;
 }
-div#startGame #startGameButton{
+#startGameButton{
     margin-left:30%;
     padding: 0.5% 2%;
     width: 40%;
@@ -130,14 +130,14 @@ ul.bottomOfThePageOptions li{
 
 /* pikachu */
 
-img#pikachuImg{
+#pikachuImg{
     grid-row-end: -1;
     justify-self: end;
     height: 100%;
 }
 
 @media(max-width:850px){
-    img#pikachuImg{
+    #pikachuImg{
         justify-self: center;
     }
 }
@@ -149,22 +149,22 @@ img#pikachuImg{
     .spanInPortrait{
         grid-column: span 2/-1;
     }
-    div#enterNameAndPlayMenu{
+    #enterNameAndPlayMenu{
         padding-top: 4%;
     }
-    ul#selectModeMenu{
+    #selectModeMenu{
         grid-row: 3;
         padding-left: 0;
     }
-    ul#selectModeMenu li{
+    #selectModeMenu li{
         margin-left:10%;
         width: 80%;
         text-align: center;
     }
-    div#startGame{
+    #startGame{
         grid-row:4;
     }
-    img#pikachuImg{
+    #pikachuImg{
         justify-self: end;
     }
 }
