@@ -14,6 +14,7 @@
     font-weight: 600;
     color: #FFCB05;
 }
+
 body {
     max-height: 100vh;
     padding: 1.5vh 5vw ;
@@ -30,6 +31,7 @@ body {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 1fr 25vh 10vh 28vh;
+    border: 1px solid black;
 }
 
 .firstColumn{
@@ -126,6 +128,7 @@ ul.bottomOfThePageOptions li{
     text-align: center;
     line-height: 8.5vh;
     font-weight: 900;
+    cursor: pointer;
 }
 
 /* pikachu */
@@ -136,9 +139,91 @@ ul.bottomOfThePageOptions li{
     height: 100%;
 }
 
+/* hidden screens */
+
+.popUpScreen {
+    display: none;
+    width: 50vw;
+    height: 80vh;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    margin-left: -25vw;
+    margin-bottom: -40vh;
+    justify-items: center;
+    background-color: lightgray;
+    border-radius: 5%;
+}
+
+.popUpTitleArea {
+    width: 100%;
+}
+
+.popUpTitle {
+    width: 50%;
+    margin: auto;
+    background-color: #FFCB05;
+    color: black;
+    font-size: 8vh;
+    height: 15%;
+    text-align: center;
+    border: 2px solid black;
+}
+
+.exitPopUpScreen {
+    color: red;
+    position: absolute;
+    top: 0.5vh;
+    right: 2vw;
+    font-size: 5vh;
+    font-weight: lighter;
+    cursor: pointer;
+}
+
+.mainHelpTextSection {
+    background-color: white;
+    color: black;
+    font-size: 3vh;
+    height: 70%;
+    width: 85%;
+    margin: auto;
+    overflow-y: scroll;
+    padding: 2vh 2vw;
+    list-style: url(../static/assets/ui/lightning.svg);
+    list-style-position: inside;
+}
+
+.mainHelpTextSection > * {
+    color: black;
+    font-weight: normal;
+    padding: 1vh 0vw;
+}
+
+.helpTitle {
+    color: black;
+    font-weight: 700;
+}
+
+.popUpImgArea {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.popUpImg {
+    padding-top: 1vh;
+    max-height: 100%;
+    min-height: 100%;
+}
+
 @media(max-width:850px){
     #pikachuImg{
         justify-self: center;
+    }
+    .popUpScreen {
+        width: 80vw;
+        margin-left:-40vw;
     }
 }
 
