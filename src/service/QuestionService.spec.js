@@ -43,7 +43,7 @@ describe('Test checkAnswer method', () => {
         const question = await quizQuestion.getNextQuestion(pokomonIds);
 
         // Then
-        expect(quizQuestion.checkAnswer(question, userAnswer)).toEqual(true);
+        expect(quizQuestion.checkAnswer(question, userAnswer)).toBeTruthy();
         
     })
 });
@@ -59,7 +59,7 @@ describe('Test checkAnswer method', () => {
         const question = await quizQuestion.getNextQuestion(pokomonIds);
 
         // Then
-        expect(quizQuestion.checkAnswer(question, userAnswer)).toEqual(false);
+        expect(quizQuestion.checkAnswer(question, userAnswer)).toBeFalsy();
         
     })
 });
