@@ -233,7 +233,7 @@ ul.bottomOfThePageOptions li {
 }
 
 @media(orientation:portrait) {
-    #pokequiz-app {
+    .start-page {
         grid-template-rows: 1fr 17vh 27vh 5vh 16vh;
     }
 

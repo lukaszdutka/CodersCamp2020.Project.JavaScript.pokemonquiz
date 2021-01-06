@@ -1,7 +1,8 @@
 // use to render the page for the first time, after the game start
 export function renderQuizPage(mode) {
     const appScreen = document.querySelector('#pokequiz-app');
-    appScreen.classList = ["quiz-page"]
+    appScreen.classList.add('quiz-page')
+    appScreen.classList.remove('start-page')
     const quizTemplate = document.getElementById('quiz-template');
     appScreen.innerHTML = quizTemplate.innerHTML;
 
@@ -115,7 +116,6 @@ const createAnswerElement = (answer, mode) => {
     } else if (mode.answerType === "text") {
         // first child of li receives text
         liFirstElem.classList.add("question-text")
-        console.log(answer);
         liFirstElem.innerText = answer  // add question as an inner text
     }
     return li
