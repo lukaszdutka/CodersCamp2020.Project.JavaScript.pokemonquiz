@@ -19,8 +19,7 @@ export const App = ({options}) => {
       title: "Who's that pokemon?",
       questionType: "image",
       answerType: "text",
-      answersNumber: 4,
-      totalQuestions: 20
+      answersNumber: 6,
   }
   const mode2 = {
    name: 'WHAT_DOES_THIS_POKEMON_LOOK_LIKE',
@@ -29,6 +28,9 @@ export const App = ({options}) => {
    answerType: "image",
    answersNumber: 4
 }
-  document.querySelector("#startGameButton").addEventListener("click", function() {renderQuizPage(mode2)});
+  document.querySelector("#startGameButton").addEventListener("click", function() {
+     renderQuizPage(mode2);
+   });
+
   
 }

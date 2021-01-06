@@ -1,6 +1,8 @@
+import { START_PAGE_STYLES } from "./appSettings.js"
+
 export const showStartingPage = () => {
     const appScreen = document.querySelector('#pokequiz-app');
-    appScreen.classList.add("start-page")
+    appScreen.classList.add(START_PAGE_STYLES.startPageClass)
     const startingPageTemplate = 
     `<div id="headerWithLogo" class="firstColumn spanInPortrait disableWithPopUpScreen">
         <img src="./static/assets/ui/logo.png" alt='Pokemon' id='pokemonLogo'/>
