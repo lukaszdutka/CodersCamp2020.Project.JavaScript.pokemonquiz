@@ -19,7 +19,8 @@ export const App = ({options}) => {
       title: "Who's that pokemon?",
       questionType: "image",
       answerType: "text",
-      answersNumber: 4
+      answersNumber: 4,
+      totalQuestions: 20
   }
 
    const startBtn = document.querySelector("#startGameButton");

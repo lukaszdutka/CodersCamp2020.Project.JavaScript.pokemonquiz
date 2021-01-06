@@ -34,7 +34,6 @@
             <div id="question-counter"></div>
         </div>
         <div id="quiz-body">
-            
             <div class="quiz-question"></div> <!--class question-img or question-text will be added in js script*/-->
             <div class="quiz-answers">
                 <ul class="quiz-answers-list"></ul>
@@ -42,12 +41,11 @@
         </div>
     </template>
 
-    <tempalte id="quiz-li">
-        <li class="quiz-answer">
-            <span></span> <!--class quiz-answer-text or quiz-answer-img will be added in js script*/-->
-            <span class="quiz-checkbox unchecked"></span> <!-- in js script, class unchecked can be change to: correct-answer, wrong-answer*/-->
+    <template id="quiz-li">
+        <li class="quiz-answer">  <!-- in js script, class unchecked can be change to: correct-answer, wrong-answer*/-->
+            <div class="unchecked"></div> <!--class quiz-answer-text or quiz-answer-img will be added in js script*/-->
         </li>
-    </tempalte>
+    </template>
 
     <script src="src/index.js"></script>
 </body>

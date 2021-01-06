@@ -1,5 +1,6 @@
 export const showStartingPage = () => {
     const appScreen = document.querySelector('#pokequiz-app');
+    appScreen.classList.add("start-page")
     const startingPageTemplate = 
     `<div id="headerWithLogo" class="firstColumn spanInPortrait disableWithPopUpScreen">
         <img src="./static/assets/ui/logo.png" alt='Pokemon' id='pokemonLogo'/>
@@ -32,4 +33,5 @@ export const showStartingPage = () => {
     <img src='./static/assets/ui/pikach1.png' alt='Pikachu' id='pikachuImg' class="secondColumn disableWithPopUpScreen"/>
     `
     appScreen.innerHTML = startingPageTemplate;
+
 }

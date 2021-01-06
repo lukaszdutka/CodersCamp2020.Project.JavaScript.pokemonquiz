@@ -1,6 +1,7 @@
 // use to render the page for the first time, after the game start
 export function renderQuizPage(mode) {
     const appScreen = document.querySelector('#pokequiz-app');
+    appScreen.classList = ["quiz-page"]
     const quizTemplate = document.getElementById('quiz-template');
     appScreen.innerHTML = quizTemplate.innerHTML;
 
