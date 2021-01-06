@@ -12,6 +12,26 @@ export const App = ({options}) => {
    document.querySelector('#helpOption').addEventListener('click', () => {
       showAPopUpScreen(document.querySelector('#helpScreen'))
    });
+   //add event listener to the select mode menu button 
+   const help=document.querySelector('#helpScreen')
+   const style = getComputedStyle(help);
+   document.querySelector('#whoIsThatPokemonOption').addEventListener('click',()=>{
+      if(style.display=='none'||help.style.display == 'none')
+         console.log("Who's that Pokemon?");
+   });
+   document.querySelector('#whatItLooksLikeOption').addEventListener('click',()=>{
+      if(style.display=='none'||help.style.display == 'none')
+         console.log("What it looks like?");
+   });
+   document.querySelector('#guessTheTypeOption').addEventListener('click',()=>{
+      if(style.display=='none'||help.style.display == 'none')
+         console.log("Guess the type!");
+   });
+   //ad event listener to the leaderboard button
+   document.querySelector('#leaderboard').addEventListener('click',()=>{
+      if(style.display=='none'||help.style.display == 'none')
+         console.log("Hall of Fame");
+   });
 }
 
 
