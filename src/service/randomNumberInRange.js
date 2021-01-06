@@ -2,43 +2,40 @@
 
 export const randomNumberInRange = (min, max, forbiddenNumbersArray = []) => {
     
-    if (typeof min === 'number' && typeof max === 'number' && Array.isArray(forbiddenNumbersArray) && min <= max) {
+    if (!(typeof min === 'number') || !(typeof max === 'number') || !(Array.isArray(forbiddenNumbersArray)) || !(forbiddenNumbersArray.every(number => typeof number === 'number'))) {
+       
+        throw Error('Invalid argument type! The first and the second argument should be numbers, the third should be an array of only numbers.');
 
-        // check if not every possible number is forbidden
-        if (max - min + 1 === forbiddenNumbersArray.length) {
-
-            const allPossibleOutComes = [];
-
-            for (let i = min; i <= max; i++) {
-                allPossibleOutComes.push(i);
-            }
-
-            const allPossibleOutComesSorted = allPossibleOutComes.sort((a, b) => {return a-b});
-            const forbiddenNumbersArraySorted = forbiddenNumbersArray.sort((a, b) => {return a-b});
-
-            if  (allPossibleOutComesSorted.every((val, index) => val === forbiddenNumbersArraySorted[index])) {
-                throw Error('Invalid arguments!')
-            }
-        }
+    } else if ((min >= max) || (max - min + 1) < forbiddenNumbersArray.length) {
         
-        // generate numbers
-
-        const generateNumber = () => {
-            return Math.floor(Math.random() * (max - min) + min); 
-         }
-         
-         let randomNumber = generateNumber();
-
-         // check if a generated number is not included in a forbidden numbers
-     
-         while (forbiddenNumbersArray.includes(randomNumber)) {
-             randomNumber = generateNumber();
-         }
-     
-         return randomNumber; 
+        throw Error('Invalid array of forbidden numbers! All the possible outcomes are forbidden.');
 
     } else {
-        
-        throw Error('Invalid arguments!')
-    }
+
+        const allPossibleOutComes = [];
+
+        for (let i = min; i <= max; i++) {
+            allPossibleOutComes.push(i);
+        }
+
+        const allPossibleOutComesNoProhibited = allPossibleOutComes.filter(number => !(forbiddenNumbersArray.includes(number)));
+
+        if (allPossibleOutComesNoProhibited.length === 0) {
+
+            throw Error('Invalid array of forbidden numbers! All the possible outcomes are forbidden.');
+
+        } else {
+
+            const generateIndex = () => {
+
+                return Math.floor(Math.random() * (allPossibleOutComesNoProhibited.length - 1)); 
+            }
+
+            const numberIndex = generateIndex();
+
+            return allPossibleOutComesNoProhibited[numberIndex];
+
+        }
+    }     
 }
+    
