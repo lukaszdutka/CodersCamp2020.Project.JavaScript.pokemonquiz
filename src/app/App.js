@@ -22,9 +22,13 @@ export const App = ({options}) => {
       answersNumber: 4,
       totalQuestions: 20
   }
-
-   const startBtn = document.querySelector("#startGameButton");
-   startBtn.addEventListener("click", function(){renderQuizPage(mode)});
+  const mode2 = {
+   name: 'WHAT_DOES_THIS_POKEMON_LOOK_LIKE',
+   title: "What does this pokemon look like?",
+   questionType: "text",
+   answerType: "image",
+   answersNumber: 4
 }
-
-
+  document.querySelector("#startGameButton").addEventListener("click", function() {renderQuizPage(mode2)});
+  
+}
