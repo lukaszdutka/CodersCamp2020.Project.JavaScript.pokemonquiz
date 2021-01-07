@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -14,16 +15,39 @@
 
 <body>
 
-<div id="pokequiz-app">
-    Łukasz Dutka
-    daria305
-    memeraki / Gosia Dziewit
-    Aleksandra Cypko / AleksandraCyp
-    mariusz-sm / Mariusz Smarz
-    Agata Ludwiczyńska/ AgataLudwiczynska
-    arendarczyk / Kamil Arendarczyk
-</div>
+    <div id="pokequiz-app">
+        Łukasz Dutka
+        daria305
+        memeraki / Gosia Dziewit
+        Aleksandra Cypko / AleksandraCyp
+        mariusz-sm / Mariusz Smarz
+        Agata Ludwiczyńska/ AgataLudwiczynska
+        arendarczyk / Kamil Arendarczyk
+    </div>
 
-<script src="src/index.js"></script>
+    <template id="quiz-template">
+        <div class="quiz-top-bar progress-bar">
+            <div id="timer"></div>
+            <div class="mode-title">
+                <h2></h2>
+            </div>
+            <div id="question-counter"></div>
+        </div>
+        <div id="quiz-body">
+            <div class="quiz-question"></div>
+            <div class="quiz-answers">
+                <ul class="quiz-answers-list"></ul>
+            </div>
+        </div>
+    </template>
+
+    <template id="quiz-li">
+        <li class="quiz-answer">
+            <div class="unchecked"></div>
+        </li>
+    </template>
+
+    <script src="src/index.js"></script>
 </body>
+
 </html>
