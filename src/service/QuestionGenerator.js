@@ -5,7 +5,7 @@ import { WHO_IS_THAT_POKEMON } from "./modes";
 const questionService = new QuestionService()
 
 export class QuestionGenerator {
-    
+
     constructor(mode) {
         this.mode = mode;
         this.minPokeId = 1;
@@ -19,29 +19,32 @@ export class QuestionGenerator {
             return undefined;
         }
         this.askedQuestionsCount++;
+        console.log("this.askedQuestionsCount: " + this.askedQuestionsCount)
 
-        const correctAnswerIndex = randomNumberInRange(1, 4);
+        const correctAnswerIndex = randomNumberInRange(0, 3);
         questionService.correctAnswerIndex = correctAnswerIndex;
 
         const currentQuestionsArray = []
-
         for (let i = 1; i <= 4; i++) {
             currentQuestionsArray.push(randomNumberInRange(this.minPokeId, this.maxPokeId, currentQuestionsArray));
         }
-        // console.log("Random array of questions: " + currentQuestionsArray)
 
-        const questionPromise = await questionService.getQuestion(currentQuestionsArray, this.mode);
-        console.log("Promises: " + questionPromise)
-        const questionObj = questionPromise.then((result) => console.log("Result: " + result));
-        console.log("Question obj: " + questionObj)
-        // const questionObj = await Promise.all(questionPromise);
+        let questionObj = await questionService.getQuestion(currentQuestionsArray, this.mode);
 
         return questionObj
-        // return currentQuestionsArray;
     }
 };
 
 
-const questionGener = new QuestionGenerator(WHO_IS_THAT_POKEMON);
+const questionGene = new QuestionGenerator(WHO_IS_THAT_POKEMON);
 
-console.log(questionGener.getNextQuestion());
+console.log("Question counter (max 30): " + questionGene.askedQuestionsCount)
+
+const run = async () => {
+    const question1 = await questionGene.getNextQuestion()
+    console.log("Question: " + question1.question)
+    console.log("Ansewr: " + question1.answers)
+    console.log("Correct answer: " + question1.correctAnswer.value + ", Correct answer index: " + question1.correctAnswer.index)
+}
+
+run()
