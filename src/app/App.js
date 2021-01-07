@@ -28,9 +28,7 @@ export const App = ({options}) => {
    answerType: "image",
    answersNumber: 4
 }
-  document.querySelector("#startGameButton").addEventListener("click", function() {
-     renderQuizPage(mode2);
-   });
+  document.querySelector("#startGameButton").addEventListener("click", () => renderQuizPage(mode2));
 
   
 }
