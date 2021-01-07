@@ -70,7 +70,8 @@ body {
     margin-bottom: 4px;
     padding: 1vh 2.5vw;
     width: 60%;
-    text-align: center;
+    text-align:center;
+    cursor: pointer;
 }
 
 /* div EnterName */
