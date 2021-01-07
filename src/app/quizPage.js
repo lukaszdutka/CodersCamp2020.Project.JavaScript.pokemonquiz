@@ -14,6 +14,8 @@ let GENERATOR = null;
 
 // use to render the page for the first time, after the game start
 export function renderQuizPage(mode) {
+    CURRENT_MODE = mode;
+
     const appScreen = document.querySelector('#pokequiz-app');
     appScreen.classList.add(QUIZ_PAGE_STYLES.quizPageClass)
     appScreen.classList.remove(START_PAGE_STYLES.startPageClass)
@@ -24,8 +26,7 @@ export function renderQuizPage(mode) {
         question: "quizQuestion",
         questionNum: 1,
     }
-    setupPageTitle(mode);
-    CURRENT_MODE = mode;
+    setupPageTitle(CURRENT_MODE);
     //GENERATOR = new QuestionService.Generator()
     //TODO setupTimer() -- here or directly in App
     renderNextQuestion(CURRENT_MODE);
@@ -38,7 +39,7 @@ export function renderQuizPage(mode) {
 // otherwise finishes the game and redirect user to the summary page
 export function renderNextQuestion(mode) {
     //genQuestion nie powinno być przekazywane do funkcji tylko powinno być tu wywoływana
-    const genQuestion = getNextQuestion(mode); // TODO later pass generator and use  generator.genQuestion(), and replace dummy function with real one, once it's implemented
+    const genQuestion = getNextQuestion(mode); // TODO later pass generator and use  generator.genQuestion(), and replace dummy function with real one, once it's implemented. Gonna be async
     if (genQuestion) { // some questions still left to answer
         const quizBody = document.querySelector("#quiz-body");
         // Update question
@@ -214,7 +215,7 @@ const wrongAnswerSelected = (selectedElem) => {
 
 // removes question list items
 const resetQuizAfterQuestion = () => {
-    const quizBody = document.querySelector('#quiz-body');
+    const quizBody = document.getElementById('quiz-body');
     const quizTemplate = document.getElementById('quiz-template');
     quizBody.innerHTML = getTemplateContent(quizTemplate)[1].innerHTML // get the quiz body inner HTML from the template
 }
