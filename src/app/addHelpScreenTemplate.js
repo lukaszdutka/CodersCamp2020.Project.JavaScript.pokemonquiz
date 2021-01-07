@@ -7,9 +7,9 @@ export const addHelpScreenTemplate = () => {
         <p class='exitPopUpScreen'>&#10005;</p>
         </div>
         <ul class='mainHelpTextSection'>
-            <li><span class='helpTitle'>Who's that pokemon?</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lacinia, arcu vel accumsan rhoncus, sapien dolor commodo purus, gravida rhoncus massa leo eu quam. Etiam pulvinar bibendum gravida. Aliquam eu augue arcu. Sed lacus dui, tempus sed libero non, posuere mattis ex. Suspendisse dictum metus et laoreet ultricies. Praesent ac pharetra risus. Maecenas risus diam, eleifend non dolor id, tristique facilisis urna.</li>
-            <li><span class='helpTitle'>What it looks like?</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lacinia, arcu vel accumsan rhoncus, sapien dolor commodo purus, gravida rhoncus massa leo eu quam. Etiam pulvinar bibendum gravida. Aliquam eu augue arcu. Sed lacus dui, tempus sed libero non, posuere mattis ex. Suspendisse dictum metus et laoreet ultricies. Praesent ac pharetra risus. Maecenas risus diam, eleifend non dolor id, tristique facilisis urna.</li>
-            <li><span class='helpTitle'>Guess the type!</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lacinia, arcu vel accumsan rhoncus, sapien dolor commodo purus, gravida rhoncus massa leo eu quam. Etiam pulvinar bibendum gravida. Aliquam eu augue arcu. Sed lacus dui, tempus sed libero non, posuere mattis ex. Suspendisse dictum metus et laoreet ultricies. Praesent ac pharetra risus. Maecenas risus diam, eleifend non dolor id, tristique facilisis urna.</li>
+            <li><span class='helpTitle'>Who's that pokemon?</span> During the quiz, you will have to quess the name of the pokemon displayed in the picture. The game ends after 2 minutes or after you answer 30 questions.</li>
+            <li><span class='helpTitle'>What it looks like?</span> During the quiz, you will have to select the correct picture of the pokemon whose name is displayed on the screen. The game ends after 2 minutes or after you answer 30 questions.</li>
+            <li><span class='helpTitle'>Guess the type!</span> During the quiz, you will have to select all the pokemon types that the pokemon displayed on the screen belongs to (multiple choice is possible). The game ends after 2 minutes or after you answer 30 questions.</li>
         </ul>
         <div class='popUpImgArea'>
             <img src='../static/assets/ui/pikachu2.png' alt='Pikachu' id='littlePikachu' class='popUpImg'/>
