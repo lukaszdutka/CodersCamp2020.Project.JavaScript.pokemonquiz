@@ -2,40 +2,40 @@
 
 export const randomNumberInRange = (min, max, forbiddenNumbersArray = []) => {
     
-    if (!(typeof min === 'number') || !(typeof max === 'number') || !(Array.isArray(forbiddenNumbersArray)) || !(forbiddenNumbersArray.every(number => typeof number === 'number'))) {
+    if (typeof min !== 'number' || typeof max !== 'number' || !Array.isArray(forbiddenNumbersArray) || !forbiddenNumbersArray.every(number => typeof number === 'number')) {
        
-        throw Error('Invalid argument type! The first and the second argument should be numbers, the third should be an array of only numbers.');
+        throw Error(`Invalid argument type! The first and the second argument should be numbers, the third should be an array of only numbers. The arguments passed: min - ${min}, max - ${max}, forbiddenNumbersArray - ${forbiddenNumbersArray}`);
 
-    } else if ((min >= max) || (max - min + 1) < forbiddenNumbersArray.length) {
+    } 
+    
+    if (min > max) {
         
-        throw Error('Invalid array of forbidden numbers! All the possible outcomes are forbidden.');
+        throw Error(`Invalid arguments. Min is greated than max. Min - ${min}, max - ${max}`);
 
-    } else {
+    }  
 
-        const allPossibleOutComes = [];
+    const allPossibleOutcomes = [];
 
-        for (let i = min; i <= max; i++) {
-            allPossibleOutComes.push(i);
-        }
+    for (let i = min; i <= max; i++) {
+        allPossibleOutcomes.push(i);
+    }
 
-        const allPossibleOutComesNoProhibited = allPossibleOutComes.filter(number => !(forbiddenNumbersArray.includes(number)));
+    const allPossibleOutcomesNoProhibited = allPossibleOutcomes.filter(number => !(forbiddenNumbersArray.includes(number)));
 
-        if (allPossibleOutComesNoProhibited.length === 0) {
+    if (allPossibleOutcomesNoProhibited.length === 0) {
 
-            throw Error('Invalid array of forbidden numbers! All the possible outcomes are forbidden.');
+        throw Error(`Invalid array of forbidden numbers! All the possible outcomes are forbidden. The arguments passed: min - ${min}, max - ${max}, forbiddenNumbersArray - ${forbiddenNumbersArray}.`);
 
-        } else {
+    }  
 
-            const generateIndex = () => {
+    const generateIndex = () => {
 
-                return Math.floor(Math.random() * (allPossibleOutComesNoProhibited.length - 1)); 
-            }
+        return Math.floor(Math.random() * (allPossibleOutcomesNoProhibited.length - 1)); 
+    }
 
-            const numberIndex = generateIndex();
+    const numberIndex = generateIndex();
 
-            return allPossibleOutComesNoProhibited[numberIndex];
-
-        }
-    }     
-}
+    return allPossibleOutcomesNoProhibited[numberIndex];
+  
+}     
     

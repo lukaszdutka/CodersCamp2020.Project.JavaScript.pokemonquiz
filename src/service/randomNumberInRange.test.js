@@ -53,13 +53,12 @@ describe('Test randomNumberInRange function', () => {
         //given
         const minimum = 9;
         const maximum = 3;
-        const forbidden = [8];
 
         //when 
-        const randomNumberInvoke = () => {randomNumberInRange(minimum, maximum, forbidden);} 
+        const randomNumberInvoke = () => {randomNumberInRange(minimum, maximum);} 
 
         //then 
-        expect(randomNumberInvoke).toThrowError('Invalid array of forbidden numbers! All the possible outcomes are forbidden.');
+        expect(randomNumberInvoke).toThrowError(`Invalid arguments. Min is greated than max. Min - ${minimum}, max - ${maximum}`);
     });
 
     it('Should return an error when forbidden is not an array', () => {
@@ -73,7 +72,7 @@ describe('Test randomNumberInRange function', () => {
         const randomNumberInvoke = () => {randomNumberInRange(minimum, maximum, forbidden);} 
 
         //then 
-        expect(randomNumberInvoke).toThrowError('Invalid argument type! The first and the second argument should be numbers, the third should be an array of only numbers.');
+        expect(randomNumberInvoke).toThrowError(`Invalid argument type! The first and the second argument should be numbers, the third should be an array of only numbers. The arguments passed: min - ${minimum}, max - ${maximum}, forbiddenNumbersArray - ${forbidden}`);
     });
 
     it('Should return an error when in forbidden array there is sth that is not a number', () => {
@@ -87,7 +86,7 @@ describe('Test randomNumberInRange function', () => {
         const randomNumberInvoke = () => {randomNumberInRange(minimum, maximum, forbidden);} 
 
         //then 
-        expect(randomNumberInvoke).toThrowError('Invalid argument type! The first and the second argument should be numbers, the third should be an array of only numbers.');
+        expect(randomNumberInvoke).toThrowError(`Invalid argument type! The first and the second argument should be numbers, the third should be an array of only numbers. The arguments passed: min - ${minimum}, max - ${maximum}, forbiddenNumbersArray - ${forbidden}`);
     });
 
     it('Should return an error when min is not a number', () => {
@@ -101,7 +100,7 @@ describe('Test randomNumberInRange function', () => {
         const randomNumberInvoke = () => {randomNumberInRange(minimum, maximum, forbidden);} 
 
         //then 
-        expect(randomNumberInvoke).toThrowError('Invalid argument type! The first and the second argument should be numbers, the third should be an array of only numbers.');
+        expect(randomNumberInvoke).toThrowError(`Invalid argument type! The first and the second argument should be numbers, the third should be an array of only numbers. The arguments passed: min - ${minimum}, max - ${maximum}, forbiddenNumbersArray - ${forbidden}`);
     });
 
     it('Should return an error when max is not a number', () => {
@@ -115,7 +114,7 @@ describe('Test randomNumberInRange function', () => {
         const randomNumberInvoke = () => {randomNumberInRange(minimum, maximum, forbidden);} 
 
         //then 
-        expect(randomNumberInvoke).toThrowError('Invalid argument type! The first and the second argument should be numbers, the third should be an array of only numbers.');
+        expect(randomNumberInvoke).toThrowError(`Invalid argument type! The first and the second argument should be numbers, the third should be an array of only numbers. The arguments passed: min - ${minimum}, max - ${maximum}, forbiddenNumbersArray - ${forbidden}`);
     });
 
     it('Should return an error when every possible outcome is forbidden', () => {
@@ -129,7 +128,7 @@ describe('Test randomNumberInRange function', () => {
         const randomNumberInvoke = () => {randomNumberInRange(minimum, maximum, forbidden);} 
 
         //then 
-        expect(randomNumberInvoke).toThrowError('Invalid array of forbidden numbers! All the possible outcomes are forbidden.');
+        expect(randomNumberInvoke).toThrowError(`Invalid array of forbidden numbers! All the possible outcomes are forbidden. The arguments passed: min - ${minimum}, max - ${maximum}, forbiddenNumbersArray - ${forbidden}.`);
     });
 
     it('Should return an error when every possible outcome is forbiddenn and forbidden array is longer than possible outcomes', () => {
@@ -143,6 +142,6 @@ describe('Test randomNumberInRange function', () => {
         const randomNumberInvoke = () => {randomNumberInRange(minimum, maximum, forbidden);} 
 
         //then 
-        expect(randomNumberInvoke).toThrowError('Invalid array of forbidden numbers! All the possible outcomes are forbidden.');
+        expect(randomNumberInvoke).toThrowError(`Invalid array of forbidden numbers! All the possible outcomes are forbidden. The arguments passed: min - ${minimum}, max - ${maximum}, forbiddenNumbersArray - ${forbidden}.`);
     });
 });
