@@ -2,7 +2,6 @@ import { randomNumberInRange } from './randomNumberInRange';
 import {QuestionService} from './QuestionService';
 
 const questionService = new QuestionService()
-
 export class QuestionGenerator {
 
     constructor(mode) {
@@ -19,16 +18,16 @@ export class QuestionGenerator {
         };
         this.askedQuestionsCount++;
 
-        const currentQuestionsArray = []
-        for (let i = 1; i <= 4; i++) {
-            currentQuestionsArray.push(randomNumberInRange(this.minPokeId, this.maxPokeId, this.askedQuestions));
+        const answerPokeId = randomNumberInRange(this.minPokeId, this.maxPokeId, this.askedQuestions);
+        this.askedQuestions.push(answerPokeId);
+
+        const currentQuestionsArray = [answerPokeId];
+        for (let i = 1; i <= 3; i++) {
+            currentQuestionsArray.push(randomNumberInRange(this.minPokeId, this.maxPokeId, currentQuestionsArray));
         };
-        this.askedQuestions = this.askedQuestions.concat(currentQuestionsArray);
 
         let questionObj = await questionService.getQuestion(currentQuestionsArray, this.mode);
 
         return questionObj
     };
 };
-
-
