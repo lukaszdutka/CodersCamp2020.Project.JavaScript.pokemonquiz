@@ -14,7 +14,7 @@ export const shuffleAnswers = (questionObj) => {
     const thirdAnswerNewIndex = randomNumberInRange(0, 3, [correctAnswerNewIndex, secondAnswerNewIndex]);
     const forthAnswerNewIndex = randomNumberInRange(0, 3, [correctAnswerNewIndex, secondAnswerNewIndex, thirdAnswerNewIndex]);
     
-    // create an array of arrays: each array contains the answer at [0] and the new endex at [1];
+    // create an array of arrays: each array contains the answer at [0] and the new index at [1];
     const allQuestionsWithNewIndices = [[questionObj.answers[0], correctAnswerNewIndex], [questionObj.answers[1], secondAnswerNewIndex], [questionObj.answers[2], 
     thirdAnswerNewIndex], [questionObj.answers[3], forthAnswerNewIndex]];
 
