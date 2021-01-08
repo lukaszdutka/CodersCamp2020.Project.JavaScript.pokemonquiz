@@ -9,7 +9,7 @@ export class QuestionService {
         this.correctAnswerIndex = 0; // range 0-3
     }
 
-    async getNextQuestion(pokemonIds, mode) {
+    async getQuestion(pokemonIds, mode) {
         
         if (!pokemonIds || pokemonIds.length != 4) {
             throw new Error('pokemonIds is not an array of 4 elements')
