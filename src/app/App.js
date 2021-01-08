@@ -39,6 +39,7 @@ export const App = ({options}) => {
    });
 
    // start the game
-   document.querySelector("#startGameButton").addEventListener("click", () => renderQuizPage(SELECTED_MODE));
+   const userName = "Ala"; //TODO connect with input 
+   document.querySelector("#startGameButton").addEventListener("click", () => renderQuizPage(SELECTED_MODE, userName, options.quizMaxTime));
 }
 

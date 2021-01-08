@@ -7,13 +7,13 @@ export class GameHandler {
         this.answers = [];
     }
 
-    addAnswers(correctAnswer, answer, isCorrect) {
+    addAnswer(correctAnswer, answer, isCorrect) {
         this.answers.push({
             answer: answer,
             correctAnswer: correctAnswer,
             isCorrect: isCorrect,
         })
-        if (this.isCorrect) {
+        if (isCorrect) {
             this.score++;
         }
     }
