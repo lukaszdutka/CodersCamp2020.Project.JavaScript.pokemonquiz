@@ -11,8 +11,9 @@ export const App = ({options}) => {
 
    //add event listener to the help button 
    document.querySelector('#helpOption').addEventListener('click', () => {
-      showAPopUpScreen(document.querySelector('#helpScreen'))
+      showAPopUpScreen(document.querySelector('#helpScreen'));
    });
+
    //add event listener to the select mode menu button 
    const help=document.querySelector('#helpScreen')
    const style = getComputedStyle(help);
@@ -30,10 +31,13 @@ export const App = ({options}) => {
       if(style.display=='none'||help.style.display == 'none')
          console.log("Guess the type!");
    });
+
    //ad event listener to the leaderboard button
    document.querySelector('#leaderboard').addEventListener('click',()=>{
-      if(style.display=='none'||help.style.display == 'none')
+      if(style.display=='none'||help.style.display == 'none') {
          console.log("Hall of Fame");
+         showAPopUpScreen(document.querySelector('#leaderboardScreen'))
+      }  
    });
 
    // start the game

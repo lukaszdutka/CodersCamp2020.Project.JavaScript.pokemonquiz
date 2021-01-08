@@ -166,37 +166,16 @@ ul.bottomOfThePageOptions li {
 }
 
 .popUpTitle {
-    width: 50%;
-    margin: auto;
-    background-color: #FFCB05;
-    color: black;
-    font-size: 8vh;
-    height: 15%;
     text-align: center;
-    border: 2px solid black;
 }
 
 .exitPopUpScreen {
-    color: red;
     position: absolute;
     top: 0.5vh;
     right: 2vw;
     font-size: 5vh;
     font-weight: lighter;
     cursor: pointer;
-}
-
-.mainHelpTextSection {
-    background-color: white;
-    color: black;
-    font-size: 3vh;
-    height: 70%;
-    width: 85%;
-    margin: auto;
-    overflow-y: scroll;
-    padding: 2vh 2vw;
-    list-style: url(../static/assets/ui/lightning.svg);
-    list-style-position: inside;
 }
 
 .mainHelpTextSection > * {
@@ -223,6 +202,127 @@ ul.bottomOfThePageOptions li {
     min-height: 100%;
 }
 
+/* help modal */
+
+#exitPopUpScreenHelp {
+    color: red;
+}
+
+.mainHelpTextSection {
+    background-color: white;
+    color: black;
+    font-size: 3vh;
+    height: 70%;
+    width: 85%;
+    margin: auto;
+    overflow-y: scroll;
+    padding: 2vh 2vw;
+    list-style: url(../static/assets/ui/lightning.svg);
+    list-style-position: inside;
+}
+
+
+#popUpTitleHelp {
+    background-color: #FFCB05;
+    color: black;
+    border: 2px solid black;
+    width: 50%;
+    font-size: 8vh;
+    margin: auto;
+    height: 15%;
+}
+
+/* leaderboard modal */
+
+#leaderboardScreen {
+    background-image: url(../static/assets/ui/hall-of-fame/background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#popUpTitleAreaLeaderBoard {
+    height: 18%;
+    display: grid;
+    align-items: end;
+    justify-items: center;
+}
+
+#popUpTitleLeaderboard{
+    color: white;
+    width: 90%;
+    font-size: 7.2vh;   
+}
+
+#exitPopUpScreenLeaderboard {
+    color: white;
+}
+
+#chooseModeLeaderboardArea {
+    height: 7%;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+}
+
+#chooseModeLeaderboardLabel {
+    color: white;
+    justify-self: end;
+    padding: 0vh 2vh;
+    font-size: 2.8vh;
+}
+
+#chooseModeLeaderboard {
+    justify-self: start;
+    padding: 0vh 2vh;
+    color: rgb(121, 121, 241);
+    background: none;
+    border: none;
+    font-size: 2.8vh;
+}
+
+#chooseModeLeaderboard option {
+    color:rgb(121, 121, 241);
+    font-size: 2.8vh;
+    background-color: black;
+}
+
+#leaderboardResults {
+    height: 75%;
+    text-align: center;
+    list-style-type: none;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
+
+.leaderboardItem {
+    background-color: rgb(68, 66, 66);
+    opacity: 80%;
+    height: 8vh;
+    width: 55%;
+    display: flex;
+    align-items: center;
+    margin: 3.5vh;
+}
+
+.leaderboardItem span {
+    flex: 1 1 100px;
+    color: white;
+    font-size: 3vh;
+    
+}
+
+.leaderboardItem img {
+    height: 80%;
+    flex: 0 0 auto;
+}
+
+#leaderFirstPlace{
+    width: 70%;
+}
+
 @media(max-width:850px){
     #pikachuImg{
         justify-self: center;
@@ -230,6 +330,19 @@ ul.bottomOfThePageOptions li {
     .popUpScreen {
         width: 80vw;
         margin-left:-40vw;
+    }
+    #popUpTitleLeaderboard{
+        font-size: 5.5vh;   
+    }
+    #chooseModeLeaderboardArea {
+        grid-template-columns: 1fr;
+    }
+    #chooseModeLeaderboardLabel {
+        justify-self: center;
+    }
+    
+    #chooseModeLeaderboard {
+        justify-self: center;
     }
 }
 
