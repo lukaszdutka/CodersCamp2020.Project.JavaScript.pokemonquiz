@@ -18,3 +18,17 @@ describe('Test QuestionGenerator class', () => {
         
     });
 });
+
+describe('Test askedQuestionsCount property', () => {
+
+    it('Should increment counter', async () => {
+        //given
+        const startingCount = generatedQuestion.askedQuestionsCount;
+    
+        //when
+        await generatedQuestion.getNextQuestion();
+    
+        //then
+        expect(generatedQuestion.askedQuestionsCount).toEqual(startingCount+1);
+      });
+});
