@@ -2,7 +2,7 @@
 export class GameHandler {
     constructor(name, totalTime) {
         this.name = name;
-        this.totalTime = totalTime;
+        this.totalTime = totalTime; //seconds
         this.score = 0;
         this.answers = [];
     }
