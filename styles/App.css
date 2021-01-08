@@ -265,3 +265,49 @@ ul.bottomOfThePageOptions li {
         justify-self: end;
     }
 }
+
+/* quiz page */
+.quiz-page{
+    padding-top: 2vh;
+    display: grid;
+    grid-template-rows: 10vh 80vh;
+    grid-gap: 5vh;
+}
+
+.quiz-top-bar{
+    justify-self: center;
+    display:flex;
+    justify-content: space-between;
+    width: 60vh;
+    font-size: 3vh;
+}
+
+#quiz-body{
+    display: grid;
+    grid-template-rows: 55vh 20vh;
+    grid-gap: 5vh;
+}
+
+.question-image img{
+    height: 90%;
+    margin:0 auto;
+    display:block;
+}
+
+ul.quiz-answers-list{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-row-gap: 2vh;
+    list-style: none;
+}
+
+li.quiz-answer>*{
+    width: 80%;
+    padding: 0.5vh 2vw;
+    margin:0 auto;
+    text-align: center;
+    font-size: 3.5vh;
+    color: #303030;
+    background-color: #FFCB05;
+}
