@@ -1,6 +1,5 @@
 import { showStartingPage } from './showStartingPage.js';
 import { showAPopUpScreen } from './showAPopUpScreen';
-import { addHelpScreenTemplate } from "./addHelpScreenTemplate.js";
 import { renderQuizPage } from './quizPage.js'
 import { WHO_IS_THAT_POKEMON, WHAT_DOES_THIS_POKEMON_LOOK_LIKE } from "../service/modes.js"
 
@@ -9,7 +8,6 @@ export const App = ({options}) => {
    let SELECTED_MODE = WHO_IS_THAT_POKEMON;
 
    showStartingPage();
-   addHelpScreenTemplate();
 
    //add event listener to the help button 
    document.querySelector('#helpOption').addEventListener('click', () => {
