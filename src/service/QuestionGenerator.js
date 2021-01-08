@@ -19,10 +19,6 @@ export class QuestionGenerator {
             return undefined;
         }
         this.askedQuestionsCount++;
-        console.log("this.askedQuestionsCount: " + this.askedQuestionsCount)
-
-        const correctAnswerIndex = randomNumberInRange(0, 3);
-        questionService.correctAnswerIndex = correctAnswerIndex;
 
         const currentQuestionsArray = []
         for (let i = 1; i <= 4; i++) {
