@@ -20,11 +20,11 @@ export class QuestionService {
         const answersObj = await Promise.all(pokePromises);
         
         if (mode === WHO_IS_THAT_POKEMON) {
-            return {
+            return shuffleAnswers({
                 question: answersObj[this.correctAnswerIndex].photoUrl , 
                 answers: [ answersObj[0].name, answersObj[1].name, answersObj[2].name, answersObj[3].name ], 
                 correctAnswer: { value: answersObj[this.correctAnswerIndex].name, index: this.correctAnswerIndex}
-            }
+            })
         } else if (mode === WHAT_DOES_THIS_POKEMON_LOOK_LIKE ) {
             return shuffleAnswers({
                 question: answersObj[this.correctAnswerIndex].name , 
