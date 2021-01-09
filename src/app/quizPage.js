@@ -8,13 +8,19 @@ import {
     TIMEOUT_AFTER_ANSWER_SELECTION
 } from "./appSettings.js"
 
+import{
+    GameHandler
+}from "../service/GameHandler.js"
+
 // will be filledi with mode object during page rendering
 let CURRENT_MODE = null; 
 let GENERATOR = null;
+let GAME_HANDLER = null;
 
 // use to render the page for the first time, after the game start
-export function renderQuizPage(mode) {
+export function renderQuizPage(mode, name, totalTime) {
     CURRENT_MODE = mode;
+    GAME_HANDLER = new GameHandler(name, totalTime);
 
     const appScreen = document.querySelector('#pokequiz-app');
     appScreen.classList.add(QUIZ_PAGE_STYLES.quizPageClass)
@@ -69,7 +75,7 @@ const getNextQuestion = (mode) => {
     if (mode.name == "WHO_IS_THAT_POKEMON") {
         q = {
             question: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
-            answers: ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'dummy1', 'dummy2'],
+            answers: ['bulbasaur', 'ivysaur', 'venusaur', 'charmander'],
             correctAnswer: {
                 name: 'bulbasaur',
                 index: 1
@@ -168,7 +174,7 @@ const updateQuestionCounter = (counterElem, questionNum) => {
 function selectAnswer(questionSet, eventHandler) {
     const answer = getAnswerFromElement(eventHandler);
     if (answer) {
-        questionSet.correctAnswer.name === answer ? correctAnswerSelected(eventHandler) : wrongAnswerSelected(eventHandler);
+        questionSet.correctAnswer.name === answer ? correctAnswerSelected(eventHandler, answer, questionSet) : wrongAnswerSelected(eventHandler, answer, questionSet);
     } else {
         throw new Error('Answer was not found')
     }
@@ -189,24 +195,26 @@ const getAnswerFromElement = (target) => {
     }
 }
 
-const correctAnswerSelected = (selectedElem) => {
-    console.log("yes")
+const correctAnswerSelected = (selectedElem, answer, questionSet) => {
     //TODO add correct-answer class and remove unchecked
     selectedElem.classList.remove(QUIZ_PAGE_STYLES.uncheckedClass)
     selectedElem.classList.add(QUIZ_PAGE_STYLES.correctAnswerClass)
-    //TODO store results
+    
+    GAME_HANDLER.addAnswer(questionSet.correctAnswer.name, answer, true);
+    console.log(GAME_HANDLER.getResults(10));
     setTimeout(()=> {
         resetQuizAfterQuestion();
         renderNextQuestion(CURRENT_MODE);
     }, TIMEOUT_AFTER_ANSWER_SELECTION)
 }
 
-const wrongAnswerSelected = (selectedElem) => {
-    console.log("no")
+const wrongAnswerSelected = (selectedElem, answer, questionSet) => {
     // add wrong-answer class and remove unchecked
     selectedElem.classList.remove(QUIZ_PAGE_STYLES.uncheckedClass)
     selectedElem.classList.add(QUIZ_PAGE_STYLES.wrongAnswerClass)
-    //TODO store results
+
+    GAME_HANDLER.addAnswer(questionSet.correctAnswer.name, answer, false);
+    console.log(GAME_HANDLER.getResults(10));
     setTimeout(()=> {
         resetQuizAfterQuestion();
         renderNextQuestion(CURRENT_MODE);
