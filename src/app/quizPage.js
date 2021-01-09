@@ -69,7 +69,7 @@ const getNextQuestion = (mode) => {
     if (mode.name == "WHO_IS_THAT_POKEMON") {
         q = {
             question: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
-            answers: ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'dummy1', 'dummy2'],
+            answers: ['bulbasaur', 'ivysaur', 'venusaur', 'charmander'],
             correctAnswer: {
                 name: 'bulbasaur',
                 index: 1
