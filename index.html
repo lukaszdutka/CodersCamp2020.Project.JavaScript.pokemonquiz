@@ -63,9 +63,9 @@
         
         <div class='popUpScreen' id='helpScreen'>
 
-            <div class='popUpTitleArea'>
-            <h1 class='popUpTitle'>HELP</h1>
-            <p class='exitPopUpScreen'>&#10005;</p>
+            <div class='popUpTitleArea' id='popUpTitleAreaHelp'>
+                <h1 class='popUpTitle' id='popUpTitleHelp'>HELP</h1>
+                <p class='exitPopUpScreen' id='exitPopUpScreenHelp'>&#10005;</p>
             </div>
 
             <ul class='mainHelpTextSection'>
@@ -77,6 +77,38 @@
             <div class='popUpImgArea'>
                 <img src='./static/assets/ui/pikachu2.png' alt='Pikachu' id='littlePikachu' class='popUpImg'/>
             </div>
+
+        </div>
+
+    </template>
+
+    <template id="leaderboard-modal-template">
+        
+        <div class='popUpScreen' id='leaderboardScreen'>
+
+            <div class='popUpTitleArea' id='popUpTitleAreaLeaderBoard'>
+
+                <h1 class='popUpTitle' id='popUpTitleLeaderboard'>LEADERBOARD</h1>
+                <p class='exitPopUpScreen' id='exitPopUpScreenLeaderboard'>&#10005;</p>
+
+            </div>
+
+            <div id='chooseModeLeaderboardArea'>
+                
+                <label id='chooseModeLeaderboardLabel' for='chooseModeLeaderboard'>Points per game in</label>
+                <select id='chooseModeLeaderboard'>
+                    <option value='whoIsThatPokemon'>Who's that pokemon?</option>
+                    <option value='whatItLooksLike'>What it looks like?</option>
+                    <option value='guessTheType'>Guess the type!</option>
+                </select>
+
+            </div>
+
+            <ul id='leaderboardResults'>
+                <li class='leaderboardItem'id='leaderFirstPlace'><img src='./static/assets/ui/hall-of-fame/gold.png' /><span class='leaderboardPlayerName'>Andrzej</span><span class='leaderboardPoints'>20</span></li>
+                <li class='leaderboardItem'id='leaderboardSecondPlace'><img src='./static/assets/ui/hall-of-fame/silver.png' /><span class='leaderboardPlayerName'>Władek</span><span class='leaderboardPoints'>15</span></li>
+                <li class='leaderboardItem' id='leaderboardThirdPlace'><img src='./static/assets/ui/hall-of-fame/bronze.png' /><span class='leaderboardPlayerName'>Ania</span><span class='leaderboardPoints'>10</span></li>
+            </ul>
 
         </div>
 
