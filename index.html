@@ -25,6 +25,95 @@
         arendarczyk / Kamil Arendarczyk
     </div>
 
+    <template id="starting-page-template">
+
+        <div id="headerWithLogo" class="firstColumn spanInPortrait disableWithPopUpScreen">
+            <img src="./static/assets/ui/logo.png" alt='Pokemon' id='pokemonLogo'/>
+            <p id='quizLogo' class='fancyFontStyle'>Quiz</p>
+        </div>
+    
+        <ul id="selectModeMenu" class="firstColumn spanInPortrait disableWithPopUpScreen">
+            <li id='whoIsThatPokemonOption' class="buttonWithText">Who's that pokemon?</li>
+            <li id='whatItLooksLikeOption' class="buttonWithText">What it looks like?</li>
+            <li id='guessTheTypeOption' class="buttonWithText">Guess the type!</li>
+        </ul>
+    
+        <div id='enterNameAndPlayMenu' class="secondColumn spanInPortrait disableWithPopUpScreen">
+            <p id='enterYourName' class='fancyFontStyle'>ENTER YOUR NAME</p>
+            <div id='enterYourNameArea'>
+                <img src='https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png' alt='playerIcon' id='playerIcon'/>
+                <input type='text' id='enterYourNameInput'>
+            </div>
+        </div>
+    
+        <div id='startGame' class="secondColumn spanInPortrait disableWithPopUpScreen">
+            <input type='button' id='startGameButton' class="buttonWithText" value='PLAY'>
+        </div>
+    
+        <ul class='bottomOfThePageOptions firstColumn disableWithPopUpScreen'>
+            <li id='helpOption'>?</li>
+            <li id='leaderboard'><i class="fa fa-trophy"></i></li>
+        </ul>
+    
+        <img src='./static/assets/ui/pikach1.png' alt='Pikachu' id='pikachuImg' class="secondColumn disableWithPopUpScreen"/>
+
+    </template>
+
+    <template id="help-modal-template">
+        
+        <div class='popUpScreen' id='helpScreen'>
+
+            <div class='popUpTitleArea' id='popUpTitleAreaHelp'>
+                <h1 class='popUpTitle' id='popUpTitleHelp'>HELP</h1>
+                <p class='exitPopUpScreen' id='exitPopUpScreenHelp'>&#10005;</p>
+            </div>
+
+            <ul class='mainHelpTextSection'>
+                <li><span class='helpTitle'>Who's that pokemon?</span> During the quiz, you will have to guess the name of the pokemon displayed in the picture. The game ends after 2 minutes or after you answer 30 questions.</li>
+                <li><span class='helpTitle'>What it looks like?</span> During the quiz, you will have to select the correct picture of the pokemon whose name is displayed on the screen. The game ends after 2 minutes or after you answer 30 questions.</li>
+                <li><span class='helpTitle'>Guess the type!</span> During the quiz, you will have to select all the pokemon types that the pokemon displayed on the screen belongs to (multiple choice is possible). The game ends after 2 minutes or after you answer 30 questions.</li>
+            </ul>
+
+            <div class='popUpImgArea'>
+                <img src='./static/assets/ui/pikachu2.png' alt='Pikachu' id='littlePikachu' class='popUpImg'/>
+            </div>
+
+        </div>
+
+    </template>
+
+    <template id="leaderboard-modal-template">
+        
+        <div class='popUpScreen' id='leaderboardScreen'>
+
+            <div class='popUpTitleArea' id='popUpTitleAreaLeaderBoard'>
+
+                <h1 class='popUpTitle' id='popUpTitleLeaderboard'>LEADERBOARD</h1>
+                <p class='exitPopUpScreen' id='exitPopUpScreenLeaderboard'>&#10005;</p>
+
+            </div>
+
+            <div id='chooseModeLeaderboardArea'>
+                
+                <label id='chooseModeLeaderboardLabel' for='chooseModeLeaderboard'>Points per game in</label>
+                <select id='chooseModeLeaderboard'>
+                    <option value='whoIsThatPokemon'>Who's that pokemon?</option>
+                    <option value='whatItLooksLike'>What it looks like?</option>
+                    <option value='guessTheType'>Guess the type!</option>
+                </select>
+
+            </div>
+
+            <ul id='leaderboardResults'>
+                <li class='leaderboardItem'id='leaderFirstPlace'><img src='./static/assets/ui/hall-of-fame/gold.png' /><span class='leaderboardPlayerName'>Andrzej</span><span class='leaderboardPoints'>20</span></li>
+                <li class='leaderboardItem'id='leaderboardSecondPlace'><img src='./static/assets/ui/hall-of-fame/silver.png' /><span class='leaderboardPlayerName'>Władek</span><span class='leaderboardPoints'>15</span></li>
+                <li class='leaderboardItem' id='leaderboardThirdPlace'><img src='./static/assets/ui/hall-of-fame/bronze.png' /><span class='leaderboardPlayerName'>Ania</span><span class='leaderboardPoints'>10</span></li>
+            </ul>
+
+        </div>
+
+    </template>
+
     <template id="quiz-template">
         <div class="quiz-top-bar progress-bar">
             <div id="timer"></div>

@@ -5,14 +5,14 @@ import {
 
 const quizQuestion = new QuestionService();
 
-describe('Test getNextQuestion method', () => {
+describe('Test getQuestion method', () => {
 
     it("Should return question object - example output for mode 1: question: 'bulbasaur' , answers: [ 'answer1', 'answer2', 'answer3', 'answer4' ], correctAnswer: { name: 'bulbasaur', index: 1 }  ", async () => {
         // Given
         const pokemonIds = [1, 2, 3, 4];
 
         // When
-        const question = await quizQuestion.getNextQuestion(pokemonIds, WHO_IS_THAT_POKEMON);
+        const question = await quizQuestion.getQuestion(pokemonIds, WHO_IS_THAT_POKEMON);
 
         // Then
         expect(question).toHaveProperty('question');
@@ -40,7 +40,7 @@ describe('Test checkAnswer method', () => {
         const userAnswer = 'bulbasaur';
 
         // When
-        const question = await quizQuestion.getNextQuestion(pokemonIds, WHO_IS_THAT_POKEMON);
+        const question = await quizQuestion.getQuestion(pokemonIds, WHO_IS_THAT_POKEMON);
 
         // Then
         expect(quizQuestion.checkAnswer(question, userAnswer)).toBeTruthy();
@@ -56,7 +56,7 @@ describe('Test checkAnswer method', () => {
         const userAnswer = 'venusaur';
 
         // When
-        const question = await quizQuestion.getNextQuestion(pokemonIds, WHO_IS_THAT_POKEMON);
+        const question = await quizQuestion.getQuestion(pokemonIds, WHO_IS_THAT_POKEMON);
 
         // Then
         expect(quizQuestion.checkAnswer(question, userAnswer)).toBeFalsy();
