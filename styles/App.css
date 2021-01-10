@@ -157,7 +157,6 @@ ul.bottomOfThePageOptions li {
     margin-left: -25vw;
     margin-bottom: -40vh;
     justify-items: center;
-    background-color: lightgray;
     border-radius: 5%;
 }
 
@@ -184,10 +183,7 @@ ul.bottomOfThePageOptions li {
     padding: 1vh 0vw;
 }
 
-.helpTitle {
-    color: black;
-    font-weight: 700;
-}
+
 
 .popUpImgArea {
     height: 15%;
@@ -205,8 +201,27 @@ ul.bottomOfThePageOptions li {
 
 /* help modal */
 
+#helpScreen {
+    background-color: lightgray;
+}
+
 #exitPopUpScreenHelp {
     color: red;
+}
+
+#popUpTitleHelp {
+    background-color: #FFCB05;
+    color: black;
+    border: 2px solid black;
+    width: 50%;
+    font-size: 8vh;
+    margin: auto;
+    height: 15%;
+}
+
+.helpTitle {
+    color: black;
+    font-weight: 700;
 }
 
 .mainHelpTextSection {
@@ -222,16 +237,6 @@ ul.bottomOfThePageOptions li {
     list-style-position: inside;
 }
 
-
-#popUpTitleHelp {
-    background-color: #FFCB05;
-    color: black;
-    border: 2px solid black;
-    width: 50%;
-    font-size: 8vh;
-    margin: auto;
-    height: 15%;
-}
 
 /* leaderboard modal */
 
@@ -311,8 +316,7 @@ ul.bottomOfThePageOptions li {
 .leaderboardItem span {
     flex: 1 1 100px;
     color: white;
-    font-size: 3vh;
-    
+    font-size: 3vh;  
 }
 
 .leaderboardItem img {
@@ -368,6 +372,121 @@ li.quiz-answer>*{
     font-size: 3.5vh;
     color: #303030;
     background-color: #FFCB05;
+}
+
+/* resultsModal */
+
+#resultsScreen {
+    background-color: white;
+    border: 5px solid #3762AC;
+}
+#popUpTitleAreaResults {
+    color: black;
+    width: 70%;
+    font-size: 3vh;
+    margin: auto;
+    height: 15%;
+}
+
+#popUpTitleResults{
+    color: black;
+    font-weight: 700;  
+    height: 100%;
+    display: grid;
+    align-items: center;
+}
+
+#resultsDescription {
+    width: 100%;
+    height: 8%;
+    text-align: center;
+    color: black;
+    font-size: 3vh;
+}
+
+#resultsDescription span {
+    color: black;
+}
+
+#tableWithResultsArea {
+    height: 47%;
+    width: 100%;
+    display: grid; 
+    grid-template-columns: auto 3fr;
+}
+
+#nextToTableImg {
+    width: 30vh;
+    margin: auto;
+}
+
+#tableWithResults {
+    overflow-y: scroll;
+}
+
+#tableWithResults table {
+    width: 100%;
+    overflow: scroll;
+}
+
+#tableWithResults th {
+    border-bottom: 2px solid darkgray;
+    color: black
+}
+
+.tableWithResultsQA {
+    text-align: center;
+}
+
+.tableWithResultsQA td {
+    height: 9vh;
+    color: black;
+}
+
+.tableWithResultsQA img {
+    height: 90%;
+}
+
+.tableWithResultsCorrectAnswer {
+    font-weight: bolder;
+    text-align: left;
+}
+
+#insertYourNameArea {
+    height: 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+#insertYourNameImput {
+    margin: 3vh 3vh 0vh 3vh;
+    color: black;
+    font-size: 3vh;
+    border-radius: 2vh;
+    padding: 1.5vh;
+    text-align: center;
+}
+
+#insertYourNameLabel {
+    margin: 3vh 3vh 0vh 3vh;
+    color: black;
+    text-align: center;
+}
+
+#backToStartingPageButtonArea {
+    height: 15%;
+    display: grid;
+    align-items: center;
+    justify-items: center
+}
+
+#backToStartingPageButton {
+    font-size: 4vh;
+    padding: 1.2vh 3vh 1.2vh 3vh;
+    background-color: #3762AC;
+    font-size: 4vh;
+    border-radius: 2vh;
 }
 
 @media(max-width:850px){

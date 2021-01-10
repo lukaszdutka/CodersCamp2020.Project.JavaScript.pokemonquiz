@@ -136,6 +136,46 @@
         </li>
     </template>
 
+    <template id="results-modal-template">
+        
+        <div class='popUpScreen' id='resultsScreen'>
+
+            <div class='popUpTitleArea' id='popUpTitleAreaResults'>
+                <h1 class='popUpTitle' id='popUpTitleResults'>GAME OVER</h1>
+            </div>
+
+            <p id='resultsDescription'>During <span id='minutesTaken'>2</span> minutes you answered <span id='answersGiven'>20</span> questions.</p>
+
+            <div id='tableWithResultsArea'>
+                <img src='./static/assets/ui/pikach1.png' alt='Pikachu' id='nextToTableImg'>
+                <div id='tableWithResults'>
+                    <table>
+                        <tr>
+                            <th colspan='2'>Correct</th>
+                            <th>You</th>
+                        </tr>
+                        <tr class='tableWithResultsQA'>
+                            <td><img src='./static/assets/ui/pikach1.png' alt='Pokemon' class='tableWithResultsQuestion'/></td>
+                            <td class='tableWithResultsCorrectAnswer'>Pikachu</td>
+                            <td class='tableWithResultsYourAnswer'>Pikachu</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div id='insertYourNameArea'>
+                <input type='text' id='insertYourNameImput'>
+                <label for='insertYourName' id='insertYourNameLabel'>Please fill in your name in order to join the hall of fame!</label>
+            </div>
+            
+            <div id='backToStartingPageButtonArea'>
+                <input type='button' value="Gotta catch 'em all!" id='backToStartingPageButton'/>
+            </div>
+            
+        </div>
+
+    </template>
+
     <script src="src/index.js"></script>
 </body>
 
