@@ -34,9 +34,6 @@ export function renderQuizPage(mode, name, totalTime) {
     const resultsTemplate = document.getElementById('results-modal-template');
     appScreen.innerHTML += resultsTemplate.innerHTML;
 
-    // TODO later - the end of the quiz should activate the function below: 
-    //showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
-
     // TODO later  - generate question using questionService - below are temporary dummy variables
     const generatedQuestion = {
         question: "quizQuestion",
@@ -46,6 +43,13 @@ export function renderQuizPage(mode, name, totalTime) {
     //GENERATOR = new QuestionService.Generator()
     //TODO setupTimer() -- here or directly in App
     renderNextQuestion(CURRENT_MODE);
+
+    // TODO later - the end of the quiz should activate the function below: 
+    showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
+    // add event listener to the results screen button 
+    document.querySelector('#backToStartingPageButton').addEventListener('click', () => {
+        location.reload();
+    });
 }
 
 
