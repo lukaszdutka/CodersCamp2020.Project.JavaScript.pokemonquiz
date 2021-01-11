@@ -5,6 +5,7 @@ export class GameHandler {
         this.totalTime = totalTime; //seconds
         this.score = 0;
         this.answers = [];
+        this.questions = [];
     }
 
     addAnswer(correctAnswer, answer, isCorrect) {
@@ -16,6 +17,10 @@ export class GameHandler {
         if (isCorrect) {
             this.score++;
         }
+    }
+
+    addQuestion(question) {
+        this.questions.push(question)
     }
 
     // Subtruct time left from total time
@@ -30,6 +35,7 @@ export class GameHandler {
             time: this.calculateTime(timeLeft),
             score: this.score,
             answers: this.answers,
+            questions: this.questions,
         }
     }
 }
