@@ -19,8 +19,9 @@ describe('Store user choosen and statistic during game', () => {
             answers: [{
                 correctAnswer:"pikachu", 
                 answer: "charmander",
-                isCorrect: false}],
-            questions: [question],
+                isCorrect: false,
+                question: question
+            }]
         })
     })
 })

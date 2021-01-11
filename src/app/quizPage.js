@@ -168,8 +168,7 @@ const correctAnswerSelected = (selectedElem, answer, questionSet) => {
     selectedElem.classList.remove(QUIZ_PAGE_STYLES.uncheckedClass)
     selectedElem.classList.add(QUIZ_PAGE_STYLES.correctAnswerClass)
     console.log(questionSet);
-    GAME_HANDLER.addAnswer(questionSet.correctAnswer.value, answer, true);
-    GAME_HANDLER.addQuestion(questionSet.question)
+    GAME_HANDLER.addAnswer(questionSet.correctAnswer.value, answer, true, questionSet.question);
     console.log(GAME_HANDLER.getResults(10));
     setTimeout(()=> {
         resetQuizAfterQuestion();
@@ -182,8 +181,7 @@ const wrongAnswerSelected = (selectedElem, answer, questionSet) => {
     selectedElem.classList.remove(QUIZ_PAGE_STYLES.uncheckedClass)
     selectedElem.classList.add(QUIZ_PAGE_STYLES.wrongAnswerClass)
     console.log(questionSet);
-    GAME_HANDLER.addAnswer(questionSet.correctAnswer.value, answer, false);
-    GAME_HANDLER.addQuestion(questionSet.question);
+    GAME_HANDLER.addAnswer(questionSet.correctAnswer.value, answer, false, questionSet.question);
     console.log(GAME_HANDLER.getResults(10));
     setTimeout(()=> {
         resetQuizAfterQuestion();
