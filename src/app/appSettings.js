@@ -14,5 +14,5 @@ export const QUIZ_PAGE_STYLES = {
     uncheckedClass: "unchecked"
 }
 
-export const TIMEOUT_AFTER_ANSWER_SELECTION = 1; //miliseconds
-
+export const TIMEOUT_AFTER_ANSWER_SELECTION = 1000;  // miliseconds
+export const TOTAL_NUM_OF_QUESTIONS = 5;

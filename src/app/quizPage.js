@@ -12,6 +12,11 @@ import{
     GameHandler
 }from "../service/GameHandler.js"
 
+import {
+    QuestionGenerator
+} from "../service/QuestionGenerator.js"
+
+
 // will be filledi with mode object during page rendering
 let CURRENT_MODE = null; 
 let GENERATOR = null;
@@ -21,21 +26,17 @@ let GAME_HANDLER = null;
 export function renderQuizPage(mode, name, totalTime) {
     CURRENT_MODE = mode;
     GAME_HANDLER = new GameHandler(name, totalTime);
-
+    GENERATOR = new QuestionGenerator(CURRENT_MODE)
     const appScreen = document.querySelector('#pokequiz-app');
     appScreen.classList.add(QUIZ_PAGE_STYLES.quizPageClass)
     appScreen.classList.remove(START_PAGE_STYLES.startPageClass)
     const quizTemplate = document.getElementById('quiz-template');
     appScreen.innerHTML = quizTemplate.innerHTML;
-    // TODO later  - generate question using questionService - below are temporary dummy variables
-    const generatedQuestion = {
-        question: "quizQuestion",
-        questionNum: 1,
-    }
+
     setupPageTitle(CURRENT_MODE);
-    //GENERATOR = new QuestionService.Generator()
+    // = new QuestionService.Generator()
     //TODO setupTimer() -- here or directly in App
-    renderNextQuestion(CURRENT_MODE);
+    renderNextQuestion(CURRENT_MODE, GENERATOR);
 }
 
 
@@ -43,61 +44,29 @@ export function renderQuizPage(mode, name, totalTime) {
 // not changing the timer and bar
 // gent question generator and use generates next question if there is any left to answer
 // otherwise finishes the game and redirect user to the summary page
-export function renderNextQuestion(mode) {
-    //genQuestion nie powinno być przekazywane do funkcji tylko powinno być tu wywoływana
-    const genQuestion = getNextQuestion(mode); // TODO later pass generator and use  generator.genQuestion(), and replace dummy function with real one, once it's implemented. Gonna be async
+export async function renderNextQuestion(mode, generator) {
+    const genQuestion = await generator.getNextQuestion();
+
     if (genQuestion) { // some questions still left to answer
         const quizBody = document.querySelector("#quiz-body");
         // Update question
         const quizQuestionElem = quizBody.querySelector(".quiz-question");
-        updateQuestion(quizQuestionElem, genQuestion.question, mode);
+        updateQuestion(quizQuestionElem, genQuestion, mode);
         // Update answers list
         const quizUl = quizBody.querySelector(".quiz-answers-list");
-        updateAnswersList(quizUl, genQuestion.question, mode);
+        updateAnswersList(quizUl, genQuestion, mode);
         // Update question counter
         const questionCounter = document.querySelector("#question-counter");
-        updateQuestionCounter(questionCounter, genQuestion.questionNum);
+        updateQuestionCounter(questionCounter, generator.askedQuestionsCount);
         // listen for an answer selection
         const answersOptions = [...quizBody.querySelector(".quiz-answers-list").children]
         for (let option of answersOptions) {
             option.addEventListener("mouseup", function selectEventFunc() {
-                selectAnswer(genQuestion.question, option.querySelector("div"));
+                selectAnswer(genQuestion, option.querySelector("div"));
             })
         }
     } else { // no more questions left
         console.log("You WON!, but sorry, we still don't have any summary page"); // TODO create summary page redirection
-    }
-}
-
-//TODO dummy function  to be removed after generator is added
-const getNextQuestion = (mode) => {
-    let q;
-    if (mode.name == "WHO_IS_THAT_POKEMON") {
-        q = {
-            question: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
-            answers: ['bulbasaur', 'ivysaur', 'venusaur', 'charmander'],
-            correctAnswer: {
-                name: 'bulbasaur',
-                index: 1
-            }
-        }
-    } else if (mode.name == "WHAT_DOES_THIS_POKEMON_LOOK_LIKE") {
-        q = {
-            question: 'bulbasaur',
-            answers: ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
-                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png',
-                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png',
-                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png'
-            ],
-            correctAnswer: {
-                name: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
-                index: 1
-            }
-        }
-    }
-    return {
-        question: q,
-        questionNum: 1,
     }
 }
 
@@ -174,7 +143,7 @@ const updateQuestionCounter = (counterElem, questionNum) => {
 function selectAnswer(questionSet, eventHandler) {
     const answer = getAnswerFromElement(eventHandler);
     if (answer) {
-        questionSet.correctAnswer.name === answer ? correctAnswerSelected(eventHandler, answer, questionSet) : wrongAnswerSelected(eventHandler, answer, questionSet);
+        questionSet.correctAnswer.value === answer ? correctAnswerSelected(eventHandler, answer, questionSet) : wrongAnswerSelected(eventHandler, answer, questionSet);
     } else {
         throw new Error('Answer was not found')
     }
@@ -196,15 +165,14 @@ const getAnswerFromElement = (target) => {
 }
 
 const correctAnswerSelected = (selectedElem, answer, questionSet) => {
-    //TODO add correct-answer class and remove unchecked
     selectedElem.classList.remove(QUIZ_PAGE_STYLES.uncheckedClass)
     selectedElem.classList.add(QUIZ_PAGE_STYLES.correctAnswerClass)
-    
-    GAME_HANDLER.addAnswer(questionSet.correctAnswer.name, answer, true);
+    console.log(questionSet);
+    GAME_HANDLER.addAnswer(questionSet.correctAnswer.value, answer, true);
     console.log(GAME_HANDLER.getResults(10));
     setTimeout(()=> {
         resetQuizAfterQuestion();
-        renderNextQuestion(CURRENT_MODE);
+        renderNextQuestion(CURRENT_MODE, GENERATOR);
     }, TIMEOUT_AFTER_ANSWER_SELECTION)
 }
 
@@ -212,12 +180,12 @@ const wrongAnswerSelected = (selectedElem, answer, questionSet) => {
     // add wrong-answer class and remove unchecked
     selectedElem.classList.remove(QUIZ_PAGE_STYLES.uncheckedClass)
     selectedElem.classList.add(QUIZ_PAGE_STYLES.wrongAnswerClass)
-
-    GAME_HANDLER.addAnswer(questionSet.correctAnswer.name, answer, false);
+    console.log(questionSet);
+    GAME_HANDLER.addAnswer(questionSet.correctAnswer.value, answer, false);
     console.log(GAME_HANDLER.getResults(10));
     setTimeout(()=> {
         resetQuizAfterQuestion();
-        renderNextQuestion(CURRENT_MODE);
+        renderNextQuestion(CURRENT_MODE, GENERATOR);
     }, TIMEOUT_AFTER_ANSWER_SELECTION)
 }
 
@@ -227,5 +195,4 @@ const resetQuizAfterQuestion = () => {
     const quizTemplate = document.getElementById('quiz-template');
     quizBody.innerHTML = getTemplateContent(quizTemplate)[1].innerHTML // get the quiz body inner HTML from the template
 }
-// TODO check if any css class should be reset too
 
