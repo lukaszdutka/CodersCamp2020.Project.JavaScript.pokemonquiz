@@ -35,7 +35,7 @@ export function renderQuizPage(mode, name, totalTime) {
     appScreen.innerHTML += resultsTemplate.innerHTML;
 
     // TODO later - the end of the quiz should activate the function below: 
-    //showAPopUpScreen(document.getElementById('resultsScreen'));
+    //showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
 
     // TODO later  - generate question using questionService - below are temporary dummy variables
     const generatedQuestion = {

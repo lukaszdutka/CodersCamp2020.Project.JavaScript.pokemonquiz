@@ -379,26 +379,29 @@ li.quiz-answer>*{
 #resultsScreen {
     background-color: white;
     border: 5px solid #3762AC;
+    display: none;    
+    flex-direction: column;
+    align-content: center;
+    align-items: space-around;
+    justify-content: space-around;
 }
-#popUpTitleAreaResults {
-    color: black;
-    width: 70%;
-    font-size: 3vh;
-    margin: auto;
-    height: 15%;
+
+#popUpTitleResultsArea {
+    flex: 1 1 15%;
 }
 
 #popUpTitleResults{
     color: black;
-    font-weight: 700;  
-    height: 100%;
-    display: grid;
-    align-items: center;
+    font-size: 6vh; 
+    font-weight: 700;
+    padding: 1.2vh 3vh 1.2vh 3vh;
+}
+
+#resultsDescriptionArea {
+    flex: 1 1 8%;
 }
 
 #resultsDescription {
-    width: 100%;
-    height: 8%;
     text-align: center;
     color: black;
     font-size: 3vh;
@@ -409,15 +412,14 @@ li.quiz-answer>*{
 }
 
 #tableWithResultsArea {
-    height: 47%;
-    width: 100%;
     display: grid; 
     grid-template-columns: auto 3fr;
+    flex: 1 1 47%; 
 }
 
 #nextToTableImg {
     width: 30vh;
-    margin: auto;
+    align-self: center;
 }
 
 #tableWithResults {
@@ -453,40 +455,46 @@ li.quiz-answer>*{
 }
 
 #insertYourNameArea {
-    height: 15%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    flex: 1 1 15%;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-around;
+    padding: 1.2vh 2vh 0vh 1.2vh; 
 }
 
 #insertYourNameImput {
-    margin: 3vh 3vh 0vh 3vh;
+    flex: 0 1 45%;
     color: black;
     font-size: 3vh;
     border-radius: 2vh;
     padding: 1.5vh;
     text-align: center;
+    max-width: 100%;
 }
 
 #insertYourNameLabel {
-    margin: 3vh 3vh 0vh 3vh;
+    flex: 1 1 45%;
     color: black;
     text-align: center;
+    padding: 1vh;
+    font-size: 3vh;
 }
 
 #backToStartingPageButtonArea {
-    height: 15%;
-    display: grid;
+    display: flex;
     align-items: center;
-    justify-items: center
+    justify-content: center;
+    flex: 1 1 15%;
 }
 
 #backToStartingPageButton {
-    font-size: 4vh;
+    flex: 0 1;
+    font-size: 3.5vh;
     padding: 1.2vh 3vh 1.2vh 3vh;
     background-color: #3762AC;
-    font-size: 4vh;
     border-radius: 2vh;
+    max-width: 100%;
 }
 
 @media(max-width:850px){
@@ -509,6 +517,18 @@ li.quiz-answer>*{
     
     #chooseModeLeaderboard {
         justify-self: center;
+    }
+
+    #tableWithResultsArea {
+        grid-template-columns: 1fr;
+    }
+
+    #nextToTableImg {
+        display: none;
+    }
+
+    #backToStartingPageButton {
+        padding: 1.2vh;
     }
 }
 

@@ -1,6 +1,6 @@
-export const showAPopUpScreen = (screenToDisplay) => {
+export const showAPopUpScreen = (screenToDisplay, startingPosition) => {
    // display the help screen
-    screenToDisplay.style.display = 'initial';
+    screenToDisplay.style.display = startingPosition;
     // add blur to the rest of the page
     document.querySelectorAll('.disableWithPopUpScreen').forEach(e => e.style.filter = 'blur(4px)');
    // function which gets called when the exit button is clicked
