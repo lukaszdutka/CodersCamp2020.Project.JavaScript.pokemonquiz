@@ -12,6 +12,10 @@ import{
     GameHandler
 }from "../service/GameHandler.js"
 
+import {
+    showAPopUpScreen
+} from './showAPopUpScreen'
+
 // will be filledi with mode object during page rendering
 let CURRENT_MODE = null; 
 let GENERATOR = null;
@@ -27,6 +31,12 @@ export function renderQuizPage(mode, name, totalTime) {
     appScreen.classList.remove(START_PAGE_STYLES.startPageClass)
     const quizTemplate = document.getElementById('quiz-template');
     appScreen.innerHTML = quizTemplate.innerHTML;
+    const resultsTemplate = document.getElementById('results-modal-template');
+    appScreen.innerHTML += resultsTemplate.innerHTML;
+
+    // TODO later - the end of the quiz should activate the function below: 
+    //showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
+
     // TODO later  - generate question using questionService - below are temporary dummy variables
     const generatedQuestion = {
         question: "quizQuestion",

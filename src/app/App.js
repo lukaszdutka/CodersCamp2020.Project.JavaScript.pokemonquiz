@@ -11,7 +11,7 @@ export const App = ({options}) => {
 
    //add event listener to the help button 
    document.querySelector('#helpOption').addEventListener('click', () => {
-      showAPopUpScreen(document.querySelector('#helpScreen'));
+      showAPopUpScreen(document.querySelector('#helpScreen'), 'initial');
    });
 
    //add event listener to the select mode menu button 
@@ -36,7 +36,7 @@ export const App = ({options}) => {
    document.querySelector('#leaderboard').addEventListener('click',()=>{
       if(style.display=='none'||help.style.display == 'none') {
          console.log("Hall of Fame");
-         showAPopUpScreen(document.querySelector('#leaderboardScreen'))
+         showAPopUpScreen(document.querySelector('#leaderboardScreen'), 'initial')
       }  
    });
 
