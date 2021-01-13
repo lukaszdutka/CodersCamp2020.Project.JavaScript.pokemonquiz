@@ -1,5 +1,7 @@
 import { randomNumberInRange } from './randomNumberInRange';
 import {QuestionService} from './QuestionService';
+import { TOTAL_NUM_OF_QUESTIONS } from "../app/appSettings.js"
+
 
 const questionService = new QuestionService()
 export class QuestionGenerator {
@@ -13,7 +15,7 @@ export class QuestionGenerator {
     };
 
     async getNextQuestion() {
-        if (this.askedQuestionsCount === 30) {
+        if (this.askedQuestionsCount === TOTAL_NUM_OF_QUESTIONS) {
             return undefined;
         };
         this.askedQuestionsCount++;
