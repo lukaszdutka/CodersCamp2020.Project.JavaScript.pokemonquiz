@@ -9,8 +9,7 @@ describe('Store user choosen and statistic during game', () => {
         const answer = "charmander";
         const isCorrect = false;
         //when
-        gameHandler.addAnswer(correctAnswer, answer, isCorrect)
-        gameHandler.addQuestion(question)
+        gameHandler.addAnswer(correctAnswer, answer, isCorrect, question)
         //then
         expect(gameHandler.getResults(15)).toEqual({
             name: "Ala",
