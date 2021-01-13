@@ -83,7 +83,8 @@ export async function renderNextQuestion(generator) {
             })
         }
     } else { // no more questions left
-        fillResultsModal(GAME_HANDLER)
+        // TO DO connect to timer
+        fillResultsModal(GAME_HANDLER.getResults(10), CURRENT_MODE)
         showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
     }
 }
