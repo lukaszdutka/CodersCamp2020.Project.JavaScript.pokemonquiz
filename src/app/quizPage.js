@@ -46,6 +46,7 @@ export function renderQuizPage(mode, name, totalTime) {
     setupPageTitle(CURRENT_MODE);
     //GENERATOR = new QuestionService.Generator()
     //TODO setupTimer() -- here or directly in App
+    // setupTimer();
     renderNextQuestion(GENERATOR);
 }
 
@@ -204,5 +205,58 @@ const resetQuizAfterQuestion = () => {
     const quizBody = document.getElementById('quiz-body');
     const quizTemplate = document.getElementById('quiz-template');
     quizBody.innerHTML = getTemplateContent(quizTemplate)[1].innerHTML // get the quiz body inner HTML from the template
+}
+
+
+const setupTimer = () => {
+    const timerBody = document.getElementById('timer');
+    const timerLabel = document.createElement('div');
+    timerLabel.setAttribute('label', ID)
+    const barDiv = document.createElement("div");
+    barDiv.setAttribute('bar', ID);
+    timerBody.appendChild(timerLabel);
+    timerBody.appendChild(barDiv);
+
+    startTimer(barDiv);
+
+}
+
+// const createTimer = () => {
+//     const timerBody = document.getElementById('timer');
+//     const timerLabel = document.createElement('div');
+//     timerLabel.setAttribute('label', ID)
+//     const barDiv = document.createElement("div");
+//     barDiv.setAttribute('bar', ID)
+//     timerBody.appendChild(timerLabel)
+//     timerBody.appendChild(barDiv)
+
+//     return timerBody
+// }
+
+const startTimer = (bar) => {
+    console.log("Start.");
+    var durationTime = 120; // czas w sekundach, można dowolnie zmianiać 120 -> 120 sekund = 2 minuty
+    printTime(durationTime);
+    bar.style.animation = "anim 1 linear forwards";
+    bar.style.animationDuration = durationTime+"s";
+    interval = setInterval(runningTime, 1000);
+    timeOut = setTimeout(function(){
+    clearInterval(interval);
+    bar.style.animationPlayState = "paused";
+    console.log("Koniec czasu.");
+    buttonStart.disabled = true;
+    buttonEnd.disabled = true;
+    buttonAgain.disabled = false;
+    //buttonAgain.addEventListener("click", again);
+    },(durationTime*1000));
+
+    function runningTime() {
+        durationTime--;
+        printTime(durationTime);
+    }
+  
+    function printTime(timeToPrint) {
+        document.getElementById("label").innerHTML = 'Pozostały czas do końca to: <b>' + timeToPrint + '</b> sekund!';
+    }
 }
 

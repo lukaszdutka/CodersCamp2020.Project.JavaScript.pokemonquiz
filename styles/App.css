@@ -374,6 +374,44 @@ li.quiz-answer>*{
     background-color: #FFCB05;
 }
 
+/* quiz page - timer */
+
+#timer {
+    width: 100%;
+    height: 30px;
+    background-color: #ddd;
+}
+
+#label {
+    font-size: 2em;
+}
+  
+#bar {
+    height: 30px;
+    width: 100%;
+    background-color: green;
+}
+  
+@keyframes anim {
+    0% {
+      background-color: green;
+      width: 100%;
+    }
+    50% {
+      background-color: yellow;
+      width: 50%;}
+    75% {
+      background-color: orange;
+      width: 25%;}
+    90% {
+      background-color: red;
+      width: 10%;}
+    100% {
+      background-color: red;
+      width: 0%;
+    }
+}
+
 /* resultsModal */
 
 #resultsScreen {
