@@ -12,6 +12,9 @@ import {
     QuestionGenerator
 } from "../service/QuestionGenerator.js"
 
+import {
+    showAPopUpScreen
+} from './showAPopUpScreen'
 
 let CURRENT_MODE = null; 
 let GENERATOR = null;
@@ -29,6 +32,19 @@ export function renderQuizPage(mode, name, totalTime) {
     appScreen.innerHTML = quizTemplate.innerHTML;
 
     setupPageTitle();
+    const resultsTemplate = document.getElementById('results-modal-template');
+    appScreen.innerHTML += resultsTemplate.innerHTML;
+
+    // TODO later - the end of the quiz should activate the function below: 
+    //showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
+
+    // TODO later  - generate question using questionService - below are temporary dummy variables
+    const generatedQuestion = {
+        question: "quizQuestion",
+        questionNum: 1,
+    }
+    setupPageTitle(CURRENT_MODE);
+    //GENERATOR = new QuestionService.Generator()
     //TODO setupTimer() -- here or directly in App
     renderNextQuestion(GENERATOR);
 }
