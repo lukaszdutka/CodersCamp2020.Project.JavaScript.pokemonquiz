@@ -412,6 +412,7 @@ li.quiz-answer>*{
     display: grid; 
     grid-template-columns: auto 3fr;
     flex: 1 1 47%; 
+    height: 47%;
 }
 
 #nextToTableImg {
@@ -425,7 +426,6 @@ li.quiz-answer>*{
 
 #tableWithResults table {
     width: 100%;
-    overflow: scroll;
 }
 
 #tableWithResults th {
@@ -446,8 +446,8 @@ li.quiz-answer>*{
     height: 90%;
 }
 
-.tableWithResultsCorrectAnswer {
-    font-weight: bolder;
+.tableWithResultsQA:first-child {
+    height: 90%;
     text-align: left;
 }
 
