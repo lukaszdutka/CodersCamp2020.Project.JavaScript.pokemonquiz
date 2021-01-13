@@ -46,7 +46,7 @@ export function renderQuizPage(mode, name, totalTime) {
     setupPageTitle(CURRENT_MODE);
     //GENERATOR = new QuestionService.Generator()
     //TODO setupTimer() -- here or directly in App
-    // setupTimer();
+    setupTimer();
     renderNextQuestion(GENERATOR);
 }
 
@@ -211,9 +211,9 @@ const resetQuizAfterQuestion = () => {
 const setupTimer = () => {
     const timerBody = document.getElementById('timer');
     const timerLabel = document.createElement('div');
-    timerLabel.setAttribute('label', ID)
+    timerLabel.setAttribute('id', 'label')
     const barDiv = document.createElement("div");
-    barDiv.setAttribute('bar', ID);
+    barDiv.setAttribute('id', 'bar')
     timerBody.appendChild(timerLabel);
     timerBody.appendChild(barDiv);
 
@@ -234,20 +234,14 @@ const setupTimer = () => {
 // }
 
 const startTimer = (bar) => {
-    console.log("Start.");
     var durationTime = 120; // czas w sekundach, można dowolnie zmianiać 120 -> 120 sekund = 2 minuty
     printTime(durationTime);
     bar.style.animation = "anim 1 linear forwards";
     bar.style.animationDuration = durationTime+"s";
     interval = setInterval(runningTime, 1000);
     timeOut = setTimeout(function(){
-    clearInterval(interval);
-    bar.style.animationPlayState = "paused";
-    console.log("Koniec czasu.");
-    buttonStart.disabled = true;
-    buttonEnd.disabled = true;
-    buttonAgain.disabled = false;
-    //buttonAgain.addEventListener("click", again);
+        clearInterval(interval);
+        bar.style.animationPlayState = "paused";
     },(durationTime*1000));
 
     function runningTime() {

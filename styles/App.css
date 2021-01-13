@@ -377,7 +377,7 @@ li.quiz-answer>*{
 /* quiz page - timer */
 
 #timer {
-    width: 100%;
+    width: 50%;
     height: 30px;
     background-color: #ddd;
 }
