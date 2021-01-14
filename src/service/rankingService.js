@@ -1,3 +1,5 @@
+import { WHAT_DOES_THIS_POKEMON_LOOK_LIKE, WHO_IS_THAT_POKEMON } from "../service/modes";
+
 export const rankingService = (mode, user) => {
   const PokemonApiRanking = checkLocalStorage(); //update from localStorage
   let currentMode; //path to scores array for current mode
@@ -20,7 +22,7 @@ export const rankingService = (mode, user) => {
     if(scoreCompare != 0) { // compare scores
       return scoreCompare;
     } else { // scores are the same => compare times
-      return b.timeInSeconds - a.timeInSeconds;
+      return b.time - a.time;
     }
    } );
   if(currentMode.length > 3) {
@@ -30,7 +32,7 @@ export const rankingService = (mode, user) => {
   localStorage.setItem('PokemonApiRanking', JSON.stringify(PokemonApiRanking)); //save in localStorage
 }
 
-const checkLocalStorage = () => {
+export const checkLocalStorage = () => {
   const PokemonApiRanking = JSON.parse(localStorage.getItem('PokemonApiRanking')) || {
     mode1: {
       name : "Whos that pokemon?",

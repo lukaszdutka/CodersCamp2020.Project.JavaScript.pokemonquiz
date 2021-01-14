@@ -1,5 +1,7 @@
 import { doc } from "prettier";
-import { START_PAGE_STYLES } from "./appSettings.js"
+import { START_PAGE_STYLES } from "./appSettings.js";
+import { fillLeaderboard } from './fillLeaderboard';
+import { checkLocalStorage } from '../service/rankingService'
 
 export const showStartingPage = () => {
     const appScreen = document.querySelector('#pokequiz-app');
@@ -16,5 +18,7 @@ export const showStartingPage = () => {
     // add leaderboard modal
     const leaderboardTemplate = document.querySelector('#leaderboard-modal-template');
     appScreen.innerHTML += leaderboardTemplate.innerHTML;
+    fillLeaderboard(checkLocalStorage());
+
 
 }

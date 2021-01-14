@@ -20,6 +20,11 @@ import {
     fillResultsModal
 } from './fillResultsModal'
 
+import {
+    rankingService,
+    checkLocalStorage
+} from '../service/rankingService'
+
 // will be filledi with mode object during page rendering
 let CURRENT_MODE = null; 
 let GENERATOR = null;
@@ -84,8 +89,11 @@ export async function renderNextQuestion(generator) {
         }
     } else { // no more questions left
         // TO DO connect to timer
-        fillResultsModal(GAME_HANDLER.getResults(10), CURRENT_MODE)
+        const gameResults = GAME_HANDLER.getResults(10);
+        fillResultsModal(gameResults, CURRENT_MODE)
         showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
+        // add to the ranking
+        rankingService(CURRENT_MODE, gameResults);
     }
 }
 

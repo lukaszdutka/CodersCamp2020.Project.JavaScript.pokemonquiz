@@ -331,7 +331,7 @@ ul.bottomOfThePageOptions li img{
     flex: 0 0 auto;
 }
 
-#leaderFirstPlace{
+.leaderFirstPlace{
     width: 70%;
 }
 
