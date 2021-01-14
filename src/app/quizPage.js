@@ -210,15 +210,11 @@ const resetQuizAfterQuestion = () => {
 
 const setupTimer = () => {
     const timerBody = document.getElementById('timer');
-    const timerLabel = document.createElement('div');
-    timerLabel.setAttribute('id', 'label')
     const barDiv = document.createElement("div");
     barDiv.setAttribute('id', 'bar')
-    timerBody.appendChild(timerLabel);
     timerBody.appendChild(barDiv);
 
     startTimer(barDiv);
-
 }
 
 // const createTimer = () => {
@@ -254,7 +250,7 @@ const startTimer = (bar) => {
     }
   
     function printTime(timeToPrint) {
-        document.getElementById("label").innerHTML = '<b>' + timeToPrint + '</b>s';
+        document.getElementById("timerLabel").innerHTML = '<b>' + timeToPrint + '</b>s';
     }
 }
 
