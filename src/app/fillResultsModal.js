@@ -1,3 +1,5 @@
+import { WHAT_DOES_THIS_POKEMON_LOOK_LIKE, WHO_IS_THAT_POKEMON } from "../service/modes";
+
 export const fillResultsModal = (gameHandlerResults, mode) => {
 
     const resultsDescription = document.querySelector('#resultsDescription');
@@ -10,7 +12,7 @@ export const fillResultsModal = (gameHandlerResults, mode) => {
         const tableCell = document.createElement('tr');
         tableCell.className = 'tableWithResultsQA';
         
-        if (mode.name === 'WHAT_DOES_THIS_POKEMON_LOOK_LIKE') {
+        if (mode === WHAT_DOES_THIS_POKEMON_LOOK_LIKE) {
             tableCell.innerHTML = 
             `<td>${questionItem.question}</td>
             <td><img src='${questionItem.correctAnswer}' alt='pokemon img' class='tableWithResultsCorrectAnswer'/></td>
@@ -18,7 +20,7 @@ export const fillResultsModal = (gameHandlerResults, mode) => {
 
             tableCell.querySelector('.tableWithResultsYourAnswer').style.border = questionItem.isCorrect === true ? '2px solid green' : '2px solid red';
         
-        } else if (mode.name === 'WHO_IS_THAT_POKEMON') {
+        } else if (mode === WHO_IS_THAT_POKEMON) {
             tableCell.innerHTML = 
             `<td><img src='${questionItem.question}' alt='pokemon img' class='tableWithResultsQuestion'/></td>
             <td class='tableWithResultsCorrectAnswer'>${questionItem.correctAnswer}</td>
