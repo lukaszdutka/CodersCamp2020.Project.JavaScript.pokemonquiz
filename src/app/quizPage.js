@@ -49,13 +49,14 @@ export function renderQuizPage(mode, name, totalTime) {
     //GENERATOR = new QuestionService.Generator()
     renderNextQuestion(GENERATOR);
 
-    //TODO setupTimer() -- here or directly in App
-    setupTimer();
-
     // add event listener to the results screen button 
     document.querySelector('#backToStartingPageButton').addEventListener('click', () => {
         location.reload();
     });  
+
+     //TODO setupTimer() -- here or directly in App
+     setupTimer();
+
 }
 
 
@@ -249,13 +250,12 @@ const startTimer = (bar) => {
             printTime(durationTime);
         } else {
             // run function which shows results
-            // fillResultsModal(GAME_HANDLER.getResults(10), CURRENT_MODE)
-            // showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
-        }
-    }
+            fillResultsModal(GAME_HANDLER.getResults(10), CURRENT_MODE)
+            showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
+        };
+    };
   
     function printTime(timeToPrint) {
         document.getElementById("timerLabel").innerHTML = '<b>' + timeToPrint + '</b>s';
-    }
+    };
 }
-
