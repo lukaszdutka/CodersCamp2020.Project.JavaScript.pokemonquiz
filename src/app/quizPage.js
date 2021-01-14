@@ -45,9 +45,9 @@ export function renderQuizPage(mode, name, totalTime) {
     }
     setupPageTitle(CURRENT_MODE);
     //GENERATOR = new QuestionService.Generator()
+    renderNextQuestion(GENERATOR);
     //TODO setupTimer() -- here or directly in App
     setupTimer();
-    renderNextQuestion(GENERATOR);
 }
 
 
@@ -245,12 +245,16 @@ const startTimer = (bar) => {
     },(durationTime*1000));
 
     function runningTime() {
-        durationTime--;
-        printTime(durationTime);
+        if (durationTime) {
+            durationTime--;
+            printTime(durationTime);
+        } else {
+            // run function which shows results
+        }
     }
   
     function printTime(timeToPrint) {
-        document.getElementById("label").innerHTML = 'Pozostały czas do końca to: <b>' + timeToPrint + '</b> sekund!';
+        document.getElementById("label").innerHTML = '<b>' + timeToPrint + '</b>s';
     }
 }
 
