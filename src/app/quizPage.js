@@ -54,9 +54,7 @@ export function renderQuizPage(mode, name, totalTime) {
         location.reload();
     });  
 
-     //TODO setupTimer() -- here or directly in App
-     setupTimer();
-
+    setupTimer();
 }
 
 
@@ -245,7 +243,7 @@ const startTimer = (bar) => {
     },(durationTime*1000));
 
     function runningTime() {
-        if (durationTime) {
+        if (durationTime > 0) {
             durationTime--;
             printTime(durationTime);
         } else {
