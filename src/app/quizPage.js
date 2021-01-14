@@ -209,25 +209,18 @@ const resetQuizAfterQuestion = () => {
 
 
 const setupTimer = () => {
-    const timerBody = document.getElementById('timer');
-    const barDiv = document.createElement("div");
-    barDiv.setAttribute('id', 'bar')
-    timerBody.appendChild(barDiv);
-
+    const barDiv = createTimer()
     startTimer(barDiv);
 }
 
-// const createTimer = () => {
-//     const timerBody = document.getElementById('timer');
-//     const timerLabel = document.createElement('div');
-//     timerLabel.setAttribute('label', ID)
-//     const barDiv = document.createElement("div");
-//     barDiv.setAttribute('bar', ID)
-//     timerBody.appendChild(timerLabel)
-//     timerBody.appendChild(barDiv)
+const createTimer = () => {
+    const timerBody = document.getElementById('timer');
+    const bar = document.createElement("div");
+    bar.setAttribute('id', 'bar')
+    timerBody.appendChild(bar);
 
-//     return timerBody
-// }
+    return bar
+}
 
 const startTimer = (bar) => {
     var durationTime = 120; // czas w sekundach, można dowolnie zmianiać 120 -> 120 sekund = 2 minuty
@@ -246,6 +239,8 @@ const startTimer = (bar) => {
             printTime(durationTime);
         } else {
             // run function which shows results
+            // fillResultsModal(GAME_HANDLER.getResults(10), CURRENT_MODE)
+            // showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
         }
     }
   
