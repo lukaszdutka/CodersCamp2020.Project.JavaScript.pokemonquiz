@@ -41,9 +41,11 @@ export const App = ({options}) => {
    });
 
    // start the game
-   document.querySelector("#startGameButton").addEventListener("click", () => {
-      const userName = document.querySelector('#enterYourNameInput').value;
-      renderQuizPage(SELECTED_MODE, userName, options.quizMaxTime)
-   });
+   document.querySelector('#enterYourNameInput').addEventListener("change", () =>{
+      document.querySelector("#startGameButton").addEventListener("click", () => {
+         const userName = document.querySelector('#enterYourNameInput').value;
+         renderQuizPage(SELECTED_MODE, userName, options.quizMaxTime)
+      });
+   })
 }
 
