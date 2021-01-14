@@ -16,6 +16,11 @@ import {
     showAPopUpScreen
 } from './showAPopUpScreen'
 
+import {
+    fillResultsModal
+} from './fillResultsModal'
+
+// will be filledi with mode object during page rendering
 let CURRENT_MODE = null; 
 let GENERATOR = null;
 let GAME_HANDLER = null;
@@ -35,9 +40,6 @@ export function renderQuizPage(mode, name, totalTime) {
     const resultsTemplate = document.getElementById('results-modal-template');
     appScreen.innerHTML += resultsTemplate.innerHTML;
 
-    // TODO later - the end of the quiz should activate the function below: 
-    //showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
-
     // TODO later  - generate question using questionService - below are temporary dummy variables
     const generatedQuestion = {
         question: "quizQuestion",
@@ -46,8 +48,14 @@ export function renderQuizPage(mode, name, totalTime) {
     setupPageTitle(CURRENT_MODE);
     //GENERATOR = new QuestionService.Generator()
     renderNextQuestion(GENERATOR);
+
     //TODO setupTimer() -- here or directly in App
     setupTimer();
+
+    // add event listener to the results screen button 
+    document.querySelector('#backToStartingPageButton').addEventListener('click', () => {
+        location.reload();
+    });  
 }
 
 
@@ -77,7 +85,9 @@ export async function renderNextQuestion(generator) {
             })
         }
     } else { // no more questions left
-        console.log("You WON!, but sorry, we still don't have any summary page"); // TODO create summary page redirection
+        // TO DO connect to timer
+        fillResultsModal(GAME_HANDLER.getResults(10), CURRENT_MODE)
+        showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
     }
 }
 

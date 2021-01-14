@@ -17,7 +17,6 @@
 
 body {
     max-height: 100vh;
-    padding: 1.5vh 5vw;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -25,13 +24,16 @@ body {
     border-radius: 7vh;
     background-color: #3762AC;
     font-size: 3.5vh;
+    cursor: pointer;
 }
 
 .start-page {
     display: grid;
+    padding: 1.5vh 5vw;
     grid-template-columns: 50% 50%;
     grid-template-rows: 1fr 25vh 10vh 28vh;
-    border: 1px solid black;
+    height: 100vh;
+    background: linear-gradient(118.86deg, #2C7EFA 14.52%, rgba(123, 192, 255, 0.71) 116.61%);
 }
 
 .firstColumn {
@@ -71,7 +73,6 @@ body {
     padding: 1vh 2.5vw;
     width: 60%;
     text-align:center;
-    cursor: pointer;
 }
 
 /* div EnterName */
@@ -100,6 +101,7 @@ body {
     border: none;
     border-bottom: black solid 1px;
     padding: 2% 5%;
+    background-color: transparent;
 }
 
 /* div buttonPlay */
@@ -137,11 +139,16 @@ ul.bottomOfThePageOptions li {
     cursor: pointer;
 }
 
+ul.bottomOfThePageOptions li img{
+    width: 5vh;
+    filter: invert(82%) sepia(59%) saturate(2238%) hue-rotate(353deg) brightness(103%) contrast(103%);
+}
+
 /* pikachu */
 
 #pikachuImg {
     grid-row-end: -1;
-    justify-self: end;
+    justify-self: center;
     height: 100%;
 }
 
@@ -372,6 +379,7 @@ li.quiz-answer>*{
     font-size: 3.5vh;
     color: #303030;
     background-color: #FFCB05;
+    cursor: pointer;
 }
 
 /* quiz page - timer */
@@ -428,10 +436,10 @@ li.quiz-answer>*{
     color: black;
     font-size: 6vh; 
     font-weight: 700;
-    padding: 1.2vh 3vh 1.2vh 3vh;
+    padding: 3vh;
 }
 
-#resultsDescriptionArea {
+#resultsDescriptionArea{        
     flex: 1 1 8%;
 }
 
@@ -439,16 +447,14 @@ li.quiz-answer>*{
     text-align: center;
     color: black;
     font-size: 3vh;
-}
-
-#resultsDescription span {
-    color: black;
+    padding: 0vh 1vh 3vh 1vh;
 }
 
 #tableWithResultsArea {
     display: grid; 
     grid-template-columns: auto 3fr;
     flex: 1 1 47%; 
+    height: 47%;
 }
 
 #nextToTableImg {
@@ -462,7 +468,6 @@ li.quiz-answer>*{
 
 #tableWithResults table {
     width: 100%;
-    overflow: scroll;
 }
 
 #tableWithResults th {
@@ -483,36 +488,9 @@ li.quiz-answer>*{
     height: 90%;
 }
 
-.tableWithResultsCorrectAnswer {
-    font-weight: bolder;
+.tableWithResultsQA:first-child {
+    height: 90%;
     text-align: left;
-}
-
-#insertYourNameArea {
-    flex: 1 1 15%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    padding: 1.2vh 2vh 0vh 1.2vh; 
-}
-
-#insertYourNameImput {
-    flex: 0 1 45%;
-    color: black;
-    font-size: 3vh;
-    border-radius: 2vh;
-    padding: 1.5vh;
-    text-align: center;
-    max-width: 100%;
-}
-
-#insertYourNameLabel {
-    flex: 1 1 45%;
-    color: black;
-    text-align: center;
-    padding: 1vh;
-    font-size: 3vh;
 }
 
 #backToStartingPageButtonArea {
@@ -532,9 +510,6 @@ li.quiz-answer>*{
 }
 
 @media(max-width:850px){
-    #pikachuImg{
-        justify-self: center;
-    }
     .popUpScreen {
         width: 80vw;
         margin-left:-40vw;

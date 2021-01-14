@@ -41,7 +41,7 @@
         <div id='enterNameAndPlayMenu' class="secondColumn spanInPortrait disableWithPopUpScreen">
             <p id='enterYourName' class='fancyFontStyle'>ENTER YOUR NAME</p>
             <div id='enterYourNameArea'>
-                <img src='https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png' alt='playerIcon' id='playerIcon'/>
+                <img src='./static/assets/ui/user.svg' alt='playerIcon' id='playerIcon'/>
                 <input type='text' id='enterYourNameInput'>
             </div>
         </div>
@@ -52,7 +52,7 @@
     
         <ul class='bottomOfThePageOptions firstColumn disableWithPopUpScreen'>
             <li id='helpOption'>?</li>
-            <li id='leaderboard'><i class="fa fa-trophy"></i></li>
+            <li id='leaderboard'><img src="./static/assets/ui/crown.svg" alt="crown"></li>
         </ul>
     
         <img src='./static/assets/ui/pokelogo.svg' alt='Pikachu' id='pikachuImg' class="secondColumn disableWithPopUpScreen"/>
@@ -146,7 +146,7 @@
             </div>
 
             <div class='resultsDescriptionArea'>
-                <p id='resultsDescription'>During <span id='minutesTaken'>2</span> minutes you answered <span id='answersGiven'>20</span> questions.</p>
+                <p id='resultsDescription'></p>
             </div>
 
             <div id='tableWithResultsArea'>
@@ -157,18 +157,8 @@
                             <th colspan='2'>Correct</th>
                             <th>You</th>
                         </tr>
-                        <tr class='tableWithResultsQA'>
-                            <td><img src='./static/assets/ui/pikach1.png' alt='Pokemon' class='tableWithResultsQuestion'/></td>
-                            <td class='tableWithResultsCorrectAnswer'>Pikachu</td>
-                            <td class='tableWithResultsYourAnswer'>Pikachu</td>
-                        </tr>
                     </table>
                 </div>
-            </div>
-
-            <div id='insertYourNameArea'>
-                <input type='text' id='insertYourNameImput'>
-                <label for='insertYourName' id='insertYourNameLabel'>Please fill in your name in order to join the hall of fame!</label>
             </div>
             
             <div id='backToStartingPageButtonArea'>
