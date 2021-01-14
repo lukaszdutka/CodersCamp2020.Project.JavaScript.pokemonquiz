@@ -16,9 +16,9 @@ export const fillLeaderboard = (pokemonApiRanking) => {
 
     // add guess the type mode leaderboard
     leaderboardTable.innerHTML += 
-    `<li class='leaderboardItem guessTheTypeLeaderboard leaderFirstPlace'><img src='./static/assets/ui/hall-of-fame/gold.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode3.scores[0] ? pokemonApiRanking.mode2.scores[0].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode3.scores[0] ? pokemonApiRanking.mode2.scores[0].score : "-"}</span></li>
-    <li class='leaderboardItem guessTheTypeLeaderboard'><img src='./static/assets/ui/hall-of-fame/silver.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode3.scores[1] ? pokemonApiRanking.mode2.scores[1].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode3.scores[1] ? pokemonApiRanking.mode2.scores[1].score : "-"}</span></li>
-    <li class='leaderboardItem guessTheTypeLeaderboard'><img src='./static/assets/ui/hall-of-fame/bronze.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode3.scores[2] ? pokemonApiRanking.mode2.scores[2].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode3.scores[2] ? pokemonApiRanking.mode2.scores[2].score : "-"}</span></li>`
+        `<li class='leaderboardItem guessTheTypeLeaderboard leaderFirstPlace'><img src='./static/assets/ui/hall-of-fame/gold.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode3.scores[0] ? pokemonApiRanking.mode2.scores[0].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode3.scores[0] ? pokemonApiRanking.mode2.scores[0].score : "-"}</span></li>
+        <li class='leaderboardItem guessTheTypeLeaderboard'><img src='./static/assets/ui/hall-of-fame/silver.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode3.scores[1] ? pokemonApiRanking.mode2.scores[1].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode3.scores[1] ? pokemonApiRanking.mode2.scores[1].score : "-"}</span></li>
+        <li class='leaderboardItem guessTheTypeLeaderboard'><img src='./static/assets/ui/hall-of-fame/bronze.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode3.scores[2] ? pokemonApiRanking.mode2.scores[2].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode3.scores[2] ? pokemonApiRanking.mode2.scores[2].score : "-"}</span></li>`
 
         const rankingItemsCollection = document.querySelectorAll('.leaderboardItem');
 
