@@ -1,7 +1,7 @@
 import { showStartingPage } from './showStartingPage.js';
 import { showAPopUpScreen } from './showAPopUpScreen';
-import { renderQuizPage } from './quizPage.js'
-import { WHO_IS_THAT_POKEMON, WHAT_DOES_THIS_POKEMON_LOOK_LIKE } from "../service/modes.js"
+import { renderQuizPage } from './quizPage.js';
+import { WHO_IS_THAT_POKEMON, WHAT_DOES_THIS_POKEMON_LOOK_LIKE, WHO_IS_THAT_POKEMON_HARD_MODE } from "../service/modes.js";
 
 export const App = ({options}) => { 
 
@@ -27,9 +27,10 @@ export const App = ({options}) => {
          console.log("What it looks like?");
          SELECTED_MODE = WHAT_DOES_THIS_POKEMON_LOOK_LIKE;
    });
-   document.querySelector('#guessTheTypeOption').addEventListener('click',()=>{
+   document.querySelector('#whoIsThatPokemonHardModeOption').addEventListener('click',()=>{
       if(style.display=='none'||help.style.display == 'none')
-         console.log("Guess the type!");
+         console.log("Who's that Pokemon? (hard mode)");
+         SELECTED_MODE = WHO_IS_THAT_POKEMON_HARD_MODE;
    });
 
    //ad event listener to the leaderboard button

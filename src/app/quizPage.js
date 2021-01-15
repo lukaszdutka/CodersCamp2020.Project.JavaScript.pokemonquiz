@@ -19,6 +19,7 @@ import {
 import {
     fillResultsModal
 } from './fillResultsModal'
+import { WHO_IS_THAT_POKEMON_HARD_MODE } from "../service/modes.js"
 
 // will be filledi with mode object during page rendering
 let CURRENT_MODE = null; 
@@ -101,6 +102,9 @@ const updateQuestion = (questionElement, questionSet) => {
         questionElement.classList.add(QUIZ_PAGE_STYLES.quizQuestionImageClass);
         const imgElem = createImgElement(questionSet.question); // add img from url
         questionElement.appendChild(imgElem);
+        if (CURRENT_MODE === WHO_IS_THAT_POKEMON_HARD_MODE) {
+            questionElement.style.filter = "brightness(0%)";
+        } 
 
     } else if (CURRENT_MODE.questionType === "text") {
         questionElement.classList.add(QUIZ_PAGE_STYLES.quizQuestionTextClass);
