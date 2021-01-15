@@ -34,6 +34,8 @@ body {
     grid-template-rows: 1fr 25vh 10vh 28vh;
     height: 100vh;
     background: linear-gradient(118.86deg, #2C7EFA 14.52%, rgba(123, 192, 255, 0.71) 116.61%);
+    background: url(../static/assets/ui/bg1.svg) no-repeat center;
+    background-size: cover;
 }
 
 .firstColumn {
@@ -341,6 +343,10 @@ div.quiz-page{
     display: grid;
     grid-template-rows: 10vh 80vh;
     grid-gap: 5vh;
+    height: 100vh;
+    background: linear-gradient(118.86deg, #2C7EFA 14.52%, rgba(123, 192, 255, 0.71) 116.61%);
+    background: url(../static/assets/ui/bg2.svg) no-repeat center;
+    background-size: cover;
 }
 
 div.quiz-top-bar{
@@ -380,6 +386,40 @@ li.quiz-answer>*{
     color: #303030;
     background-color: #FFCB05;
     cursor: pointer;
+}
+
+/* quiz page - timer */
+
+#timer {
+    width: 50%;
+    height: 30px;
+    background-color: #ddd;
+}
+  
+#bar {
+    height: 30px;
+    width: 100%;
+    background-color: green;
+}
+  
+@keyframes anim {
+    0% {
+      background-color: green;
+      width: 100%;
+    }
+    50% {
+      background-color: yellow;
+      width: 50%;}
+    75% {
+      background-color: orange;
+      width: 25%;}
+    90% {
+      background-color: red;
+      width: 10%;}
+    100% {
+      background-color: red;
+      width: 0%;
+    }
 }
 
 /* resultsModal */
