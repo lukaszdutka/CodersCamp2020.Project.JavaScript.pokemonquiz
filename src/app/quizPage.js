@@ -84,9 +84,9 @@ export async function renderNextQuestion(generator) {
             })
         }
     } else { // no more questions left
-        // TO DO connect to timer
         fillResultsModal(GAME_HANDLER.getResults(10), CURRENT_MODE)
         showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
+        endTimer();
     }
 }
 
@@ -216,6 +216,9 @@ const resetQuizAfterQuestion = () => {
     quizBody.innerHTML = getTemplateContent(quizTemplate)[1].innerHTML // get the quiz body inner HTML from the template
 }
 
+// Timer
+var interval;
+var timeOut;
 
 const setupTimer = () => {
     const barDiv = createTimer()
@@ -231,8 +234,8 @@ const createTimer = () => {
     return bar
 }
 
-const startTimer = (bar) => {
-    var durationTime = 120; // czas w sekundach, można dowolnie zmianiać 120 -> 120 sekund = 2 minuty
+const startTimer = (bar, durationTime = 120) => {
+    // durationTime czas w sekundach, można dowolnie zmianiać 120 -> 120 sekund = 2 minuty
     printTime(durationTime);
     bar.style.animation = "anim 1 linear forwards";
     bar.style.animationDuration = durationTime+"s";
@@ -240,20 +243,25 @@ const startTimer = (bar) => {
     timeOut = setTimeout(function(){
         clearInterval(interval);
         bar.style.animationPlayState = "paused";
+        fillResultsModal(GAME_HANDLER.getResults(durationTime), CURRENT_MODE)
+        showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
     },(durationTime*1000));
 
     function runningTime() {
-        if (durationTime > 0) {
-            durationTime--;
-            printTime(durationTime);
-        } else {
-            // run function which shows results
-            fillResultsModal(GAME_HANDLER.getResults(10), CURRENT_MODE)
-            showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
-        };
+        console.log('Print durationTime: ' + durationTime);
+        durationTime--;
+        printTime(durationTime);
     };
   
     function printTime(timeToPrint) {
         document.getElementById("timerLabel").innerHTML = '<b>' + timeToPrint + '</b>s';
     };
+}
+
+function endTimer() {
+    console.log('EndTimer')
+    const bar = document.getElementById('bar');
+    clearTimeout(timeOut);
+    clearInterval(interval);
+    bar.style.animationPlayState = "paused";
 }
