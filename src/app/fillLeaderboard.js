@@ -2,30 +2,22 @@ export const fillLeaderboard = (pokemonApiRanking) => {
     const leaderboardTable = document.querySelector('#leaderboardResults');
     const modeSelect = document.querySelector('#chooseModeLeaderboard');
 
-    // add who's that pokemon mode leaderboard
-    leaderboardTable.innerHTML = 
-        `<li class='leaderboardItem whoseThatPokemonLeaderboard leaderFirstPlace'><img src='./static/assets/ui/hall-of-fame/gold.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode1.scores[0] ? pokemonApiRanking.mode1.scores[0].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode1.scores[0] ? pokemonApiRanking.mode1.scores[0].score : "-"}</span></li>
-        <li class='leaderboardItem whoseThatPokemonLeaderboard'><img src='./static/assets/ui/hall-of-fame/silver.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode1.scores[1] ? pokemonApiRanking.mode1.scores[1].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode1.scores[1] ? pokemonApiRanking.mode1.scores[1].score : "-"}</span></li>
-        <li class='leaderboardItem whoseThatPokemonLeaderboard'><img src='./static/assets/ui/hall-of-fame/bronze.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode1.scores[2] ? pokemonApiRanking.mode1.scores[2].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode1.scores[2] ? pokemonApiRanking.mode1.scores[2].score : "-"}</span></li>`
+    const addLeaderboardTableResults = (modeClass, modeNumber) => {
+        leaderboardTable.innerHTML += 
+        `<li class='leaderboardItem ${modeClass} leaderFirstPlace'><img src='./static/assets/ui/hall-of-fame/gold.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking[modeNumber].scores[0] ? pokemonApiRanking[modeNumber].scores[0].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking[modeNumber].scores[0] ? pokemonApiRanking[modeNumber].scores[0].score : "-"}</span></li>
+        <li class='leaderboardItem ${modeClass}'><img src='./static/assets/ui/hall-of-fame/silver.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking[modeNumber].scores[1] ? pokemonApiRanking[modeNumber].scores[1].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking[modeNumber].scores[1] ? pokemonApiRanking[modeNumber].scores[1].score : "-"}</span></li>
+        <li class='leaderboardItem ${modeClass}'><img src='./static/assets/ui/hall-of-fame/bronze.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking[modeNumber].scores[2] ? pokemonApiRanking[modeNumber].scores[2].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking[modeNumber].scores[2] ? pokemonApiRanking[modeNumber].scores[2].score : "-"}</span></li>`
+    }
 
-    // add what it looks like mode leaderboard
-    leaderboardTable.innerHTML += 
-        `<li class='leaderboardItem whatItLooksLikeLeaderboard leaderFirstPlace'><img src='./static/assets/ui/hall-of-fame/gold.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode2.scores[0] ? pokemonApiRanking.mode2.scores[0].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode2.scores[0] ? pokemonApiRanking.mode2.scores[0].score : "-"}</span></li>
-        <li class='leaderboardItem whatItLooksLikeLeaderboard'><img src='./static/assets/ui/hall-of-fame/silver.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode2.scores[1] ? pokemonApiRanking.mode2.scores[1].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode2.scores[1] ? pokemonApiRanking.mode2.scores[1].score : "-"}</span></li>
-        <li class='leaderboardItem whatItLooksLikeLeaderboard'><img src='./static/assets/ui/hall-of-fame/bronze.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode2.scores[2] ? pokemonApiRanking.mode2.scores[2].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode2.scores[2] ? pokemonApiRanking.mode2.scores[2].score : "-"}</span></li>`
-
-    // add guess the type mode leaderboard
-    leaderboardTable.innerHTML += 
-        `<li class='leaderboardItem guessTheTypeLeaderboard leaderFirstPlace'><img src='./static/assets/ui/hall-of-fame/gold.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode3.scores[0] ? pokemonApiRanking.mode2.scores[0].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode3.scores[0] ? pokemonApiRanking.mode2.scores[0].score : "-"}</span></li>
-        <li class='leaderboardItem guessTheTypeLeaderboard'><img src='./static/assets/ui/hall-of-fame/silver.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode3.scores[1] ? pokemonApiRanking.mode2.scores[1].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode3.scores[1] ? pokemonApiRanking.mode2.scores[1].score : "-"}</span></li>
-        <li class='leaderboardItem guessTheTypeLeaderboard'><img src='./static/assets/ui/hall-of-fame/bronze.png' /><span class='leaderboardPlayerName'>${pokemonApiRanking.mode3.scores[2] ? pokemonApiRanking.mode2.scores[2].name : "-"}</span><span class='leaderboardPoints'>${pokemonApiRanking.mode3.scores[2] ? pokemonApiRanking.mode2.scores[2].score : "-"}</span></li>`
-
+        addLeaderboardTableResults('whosThatPokemonLeaderboard', 'mode1');
+        addLeaderboardTableResults('whatItLooksLikeLeaderboard', 'mode2');
+        addLeaderboardTableResults('guessTheTypeLeaderboard', 'mode3');
         const rankingItemsCollection = document.querySelectorAll('.leaderboardItem');
 
         const changeLeaderboardView = () => {
             if (modeSelect.value === 'whoIsThatPokemon') {
                 for (let rankingItem of rankingItemsCollection) {
-                    rankingItem.style.display = rankingItem.classList.contains('whoseThatPokemonLeaderboard') ? 'flex' : 'none'; 
+                    rankingItem.style.display = rankingItem.classList.contains('whosThatPokemonLeaderboard') ? 'flex' : 'none'; 
                 }
             } else if (modeSelect.value === 'whatItLooksLike') {
                 for (let rankingItem of rankingItemsCollection) {
