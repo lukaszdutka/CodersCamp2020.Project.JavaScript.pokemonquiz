@@ -84,7 +84,7 @@ export async function renderNextQuestion(generator) {
             })
         }
     } else { // no more questions left
-        fillResultsModal(GAME_HANDLER.getResults(10), CURRENT_MODE)
+        fillResultsModal(GAME_HANDLER.getResults(durationTime), CURRENT_MODE)
         showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
         endTimer();
     }
@@ -189,7 +189,7 @@ const correctAnswerSelected = (selectedElem, answer, questionSet) => {
     selectedElem.classList.add(QUIZ_PAGE_STYLES.correctAnswerClass)
     console.log(questionSet);
     GAME_HANDLER.addAnswer(questionSet.correctAnswer.value, answer, true, questionSet.question);
-    console.log(GAME_HANDLER.getResults(10));
+    console.log(GAME_HANDLER.getResults(durationTime));
     setTimeout(()=> {
         resetQuizAfterQuestion();
         renderNextQuestion(GENERATOR);
@@ -202,7 +202,7 @@ const wrongAnswerSelected = (selectedElem, answer, questionSet) => {
     selectedElem.classList.add(QUIZ_PAGE_STYLES.wrongAnswerClass)
     console.log(questionSet);
     GAME_HANDLER.addAnswer(questionSet.correctAnswer.value, answer, false, questionSet.question);
-    console.log(GAME_HANDLER.getResults(10));
+    console.log(GAME_HANDLER.getResults(durationTime));
     setTimeout(()=> {
         resetQuizAfterQuestion();
         renderNextQuestion(GENERATOR);
@@ -219,6 +219,7 @@ const resetQuizAfterQuestion = () => {
 // Timer
 var interval;
 var timeOut;
+var durationTime;
 
 const setupTimer = () => {
     const barDiv = createTimer()
@@ -234,8 +235,9 @@ const createTimer = () => {
     return bar
 }
 
-const startTimer = (bar, durationTime = 120) => {
+const startTimer = (bar) => {
     // durationTime czas w sekundach, można dowolnie zmianiać 120 -> 120 sekund = 2 minuty
+    durationTime = 120
     printTime(durationTime);
     bar.style.animation = "anim 1 linear forwards";
     bar.style.animationDuration = durationTime+"s";
@@ -243,12 +245,12 @@ const startTimer = (bar, durationTime = 120) => {
     timeOut = setTimeout(function(){
         clearInterval(interval);
         bar.style.animationPlayState = "paused";
+        console.log('Print durationTime: ' + durationTime);
         fillResultsModal(GAME_HANDLER.getResults(durationTime), CURRENT_MODE)
         showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
     },(durationTime*1000));
 
     function runningTime() {
-        console.log('Print durationTime: ' + durationTime);
         durationTime--;
         printTime(durationTime);
     };
