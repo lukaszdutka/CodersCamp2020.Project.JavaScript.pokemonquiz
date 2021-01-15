@@ -18,6 +18,7 @@
 body {
     max-height: 100vh;
     font-family: 'Montserrat', sans-serif;
+    z-index: -1;
 }
 
 .buttonWithText {
@@ -356,9 +357,18 @@ div.quiz-top-bar{
     justify-content: space-around;
     align-items: center;
     width: 70vh;
+    height: fit-content;
     font-size: 3vh;
-    text-shadow: -1px 0 #303030, 0 1px #303030, 1px 0 #303030, 0 -1px #303030;
-    border: 5px solid #3762AC;
+    text-shadow: -2px 0 #2C7EFA, 0 2px #2C7EFA, 2px 0 #2C7EFA, 0 -2px #2C7EFA;
+    border: 4px solid #464444;
+}
+
+div.mode-title {
+    height: 100%;
+    padding: 0.7vh;
+    border-left: 2px solid #464444;
+    border-right: 2px solid #464444;
+    z-index: 1;
 }
 
 #quiz-body{
@@ -410,13 +420,18 @@ li.quiz-answer>*{
     position: absolute;
     width: 100%;
     height: 100%;
+    z-index: 0;
 }
   
 #bar {
     height: 100%;
     width: 100%;
     background-color: green;
-    opacity: 0.7;
+    z-index: 0;
+}
+
+#timerLabel, #question-counter {
+    z-index: 1;
 }
   
 @keyframes anim {
