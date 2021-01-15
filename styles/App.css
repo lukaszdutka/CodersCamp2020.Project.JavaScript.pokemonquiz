@@ -427,7 +427,7 @@ li.quiz-answer>*{
 #bar {
     height: 100%;
     width: 100%;
-    background-color: green;
+    background-color: #508be4;
     z-index: 0;
 }
 
@@ -437,20 +437,20 @@ li.quiz-answer>*{
   
 @keyframes anim {
     0% {
-      background-color: green;
+      background-color: #508be4;
       width: 100%;
     }
     50% {
-      background-color: yellow;
+      background-color:  #508be4;
       width: 50%;}
     75% {
-      background-color: orange;
+      background-color:  #508be4;
       width: 25%;}
     90% {
-      background-color: red;
+      background-color:  #508be4;
       width: 10%;}
     100% {
-      background-color: red;
+      background-color:  #508be4;
       width: 0%;
     }
 }
