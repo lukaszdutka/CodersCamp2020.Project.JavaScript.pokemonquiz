@@ -20,6 +20,11 @@ import {
     fillResultsModal
 } from './fillResultsModal'
 
+import {
+    rankingService,
+    checkLocalStorage
+} from '../service/rankingService'
+
 // will be filledi with mode object during page rendering
 let CURRENT_MODE = null; 
 let GENERATOR = null;
@@ -84,7 +89,9 @@ export async function renderNextQuestion(generator) {
             })
         }
     } else { // no more questions left
-        fillResultsModal(GAME_HANDLER.getResults(durationTime), CURRENT_MODE)
+        const gameResults = GAME_HANDLER.getResults(durationTime);
+        rankingService(CURRENT_MODE, gameResults);
+        fillResultsModal(gameResults, CURRENT_MODE);
         showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
         endTimer();
     }
