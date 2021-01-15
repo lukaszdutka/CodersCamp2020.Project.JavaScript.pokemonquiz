@@ -17,48 +17,40 @@ export const App = ({options}) => {
    //add event listener to the select mode menu button 
    const help=document.querySelector('#helpScreen')
    const style = getComputedStyle(help);
-   let a=0
+   
+   const changeColorOfClickedButton = (querySelector) => {
+
+      const whoIsThatPokemonOption = document.querySelector('#whatItLooksLikeOption')
+      const whatItLooksLikeOption = document.querySelector('#guessTheTypeOption')
+      const guessTheTypeOption = document.querySelector('#whoIsThatPokemonOption')
+
+      whoIsThatPokemonOption.style.backgroundColor="#3762AC"
+      whoIsThatPokemonOption.style.color="#FFCB05"
+      whatItLooksLikeOption.style.backgroundColor="#3762AC"
+      whatItLooksLikeOption.style.color="#FFCB05"
+      guessTheTypeOption.style.backgroundColor="#3762AC"
+      guessTheTypeOption.style.color="#FFCB05"
+
+      querySelector.style.backgroundColor='#FFCB05'
+      querySelector.style.color='#3762AC'
+    }
+    
    document.querySelector('#whoIsThatPokemonOption').addEventListener('click',()=>{
       if(style.display=='none'||help.style.display == 'none')
          console.log("Who's that Pokemon?");
          SELECTED_MODE = WHO_IS_THAT_POKEMON;
-         
-         document.querySelector('#whatItLooksLikeOption').style.backgroundColor="#3762AC"
-         document.querySelector('#whatItLooksLikeOption').style.color="#FFCB05"
-         document.querySelector('#guessTheTypeOption').style.backgroundColor="#3762AC"
-         document.querySelector('#guessTheTypeOption').style.color="#FFCB05"
-         
-         document.querySelector('#whoIsThatPokemonOption').style.backgroundColor="#FFCB05"
-         document.querySelector('#whoIsThatPokemonOption').style.color="#3762AC" 
-         
-         
+         changeColorOfClickedButton(document.querySelector('#whoIsThatPokemonOption'))             
    });
    document.querySelector('#whatItLooksLikeOption').addEventListener('click',()=>{
       if(style.display=='none'||help.style.display == 'none')
          console.log("What it looks like?");
-         SELECTED_MODE = WHAT_DOES_THIS_POKEMON_LOOK_LIKE;
-         
-         document.querySelector('#whoIsThatPokemonOption').style.backgroundColor="#3762AC"
-         document.querySelector('#whoIsThatPokemonOption').style.color="#FFCB05"
-         document.querySelector('#guessTheTypeOption').style.backgroundColor="#3762AC"
-         document.querySelector('#guessTheTypeOption').style.color="#FFCB05"
-            
-         document.querySelector('#whatItLooksLikeOption').style.backgroundColor="#FFCB05"
-         document.querySelector('#whatItLooksLikeOption').style.color="#3762AC"
-         
+         SELECTED_MODE = WHAT_DOES_THIS_POKEMON_LOOK_LIKE;       
+         changeColorOfClickedButton(document.querySelector('#whatItLooksLikeOption'))
    });
    document.querySelector('#guessTheTypeOption').addEventListener('click',()=>{
       if(style.display=='none'||help.style.display == 'none')
-         console.log("Guess the type!");
-         
-         document.querySelector('#whatItLooksLikeOption').style.backgroundColor="#3762AC"
-         document.querySelector('#whatItLooksLikeOption').style.color="#FFCB05"
-         document.querySelector('#whoIsThatPokemonOption').style.backgroundColor="#3762AC"
-         document.querySelector('#whoIsThatPokemonOption').style.color="#FFCB05"
-            
-         document.querySelector('#guessTheTypeOption').style.backgroundColor="#FFCB05"
-         document.querySelector('#guessTheTypeOption').style.color="#3762AC"
-         
+         console.log("Guess the type!");        
+         changeColorOfClickedButton(document.querySelector('#guessTheTypeOption'))        
    });
 
    //ad event listener to the leaderboard button
