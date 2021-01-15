@@ -46,9 +46,23 @@ export const App = ({options}) => {
       }  
    });
 
+   
+   //input (disabled "play" button when input name is empty)
+   const inputName = document.querySelector('#enterYourNameInput');
+   const playButton = document.querySelector("#startGameButton");
+   
+   inputName.addEventListener("keyup", () =>{
+      if(inputName.value.length > 0){
+         playButton.disabled = false;
+      }
+      else{
+         playButton.disabled = true;
+      }
+   })
+
    // start the game
-   document.querySelector("#startGameButton").addEventListener("click", () => {
-      const userName = document.querySelector('#enterYourNameInput').value;
+   playButton.addEventListener("click", () => {
+      const userName = inputName.value;
       renderQuizPage(SELECTED_MODE, userName, options.quizMaxTime)
    });
 }
