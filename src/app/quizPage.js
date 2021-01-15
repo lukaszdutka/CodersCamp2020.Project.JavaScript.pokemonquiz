@@ -54,7 +54,7 @@ export function renderQuizPage(mode, name, totalTime) {
         location.reload();
     });  
 
-    setupTimer();
+    setupTimer(totalTime);
 }
 
 
@@ -221,9 +221,9 @@ var interval;
 var timeOut;
 var durationTime;
 
-const setupTimer = () => {
+const setupTimer = (timerDuration) => {
     const barDiv = createTimer()
-    startTimer(barDiv);
+    startTimer(barDiv, timerDuration);
 }
 
 const createTimer = () => {
@@ -235,9 +235,9 @@ const createTimer = () => {
     return bar
 }
 
-const startTimer = (bar) => {
+const startTimer = (bar, timerDuration) => {
     // durationTime czas w sekundach, można dowolnie zmianiać 120 -> 120 sekund = 2 minuty
-    durationTime = 120
+    durationTime = timerDuration
     printTime(durationTime);
     bar.style.animation = "anim 1 linear forwards";
     bar.style.animationDuration = durationTime+"s";
