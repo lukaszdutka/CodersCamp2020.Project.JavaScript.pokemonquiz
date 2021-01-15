@@ -47,13 +47,14 @@ export function renderQuizPage(mode, name, totalTime) {
     }
     setupPageTitle(CURRENT_MODE);
     //GENERATOR = new QuestionService.Generator()
-    //TODO setupTimer() -- here or directly in App
     renderNextQuestion(GENERATOR);
-    
+
     // add event listener to the results screen button 
     document.querySelector('#backToStartingPageButton').addEventListener('click', () => {
         location.reload();
     });  
+
+    setupTimer(totalTime);
 }
 
 
@@ -83,9 +84,9 @@ export async function renderNextQuestion(generator) {
             })
         }
     } else { // no more questions left
-        // TO DO connect to timer
-        fillResultsModal(GAME_HANDLER.getResults(10), CURRENT_MODE)
+        fillResultsModal(GAME_HANDLER.getResults(durationTime), CURRENT_MODE)
         showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
+        endTimer();
     }
 }
 
@@ -188,7 +189,7 @@ const correctAnswerSelected = (selectedElem, answer, questionSet) => {
     selectedElem.classList.add(QUIZ_PAGE_STYLES.correctAnswerClass)
     console.log(questionSet);
     GAME_HANDLER.addAnswer(questionSet.correctAnswer.value, answer, true, questionSet.question);
-    console.log(GAME_HANDLER.getResults(10));
+    console.log(GAME_HANDLER.getResults(durationTime));
     setTimeout(()=> {
         resetQuizAfterQuestion();
         renderNextQuestion(GENERATOR);
@@ -201,7 +202,7 @@ const wrongAnswerSelected = (selectedElem, answer, questionSet) => {
     selectedElem.classList.add(QUIZ_PAGE_STYLES.wrongAnswerClass)
     console.log(questionSet);
     GAME_HANDLER.addAnswer(questionSet.correctAnswer.value, answer, false, questionSet.question);
-    console.log(GAME_HANDLER.getResults(10));
+    console.log(GAME_HANDLER.getResults(durationTime));
     setTimeout(()=> {
         resetQuizAfterQuestion();
         renderNextQuestion(GENERATOR);
@@ -215,3 +216,54 @@ const resetQuizAfterQuestion = () => {
     quizBody.innerHTML = getTemplateContent(quizTemplate)[1].innerHTML // get the quiz body inner HTML from the template
 }
 
+// Timer
+var interval;
+var timeOut;
+var durationTime;
+
+const setupTimer = (timerDuration) => {
+    const barDiv = createTimer()
+    startTimer(barDiv, timerDuration);
+}
+
+const createTimer = () => {
+    const timerBody = document.getElementById('timer');
+    const bar = document.createElement("div");
+    bar.setAttribute('id', 'bar')
+    timerBody.appendChild(bar);
+
+    return bar
+}
+
+const startTimer = (bar, timerDuration) => {
+    // durationTime czas w sekundach, można dowolnie zmianiać 120 -> 120 sekund = 2 minuty
+    durationTime = timerDuration
+    printTime(durationTime);
+    bar.style.animation = "anim 1 linear forwards";
+    bar.style.animationDuration = durationTime+"s";
+    interval = setInterval(runningTime, 1000);
+    timeOut = setTimeout(function(){
+        clearInterval(interval);
+        bar.style.animationPlayState = "paused";
+        console.log('Print durationTime: ' + durationTime);
+        fillResultsModal(GAME_HANDLER.getResults(durationTime), CURRENT_MODE)
+        showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
+    },(durationTime*1000));
+
+    function runningTime() {
+        durationTime--;
+        printTime(durationTime);
+    };
+  
+    function printTime(timeToPrint) {
+        document.getElementById("timerLabel").innerHTML = '<b>' + timeToPrint + '</b>s';
+    };
+}
+
+function endTimer() {
+    console.log('EndTimer')
+    const bar = document.getElementById('bar');
+    clearTimeout(timeOut);
+    clearInterval(interval);
+    bar.style.animationPlayState = "paused";
+}
