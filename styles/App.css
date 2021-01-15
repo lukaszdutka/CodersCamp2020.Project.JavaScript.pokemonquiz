@@ -233,6 +233,12 @@ ul.bottomOfThePageOptions li img{
     font-weight: 700;
 }
 
+.buttonWithText:hover{
+    background-color: #FFCB05;
+    color: #3762AC;
+}
+
+
 .mainHelpTextSection {
     background-color: white;
     color: black;
