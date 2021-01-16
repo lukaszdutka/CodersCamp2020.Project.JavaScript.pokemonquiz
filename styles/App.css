@@ -168,6 +168,7 @@ ul.bottomOfThePageOptions li img{
     margin-bottom: -40vh;
     justify-items: center;
     border-radius: 5%;
+    z-index: 2;
 }
 
 .popUpTitleArea {
