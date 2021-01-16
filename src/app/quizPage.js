@@ -1,12 +1,11 @@
 import {
     QUIZ_PAGE_STYLES,
     START_PAGE_STYLES,
-    TIMEOUT_AFTER_ANSWER_SELECTION
 } from "./appSettings.js"
 
-import{
+import {
     GameHandler
-}from "../service/GameHandler.js"
+} from "../service/GameHandler.js"
 
 import {
     QuestionGenerator
@@ -21,8 +20,12 @@ import {
 } from './fillResultsModal'
 import { WHO_IS_THAT_POKEMON_HARD_MODE } from "../service/modes.js"
 
-// will be filledi with mode object during page rendering
-let CURRENT_MODE = null; 
+import {
+    rankingService,
+    checkLocalStorage
+} from '../service/rankingService'
+
+let CURRENT_MODE = null;
 let GENERATOR = null;
 let GAME_HANDLER = null;
 
@@ -41,20 +44,16 @@ export function renderQuizPage(mode, name, totalTime) {
     const resultsTemplate = document.getElementById('results-modal-template');
     appScreen.innerHTML += resultsTemplate.innerHTML;
 
-    // TODO later  - generate question using questionService - below are temporary dummy variables
-    const generatedQuestion = {
-        question: "quizQuestion",
-        questionNum: 1,
-    }
     setupPageTitle(CURRENT_MODE);
     //GENERATOR = new QuestionService.Generator()
-    //TODO setupTimer() -- here or directly in App
     renderNextQuestion(GENERATOR);
-    
+
     // add event listener to the results screen button 
     document.querySelector('#backToStartingPageButton').addEventListener('click', () => {
         location.reload();
-    });  
+    });
+
+    setupTimer(totalTime);
 }
 
 
@@ -84,15 +83,17 @@ export async function renderNextQuestion(generator) {
             })
         }
     } else { // no more questions left
-        // TO DO connect to timer
-        fillResultsModal(GAME_HANDLER.getResults(10), CURRENT_MODE)
+        const gameResults = GAME_HANDLER.getResults(durationTime);
+        rankingService(CURRENT_MODE, gameResults);
+        fillResultsModal(gameResults, CURRENT_MODE);
         showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
+        endTimer();
     }
 }
 
 // Changes the title corresponding to the chosen game mode
 const setupPageTitle = () => {
-    const modeHeader = document.querySelector(".mode-title h2")
+    const modeHeader = document.querySelector(".mode-title div")
     modeHeader.innerText = CURRENT_MODE.title // Setup mode title
 }
 
@@ -192,11 +193,9 @@ const correctAnswerSelected = (selectedElem, answer, questionSet) => {
     selectedElem.classList.add(QUIZ_PAGE_STYLES.correctAnswerClass)
     console.log(questionSet);
     GAME_HANDLER.addAnswer(questionSet.correctAnswer.value, answer, true, questionSet.question);
-    console.log(GAME_HANDLER.getResults(10));
-    setTimeout(()=> {
-        resetQuizAfterQuestion();
-        renderNextQuestion(GENERATOR);
-    }, TIMEOUT_AFTER_ANSWER_SELECTION)
+    console.log(GAME_HANDLER.getResults(durationTime));
+    resetQuizAfterQuestion();
+    renderNextQuestion(GENERATOR);
 }
 
 const wrongAnswerSelected = (selectedElem, answer, questionSet) => {
@@ -205,11 +204,9 @@ const wrongAnswerSelected = (selectedElem, answer, questionSet) => {
     selectedElem.classList.add(QUIZ_PAGE_STYLES.wrongAnswerClass)
     console.log(questionSet);
     GAME_HANDLER.addAnswer(questionSet.correctAnswer.value, answer, false, questionSet.question);
-    console.log(GAME_HANDLER.getResults(10));
-    setTimeout(()=> {
-        resetQuizAfterQuestion();
-        renderNextQuestion(GENERATOR);
-    }, TIMEOUT_AFTER_ANSWER_SELECTION)
+    console.log(GAME_HANDLER.getResults(durationTime));
+    resetQuizAfterQuestion();
+    renderNextQuestion(GENERATOR);
 }
 
 // removes question list items
@@ -219,3 +216,54 @@ const resetQuizAfterQuestion = () => {
     quizBody.innerHTML = getTemplateContent(quizTemplate)[1].innerHTML // get the quiz body inner HTML from the template
 }
 
+// Timer
+var interval;
+var timeOut;
+var durationTime;
+
+const setupTimer = (timerDuration) => {
+    const barDiv = createTimer()
+    startTimer(barDiv, timerDuration);
+}
+
+const createTimer = () => {
+    const timerBody = document.getElementById('timer');
+    const bar = document.createElement("div");
+    bar.setAttribute('id', 'bar')
+    timerBody.appendChild(bar);
+
+    return bar
+}
+
+const startTimer = (bar, timerDuration) => {
+    // durationTime time in seconds, can be changed freely 120 -> 120 seconds = 2 minutes
+    durationTime = timerDuration
+    printTime(durationTime);
+    bar.style.animation = "anim 1 linear forwards";
+    bar.style.animationDuration = durationTime + "s";
+    interval = setInterval(runningTime, 1000);
+    timeOut = setTimeout(function () {
+        clearInterval(interval);
+        bar.style.animationPlayState = "paused";
+        console.log('Print durationTime: ' + durationTime);
+        fillResultsModal(GAME_HANDLER.getResults(durationTime), CURRENT_MODE)
+        showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
+    }, (durationTime * 1000));
+
+    function runningTime() {
+        durationTime--;
+        printTime(durationTime);
+    };
+
+    function printTime(timeToPrint) {
+        document.getElementById("timerLabel").innerHTML = '<b>' + timeToPrint + '</b>s';
+    };
+}
+
+function endTimer() {
+    console.log('EndTimer')
+    const bar = document.getElementById('bar');
+    clearTimeout(timeOut);
+    clearInterval(interval);
+    bar.style.animationPlayState = "paused";
+}

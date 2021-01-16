@@ -47,7 +47,7 @@
         </div>
     
         <div id='startGame' class="secondColumn spanInPortrait disableWithPopUpScreen">
-            <input type='button' id='startGameButton' class="buttonWithText" value='PLAY'>
+            <input type='button' id='startGameButton' class="buttonWithText" value='PLAY' autocomplete='off' disabled>
         </div>
     
         <ul class='bottomOfThePageOptions firstColumn disableWithPopUpScreen'>
@@ -104,11 +104,7 @@
 
             </div>
 
-            <ul id='leaderboardResults'>
-                <li class='leaderboardItem'id='leaderFirstPlace'><img src='./static/assets/ui/hall-of-fame/gold.png' /><span class='leaderboardPlayerName'>Andrzej</span><span class='leaderboardPoints'>20</span></li>
-                <li class='leaderboardItem'id='leaderboardSecondPlace'><img src='./static/assets/ui/hall-of-fame/silver.png' /><span class='leaderboardPlayerName'>Władek</span><span class='leaderboardPoints'>15</span></li>
-                <li class='leaderboardItem' id='leaderboardThirdPlace'><img src='./static/assets/ui/hall-of-fame/bronze.png' /><span class='leaderboardPlayerName'>Ania</span><span class='leaderboardPoints'>10</span></li>
-            </ul>
+            <ul id='leaderboardResults'></ul>
 
         </div>
 
@@ -117,8 +113,9 @@
     <template id="quiz-template">
         <div class="quiz-top-bar progress-bar">
             <div id="timer"></div>
+            <div id="timerLabel"></div>
             <div class="mode-title">
-                <h2></h2>
+                <div></div>
             </div>
             <div id="question-counter"></div>
         </div>
