@@ -103,9 +103,6 @@ const updateQuestion = (questionElement, questionSet) => {
         questionElement.classList.add(QUIZ_PAGE_STYLES.quizQuestionImageClass);
         const imgElem = createImgElement(questionSet.question); // add img from url
         questionElement.appendChild(imgElem);
-        if (CURRENT_MODE === WHO_IS_THAT_POKEMON_HARD_MODE) {
-            questionElement.style.filter = "brightness(0%)";
-        } 
 
     } else if (CURRENT_MODE.questionType === "text") {
         questionElement.classList.add(QUIZ_PAGE_STYLES.quizQuestionTextClass);
@@ -117,6 +114,9 @@ const updateQuestion = (questionElement, questionSet) => {
 const createImgElement = (url) => {
     const img = document.createElement("img");
     img.setAttribute("src", url);
+    if (CURRENT_MODE === WHO_IS_THAT_POKEMON_HARD_MODE) {
+        img.style.filter = "brightness(0%)";
+    } 
     return img;
 }
 

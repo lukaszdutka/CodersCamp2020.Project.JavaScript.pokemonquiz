@@ -23,7 +23,7 @@ export const fillLeaderboard = (pokemonApiRanking) => {
                 for (let rankingItem of rankingItemsCollection) {
                     rankingItem.style.display = rankingItem.classList.contains('whatItLooksLikeLeaderboard') ? 'flex' : 'none'; 
                 }
-            } else if (modeSelect.value === 'whosThatPokemonHardMode') {
+            } else if (modeSelect.value === 'whoIsThatPokemonHardMode') {
                 for (let rankingItem of rankingItemsCollection) {
                     rankingItem.style.display = rankingItem.classList.contains('whosThatPokemonHardModeLeaderboard') ? 'flex' : 'none'; 
                 }
