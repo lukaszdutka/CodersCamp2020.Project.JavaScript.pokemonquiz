@@ -44,21 +44,18 @@ export const App = ({options}) => {
    const styleH = getComputedStyle(help);
    document.querySelector('#whoIsThatPokemonOption').addEventListener('click',()=>{
       if(styleH.display=='none' && styleL.display=='none'){
-         console.log("Who's that Pokemon?");
          SELECTED_MODE = WHO_IS_THAT_POKEMON; 
       }
       changeColorOfClickedButton('#whoIsThatPokemonOption')      
    });
    document.querySelector('#whatItLooksLikeOption').addEventListener('click',()=>{
       if(styleH.display=='none' && styleL.display=='none'){
-         console.log("What it looks like?");
          SELECTED_MODE = WHAT_DOES_THIS_POKEMON_LOOK_LIKE;
       }
       changeColorOfClickedButton('#whatItLooksLikeOption')
    });
    document.querySelector('#guessTheTypeOption').addEventListener('click',()=>{
       if(styleH.display=='none' && styleL.display=='none'){
-         console.log("Guess the type!");
       }
       changeColorOfClickedButton('#guessTheTypeOption')    
    });
@@ -66,7 +63,6 @@ export const App = ({options}) => {
    //ad event listener to the leaderboard button
    document.querySelector('#leaderboard').addEventListener('click',()=>{
       if(styleH.display=='none') {
-         console.log("Hall of Fame");
          showAPopUpScreen(document.querySelector('#leaderboardScreen'), 'initial')
       }  
    });

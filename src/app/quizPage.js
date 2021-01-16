@@ -187,9 +187,7 @@ const getAnswerFromElement = (target) => {
 const correctAnswerSelected = (selectedElem, answer, questionSet) => {
     selectedElem.classList.remove(QUIZ_PAGE_STYLES.uncheckedClass)
     selectedElem.classList.add(QUIZ_PAGE_STYLES.correctAnswerClass)
-    console.log(questionSet);
     GAME_HANDLER.addAnswer(questionSet.correctAnswer.value, answer, true, questionSet.question);
-    console.log(GAME_HANDLER.getResults(durationTime));
     resetQuizAfterQuestion();
     renderNextQuestion(GENERATOR);
 }
@@ -198,9 +196,7 @@ const wrongAnswerSelected = (selectedElem, answer, questionSet) => {
     // add wrong-answer class and remove unchecked
     selectedElem.classList.remove(QUIZ_PAGE_STYLES.uncheckedClass)
     selectedElem.classList.add(QUIZ_PAGE_STYLES.wrongAnswerClass)
-    console.log(questionSet);
     GAME_HANDLER.addAnswer(questionSet.correctAnswer.value, answer, false, questionSet.question);
-    console.log(GAME_HANDLER.getResults(durationTime));
     resetQuizAfterQuestion();
     renderNextQuestion(GENERATOR);
 }
@@ -241,7 +237,6 @@ const startTimer = (bar, timerDuration) => {
     timeOut = setTimeout(function () {
         clearInterval(interval);
         bar.style.animationPlayState = "paused";
-        console.log('Print durationTime: ' + durationTime);
         fillResultsModal(GAME_HANDLER.getResults(durationTime), CURRENT_MODE)
         showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
     }, (durationTime * 1000));
@@ -257,7 +252,6 @@ const startTimer = (bar, timerDuration) => {
 }
 
 function endTimer() {
-    console.log('EndTimer')
     const bar = document.getElementById('bar');
     clearTimeout(timeOut);
     clearInterval(interval);
