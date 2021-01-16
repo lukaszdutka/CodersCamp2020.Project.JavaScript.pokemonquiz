@@ -250,8 +250,8 @@ ul.bottomOfThePageOptions li img {
     border: 2px solid black;
     width: 50%;
     font-size: 8vh;
-    margin: auto;
-    height: 15%;
+    margin: auto auto 2% auto;
+    height: 13%;
 }
 
 .helpTitle {
