@@ -451,13 +451,11 @@ li.quiz-answer>*{
       background-color:  #508be4;
       width: 50%;}
     75% {
-      background-color:  #508be4;
+      transition: background-color 3s ease;
+      background-color: #508be4;
       width: 25%;}
-    90% {
-      background-color:  #508be4;
-      width: 10%;}
     100% {
-      background-color:  #508be4;
+      background-color: red;
       width: 0%;
     }
 }
