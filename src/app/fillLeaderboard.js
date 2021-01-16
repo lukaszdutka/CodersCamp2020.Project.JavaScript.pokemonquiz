@@ -11,7 +11,7 @@ export const fillLeaderboard = (pokemonApiRanking) => {
 
         addLeaderboardTableResults('whosThatPokemonLeaderboard', 'mode1');
         addLeaderboardTableResults('whatItLooksLikeLeaderboard', 'mode2');
-        addLeaderboardTableResults('guessTheTypeLeaderboard', 'mode3');
+        addLeaderboardTableResults('whosThatPokemonHardModeLeaderboard', 'mode3');
         const rankingItemsCollection = document.querySelectorAll('.leaderboardItem');
 
         const changeLeaderboardView = () => {
@@ -23,9 +23,9 @@ export const fillLeaderboard = (pokemonApiRanking) => {
                 for (let rankingItem of rankingItemsCollection) {
                     rankingItem.style.display = rankingItem.classList.contains('whatItLooksLikeLeaderboard') ? 'flex' : 'none'; 
                 }
-            } else if (modeSelect.value === 'guessTheType') {
+            } else if (modeSelect.value === 'whoIsThatPokemonHardMode') {
                 for (let rankingItem of rankingItemsCollection) {
-                    rankingItem.style.display = rankingItem.classList.contains('guessTheTypeLeaderboard') ? 'flex' : 'none'; 
+                    rankingItem.style.display = rankingItem.classList.contains('whosThatPokemonHardModeLeaderboard') ? 'flex' : 'none'; 
                 }
             }
         }

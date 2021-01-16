@@ -18,6 +18,7 @@ import {
 import {
     fillResultsModal
 } from './fillResultsModal'
+import { WHO_IS_THAT_POKEMON_HARD_MODE } from "../service/modes.js"
 
 import {
     rankingService,
@@ -113,6 +114,9 @@ const updateQuestion = (questionElement, questionSet) => {
 const createImgElement = (url) => {
     const img = document.createElement("img");
     img.setAttribute("src", url);
+    if (CURRENT_MODE === WHO_IS_THAT_POKEMON_HARD_MODE) {
+        img.style.filter = "brightness(0%)";
+    } 
     return img;
 }
 
@@ -242,6 +246,7 @@ const startTimer = (bar, timerDuration) => {
         clearInterval(interval);
         bar.style.animationPlayState = "paused";
         console.log('Print durationTime: ' + durationTime);
+        rankingService(CURRENT_MODE, GAME_HANDLER.getResults(durationTime));
         fillResultsModal(GAME_HANDLER.getResults(durationTime), CURRENT_MODE)
         showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
     }, (durationTime * 1000));

@@ -1,7 +1,7 @@
 import {
     getPokemonById
 } from "../api/pokemons";
-import { WHAT_DOES_THIS_POKEMON_LOOK_LIKE, WHO_IS_THAT_POKEMON } from "./modes";
+import { WHAT_DOES_THIS_POKEMON_LOOK_LIKE, WHO_IS_THAT_POKEMON, WHO_IS_THAT_POKEMON_HARD_MODE } from "./modes";
 import { shuffleAnswers } from "./shuffleAnswers"
 
 export class QuestionService {
@@ -19,7 +19,7 @@ export class QuestionService {
         const pokePromises = pokemonIds.map( id => getPokemonById(id))
         const answersObj = await Promise.all(pokePromises);
         
-        if (mode === WHO_IS_THAT_POKEMON) {
+        if (mode === WHO_IS_THAT_POKEMON || mode === WHO_IS_THAT_POKEMON_HARD_MODE) {
             return shuffleAnswers({
                 question: answersObj[this.correctAnswerIndex].photoUrl , 
                 answers: [ answersObj[0].name, answersObj[1].name, answersObj[2].name, answersObj[3].name ], 

@@ -1,4 +1,4 @@
-import { WHAT_DOES_THIS_POKEMON_LOOK_LIKE, WHO_IS_THAT_POKEMON } from "../service/modes";
+import { WHAT_DOES_THIS_POKEMON_LOOK_LIKE, WHO_IS_THAT_POKEMON, WHO_IS_THAT_POKEMON_HARD_MODE } from "../service/modes";
 
 export const fillResultsModal = (gameHandlerResults, mode) => {
 
@@ -21,6 +21,13 @@ export const fillResultsModal = (gameHandlerResults, mode) => {
             tableCell.querySelector('.tableWithResultsYourAnswer').style.border = questionItem.isCorrect === true ? '2px solid green' : '2px solid red';
         
         } else if (mode === WHO_IS_THAT_POKEMON) {
+            tableCell.innerHTML = 
+            `<td><img src='${questionItem.question}' alt='pokemon img' class='tableWithResultsQuestion'/></td>
+            <td class='tableWithResultsCorrectAnswer'>${questionItem.correctAnswer}</td>
+            <td class='tableWithResultsYourAnswer'>${questionItem.answer}</td>`
+
+            tableCell.querySelector('.tableWithResultsYourAnswer').style.color = questionItem.isCorrect === true ? 'green' : 'red';
+        } else if (mode === WHO_IS_THAT_POKEMON_HARD_MODE) {
             tableCell.innerHTML = 
             `<td><img src='${questionItem.question}' alt='pokemon img' class='tableWithResultsQuestion'/></td>
             <td class='tableWithResultsCorrectAnswer'>${questionItem.correctAnswer}</td>

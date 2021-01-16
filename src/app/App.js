@@ -1,7 +1,7 @@
 import { showStartingPage } from './showStartingPage.js';
 import { showAPopUpScreen } from './showAPopUpScreen';
-import { renderQuizPage } from './quizPage.js'
-import { WHO_IS_THAT_POKEMON, WHAT_DOES_THIS_POKEMON_LOOK_LIKE } from "../service/modes.js"
+import { renderQuizPage } from './quizPage.js';
+import { WHO_IS_THAT_POKEMON, WHAT_DOES_THIS_POKEMON_LOOK_LIKE, WHO_IS_THAT_POKEMON_HARD_MODE } from "../service/modes.js";
 
 export const App = ({options}) => { 
 
@@ -26,14 +26,14 @@ export const App = ({options}) => {
       const currSelected = document.querySelector(currQuerySelector)
       const whoIsThatPokemonOption = document.querySelector('#whoIsThatPokemonOption')
       const whatItLooksLikeOption = document.querySelector('#whatItLooksLikeOption')
-      const guessTheTypeOption = document.querySelector('#guessTheTypeOption')
+      const whoIsThatPokemonHardModeOption = document.querySelector('#whoIsThatPokemonHardModeOption')
 
       whoIsThatPokemonOption.style.backgroundColor=checkedFont
       whoIsThatPokemonOption.style.color=bgBoxColor
       whatItLooksLikeOption.style.backgroundColor=checkedFont
       whatItLooksLikeOption.style.color=bgBoxColor
-      guessTheTypeOption.style.backgroundColor=checkedFont
-      guessTheTypeOption.style.color=bgBoxColor
+      whoIsThatPokemonHardModeOption.style.backgroundColor=checkedFont
+      whoIsThatPokemonHardModeOption.style.color=bgBoxColor
 
       currSelected.style.backgroundColor=bgBoxColor
       currSelected.style.color=checkedFont
@@ -56,11 +56,12 @@ export const App = ({options}) => {
       }
       changeColorOfClickedButton('#whatItLooksLikeOption')
    });
-   document.querySelector('#guessTheTypeOption').addEventListener('click',()=>{
+   document.querySelector('#whoIsThatPokemonHardModeOption').addEventListener('click',()=>{
       if(styleH.display=='none' && styleL.display=='none'){
-         console.log("Guess the type!");
+         console.log("Who's that Pokemon? (hard mode)");
+         SELECTED_MODE = WHO_IS_THAT_POKEMON_HARD_MODE;
       }
-      changeColorOfClickedButton('#guessTheTypeOption')    
+      changeColorOfClickedButton('#whoIsThatPokemonHardModeOption')    
    });
 
    //ad event listener to the leaderboard button
