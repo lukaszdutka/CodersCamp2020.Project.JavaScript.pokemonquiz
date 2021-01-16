@@ -17,6 +17,28 @@ export const App = ({options}) => {
          showAPopUpScreen(document.querySelector('#helpScreen'), 'initial');
    });
 
+   //checked box colors
+   const checkedFont="#3762AC"
+   const bgBoxColor="#FFCB05"
+
+
+   const changeColorOfClickedButton = (currQuerySelector) => {
+      const currSelected = document.querySelector(currQuerySelector)
+      const whoIsThatPokemonOption = document.querySelector('#whoIsThatPokemonOption')
+      const whatItLooksLikeOption = document.querySelector('#whatItLooksLikeOption')
+      const guessTheTypeOption = document.querySelector('#guessTheTypeOption')
+
+      whoIsThatPokemonOption.style.backgroundColor=checkedFont
+      whoIsThatPokemonOption.style.color=bgBoxColor
+      whatItLooksLikeOption.style.backgroundColor=checkedFont
+      whatItLooksLikeOption.style.color=bgBoxColor
+      guessTheTypeOption.style.backgroundColor=checkedFont
+      guessTheTypeOption.style.color=bgBoxColor
+
+      currSelected.style.backgroundColor=bgBoxColor
+      currSelected.style.color=checkedFont
+    }
+
    //add event listener to the select mode menu button 
    const help = document.querySelector('#helpScreen');
    const styleH = getComputedStyle(help);
@@ -25,17 +47,20 @@ export const App = ({options}) => {
          console.log("Who's that Pokemon?");
          SELECTED_MODE = WHO_IS_THAT_POKEMON; 
       }
+      changeColorOfClickedButton('#whoIsThatPokemonOption')      
    });
    document.querySelector('#whatItLooksLikeOption').addEventListener('click',()=>{
       if(styleH.display=='none' && styleL.display=='none'){
          console.log("What it looks like?");
          SELECTED_MODE = WHAT_DOES_THIS_POKEMON_LOOK_LIKE;
       }
+      changeColorOfClickedButton('#whatItLooksLikeOption')
    });
    document.querySelector('#guessTheTypeOption').addEventListener('click',()=>{
       if(styleH.display=='none' && styleL.display=='none'){
          console.log("Guess the type!");
       }
+      changeColorOfClickedButton('#guessTheTypeOption')    
    });
 
    //ad event listener to the leaderboard button
