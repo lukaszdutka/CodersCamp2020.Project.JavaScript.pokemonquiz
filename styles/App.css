@@ -380,13 +380,13 @@ div.question-image img{
 ul.quiz-answers-list{
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 10vh 10vh;
     grid-row-gap: 2vh;
     list-style: none;
 }
 
 li.quiz-answer>*{
-    width: 80%;
+    width: 60%;
     padding: 0.5vh 2vw;
     margin:0 auto;
     text-align: center;
@@ -394,10 +394,19 @@ li.quiz-answer>*{
     color: #303030;
     background-color: #FFCB05;
     cursor: pointer;
+    border: 4px solid black;
 }
+
 
  li.quiz-answer img {
     max-height: 20vh;
+ }
+
+ .question-img-background {
+    background-image: url("../static/assets/ui/forest.jpg");
+    width: 539px;
+    border: solid black 6px;
+    margin: 0 auto 10vh;
  }
 
 /* quiz page - timer */
