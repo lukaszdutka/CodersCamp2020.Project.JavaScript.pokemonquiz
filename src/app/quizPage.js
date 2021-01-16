@@ -246,6 +246,7 @@ const startTimer = (bar, timerDuration) => {
         clearInterval(interval);
         bar.style.animationPlayState = "paused";
         console.log('Print durationTime: ' + durationTime);
+        rankingService(CURRENT_MODE, GAME_HANDLER.getResults(durationTime));
         fillResultsModal(GAME_HANDLER.getResults(durationTime), CURRENT_MODE)
         showAPopUpScreen(document.getElementById('resultsScreen'), 'flex');
     }, (durationTime * 1000));

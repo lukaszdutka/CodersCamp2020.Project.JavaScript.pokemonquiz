@@ -26,14 +26,14 @@ export const App = ({options}) => {
       const currSelected = document.querySelector(currQuerySelector)
       const whoIsThatPokemonOption = document.querySelector('#whoIsThatPokemonOption')
       const whatItLooksLikeOption = document.querySelector('#whatItLooksLikeOption')
-      const guessTheTypeOption = document.querySelector('#guessTheTypeOption')
+      const whoIsThatPokemonHardModeOption = document.querySelector('#whoIsThatPokemonHardModeOption')
 
       whoIsThatPokemonOption.style.backgroundColor=checkedFont
       whoIsThatPokemonOption.style.color=bgBoxColor
       whatItLooksLikeOption.style.backgroundColor=checkedFont
       whatItLooksLikeOption.style.color=bgBoxColor
-      guessTheTypeOption.style.backgroundColor=checkedFont
-      guessTheTypeOption.style.color=bgBoxColor
+      whoIsThatPokemonHardModeOption.style.backgroundColor=checkedFont
+      whoIsThatPokemonHardModeOption.style.color=bgBoxColor
 
       currSelected.style.backgroundColor=bgBoxColor
       currSelected.style.color=checkedFont

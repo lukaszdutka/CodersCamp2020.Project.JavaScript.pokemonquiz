@@ -43,7 +43,7 @@ export const checkLocalStorage = () => {
       scores : []
     },
     mode3: {
-      name : "Guess the type!",
+      name : "Whos that pokemon? (hard mode)",
       scores : []
     }
   }
