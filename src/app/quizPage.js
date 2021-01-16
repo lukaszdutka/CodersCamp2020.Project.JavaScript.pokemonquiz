@@ -99,7 +99,7 @@ export async function renderNextQuestion(generator) {
 
 // Changes the title corresponding to the chosen game mode
 const setupPageTitle = () => {
-    const modeHeader = document.querySelector(".mode-title h2")
+    const modeHeader = document.querySelector(".mode-title div")
     modeHeader.innerText = CURRENT_MODE.title // Setup mode title
 }
 

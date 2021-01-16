@@ -1,4 +1,4 @@
-import{GameHandler} from "./GameHandler"
+import{GameHandler} from "../src/service/GameHandler"
 
 describe('Store user choosen and statistic during game', () => {
     it('Should update game statistic', () => {

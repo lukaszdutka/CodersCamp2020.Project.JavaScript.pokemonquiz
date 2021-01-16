@@ -1,7 +1,7 @@
-import { WHO_IS_THAT_POKEMON } from "./modes";
+import { WHO_IS_THAT_POKEMON } from "../src/service/modes";
 import {
     QuestionService
-} from "./QuestionService.js";
+} from "../src/service/QuestionService.js";
 
 const quizQuestion = new QuestionService();
 
