@@ -1,4 +1,4 @@
-import { randomNumberInRange } from './randomNumberInRange'
+import { randomNumberInRange } from '../src/service/randomNumberInRange'
 
 describe('Test randomNumberInRange function', () => {
 
