@@ -1,5 +1,5 @@
-import { QuestionGenerator } from './QuestionGenerator';
-import { WHO_IS_THAT_POKEMON } from "./modes";
+import { QuestionGenerator } from '../src/service/QuestionGenerator';
+import { WHO_IS_THAT_POKEMON } from "../src/service/modes";
 
 const generatedQuestion = new QuestionGenerator(WHO_IS_THAT_POKEMON);
 

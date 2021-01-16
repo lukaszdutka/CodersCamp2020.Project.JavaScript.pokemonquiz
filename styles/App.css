@@ -86,7 +86,7 @@ body {
 
 #enterYourName {
     padding-bottom: 5%;
-    font-family: 'Ranchers', cursive;
+    font-family: 'Ranchers', Arial, sans-serif;
     font-size: 5.5vh;
 }
 
@@ -104,6 +104,8 @@ body {
     border-bottom: black solid 1px;
     padding: 2% 5%;
     background-color: transparent;
+    font-size: 3vh;
+    color: black;
 }
 
 /* div buttonPlay */
@@ -139,6 +141,11 @@ ul.bottomOfThePageOptions li {
     line-height: 8.5vh;
     font-weight: 900;
     cursor: pointer;
+    transition: 0.1s;
+}
+
+ul.bottomOfThePageOptions li:hover {
+    background-color: #6da2ff;
 }
 
 ul.bottomOfThePageOptions li img{
