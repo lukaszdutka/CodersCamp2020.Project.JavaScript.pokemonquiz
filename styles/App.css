@@ -439,6 +439,7 @@ li.quiz-answer>*{
 #timerLabel, #question-counter {
     z-index: 1;
     padding: 2vh;
+    width: 9vh
 }
   
 @keyframes anim {
