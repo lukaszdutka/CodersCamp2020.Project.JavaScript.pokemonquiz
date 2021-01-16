@@ -1,4 +1,4 @@
-import { shuffleAnswers } from "./shuffleAnswers";
+import { shuffleAnswers } from "../src/service/shuffleAnswers";
 
 describe('Test shuffeAnswers function', () => {
 

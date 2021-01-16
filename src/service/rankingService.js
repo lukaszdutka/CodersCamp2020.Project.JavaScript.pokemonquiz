@@ -22,7 +22,7 @@ export const rankingService = (mode, user) => {
     if(scoreCompare != 0) { // compare scores
       return scoreCompare;
     } else { // scores are the same => compare times
-      return b.time - a.time;
+      return a.time - b.time;
     }
    } );
   if(currentMode.length > 3) {
