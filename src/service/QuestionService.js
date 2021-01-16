@@ -19,7 +19,7 @@ export class QuestionService {
         const pokePromises = pokemonIds.map( id => getPokemonById(id))
         const answersObj = await Promise.all(pokePromises);
         
-        if (mode === WHO_IS_THAT_POKEMON) {
+        if (mode === WHO_IS_THAT_POKEMON || mode === WHO_IS_THAT_POKEMON_HARD_MODE) {
             return shuffleAnswers({
                 question: answersObj[this.correctAnswerIndex].photoUrl , 
                 answers: [ answersObj[0].name, answersObj[1].name, answersObj[2].name, answersObj[3].name ], 
@@ -30,12 +30,6 @@ export class QuestionService {
                 question: answersObj[this.correctAnswerIndex].name , 
                 answers: [ answersObj[0].photoUrl, answersObj[1].photoUrl, answersObj[2].photoUrl, answersObj[3].photoUrl ], 
                 correctAnswer: { value: answersObj[this.correctAnswerIndex].photoUrl, index: this.correctAnswerIndex }
-            })
-        } else if (mode === WHO_IS_THAT_POKEMON_HARD_MODE) {
-            return shuffleAnswers({
-                question: answersObj[this.correctAnswerIndex].photoUrl , 
-                answers: [ answersObj[0].name, answersObj[1].name, answersObj[2].name, answersObj[3].name ], 
-                correctAnswer: { value: answersObj[this.correctAnswerIndex].name, index: this.correctAnswerIndex}
             })
         };
     }
