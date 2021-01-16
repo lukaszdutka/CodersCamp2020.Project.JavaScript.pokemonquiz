@@ -374,6 +374,7 @@ div.mode-title {
     border-right: 2px solid #464444;
     z-index: 1;
     flex-grow: 1;
+    text-align: center
 }
 
 #quiz-body{
