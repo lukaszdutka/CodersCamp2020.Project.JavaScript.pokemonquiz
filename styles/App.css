@@ -373,6 +373,7 @@ div.mode-title {
     border-left: 2px solid #464444;
     border-right: 2px solid #464444;
     z-index: 1;
+    flex-grow: 1;
 }
 
 #quiz-body{
