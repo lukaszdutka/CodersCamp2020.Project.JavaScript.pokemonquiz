@@ -397,7 +397,7 @@ li.quiz-answer>*{
 }
 
  li.quiz-answer img {
-    max-height: 20vh;
+    max-height: 25vh;
  }
 
 /* quiz page - timer */
@@ -609,8 +609,12 @@ li.quiz-answer>*{
     }
 
     ul.quiz-answers-list{
-        /* grid-template-columns: 100%;
-        grid-template-rows: 1fr 1fr 1fr 1fr; */
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+
+    li.quiz-answer img {
+        max-height: 15vh;
     }
 
 }
