@@ -332,12 +332,14 @@ ul.bottomOfThePageOptions li img {
     background: none;
     border: none;
     font-size: 2.8vh;
+    cursor: pointer;
 }
 
 #chooseModeLeaderboard option {
     color: rgb(121, 121, 241);
     font-size: 2.8vh;
     background-color: black;
+    cursor: pointer;
 }
 
 #leaderboardResults {
