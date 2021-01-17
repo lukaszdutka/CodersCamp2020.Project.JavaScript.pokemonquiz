@@ -40,6 +40,11 @@ body {
     color: var(--optionBlue);
 }
 
+#whoIsThatPokemonOption {
+    background-color: var(--yellow);
+    color: var(--optionBlue);
+}
+
 .start-page {
     display: grid;
     padding: 1.5vh 5vw;
