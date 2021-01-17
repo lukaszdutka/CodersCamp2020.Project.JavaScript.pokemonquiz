@@ -1,6 +1,7 @@
 import {
     QUIZ_PAGE_STYLES,
     START_PAGE_STYLES,
+    TOTAL_NUM_OF_QUESTIONS,
 } from "./appSettings.js"
 
 import {
@@ -158,7 +159,7 @@ const createAnswerElement = (answer) => {
 
 // Updates the question number ona quiz page
 const updateQuestionCounter = (counterElem, questionNum) => {
-    counterElem.innerText = String(questionNum).padStart(2, '0'); //TODO maybe - total num of question in a game mode
+    counterElem.innerText = String(questionNum).padStart(2, '0') + "/" + String(TOTAL_NUM_OF_QUESTIONS);
 }
 
 // fires up on mouse up event on answers list li, additionally accepts questionSet
@@ -167,7 +168,7 @@ const updateQuestionCounter = (counterElem, questionNum) => {
 function selectAnswer(questionSet, eventHandler) {
     const answer = getAnswerFromElement(eventHandler);
     if (answer) {
-        questionSet.correctAnswer.value === answer ? correctAnswerSelected(eventHandler, answer, questionSet) : wrongAnswerSelected(eventHandler, answer, questionSet);
+        questionSet.correctAnswer.value.toLowerCase() === answer.toLowerCase() ? correctAnswerSelected(eventHandler, answer, questionSet) : wrongAnswerSelected(eventHandler, answer, questionSet);
     } else {
         throw new Error('Answer was not found')
     }

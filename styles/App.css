@@ -479,7 +479,6 @@ div.mode-title {
     color: #303030;
     font-size: 3em;
     font-weight: bold;
-    text-transform: capitalize;
     text-align: center;
 }
 
@@ -581,11 +580,15 @@ li.quiz-answer img {
     border-radius: 7vh;
 }
 
+#timerLabel {
+    text-align: center;
+}
+
 #timerLabel,
 #question-counter {
     z-index: 1;
     padding: 2vh;
-    width: 9vh;
+    width: 12vh;
 }
 
 @keyframes anim {

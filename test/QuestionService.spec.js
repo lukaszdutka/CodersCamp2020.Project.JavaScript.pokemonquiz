@@ -20,11 +20,11 @@ describe('Test getQuestion method', () => {
 
         expect(question).toHaveProperty('answers');
         expect(question.answers).toHaveLength(4);
-        expect(question.answers).toEqual(expect.arrayContaining(['bulbasaur', 'ivysaur', 'venusaur', 'charmander'])); //In any order
+        expect(question.answers).toEqual(expect.arrayContaining(['Bulbasaur', 'Ivysaur', 'Venusaur', 'Charmander'])); //In any order
         
         expect(question).toHaveProperty('correctAnswer');
         expect(question.correctAnswer).toHaveProperty('value');
-        expect(question.correctAnswer.value).toEqual('bulbasaur');
+        expect(question.correctAnswer.value).toEqual('Bulbasaur');
         expect(question.correctAnswer).toHaveProperty('index');
         
         expect(question.answers[question.correctAnswer.index]).toEqual(question.correctAnswer.value);
@@ -34,10 +34,10 @@ describe('Test getQuestion method', () => {
 
 describe('Test checkAnswer method', () => {
 
-    it("Should return result true for user answer -> 'bulbasaur' ", async () => {
+    it("Should return result true for user answer -> 'Bulbasaur' ", async () => {
         // Given
         const pokemonIds = [1, 2, 3, 4];
-        const userAnswer = 'bulbasaur';
+        const userAnswer = 'Bulbasaur';
 
         // When
         const question = await quizQuestion.getQuestion(pokemonIds, WHO_IS_THAT_POKEMON);
@@ -50,10 +50,10 @@ describe('Test checkAnswer method', () => {
 
 describe('Test checkAnswer method', () => {
 
-    it("Should return result false for user answer -> 'venusaur' ", async () => {
+    it("Should return result false for user answer -> 'Venusaur' ", async () => {
         // Given
         const pokemonIds = [1, 2, 3, 4];
-        const userAnswer = 'venusaur';
+        const userAnswer = 'Venusaur';
 
         // When
         const question = await quizQuestion.getQuestion(pokemonIds, WHO_IS_THAT_POKEMON);
