@@ -179,6 +179,53 @@ ul.bottomOfThePageOptions li img {
     height: 100%;
 }
 
+/* heart animation */
+
+#pikachuImg #heart1 {
+    display: inline;
+    visibility: hidden;
+    animation: animation 3s infinite;
+  }
+  
+#pikachuImg #heart2 {
+    display: inline;
+    visibility: hidden;
+    animation: animation 3s infinite;
+    animation-delay: .2s;
+  }
+  
+#pikachuImg #heart3 {
+    display: inline;
+    visibility: hidden;
+    animation: hearts 3s infinite;
+    animation-delay: .4s;
+  }
+  
+#pikachuImg #heart4 {
+    visibility: hidden;
+    animation: heartsBig 3s infinite;
+    animation-delay: .6s;
+  }
+  
+  
+  @keyframes hearts {
+    0% {
+      visibility: visible;
+    }
+    6.67% {
+      visibility: hidden;
+    }
+  }
+  
+  @keyframes heartsBig {
+    0% {
+      visibility: visible;
+    }
+    75% {
+      visibility: hidden;
+    }
+  }
+
 /* hidden screens */
 
 .popUpScreen {
