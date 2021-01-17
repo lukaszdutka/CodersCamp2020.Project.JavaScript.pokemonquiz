@@ -554,7 +554,8 @@ li.quiz-answer img {
 
 .question-image {
     background-image: url("../static/assets/ui/forest.jpg");
-    width: 539px;
+    width: 50vh;
+    height: 50vh;
     box-shadow: 2px 2px 5px black;
     margin: 0 auto 10vh;
     border-radius: 4vh;
