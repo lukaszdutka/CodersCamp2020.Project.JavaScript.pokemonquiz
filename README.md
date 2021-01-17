@@ -16,7 +16,7 @@ Uczestnicy:
 
 **[Live - działająca aplikacja - zagraj i sprawdź czy dobrze znasz Pokemony :)](https://lukaszdutka.github.io/CodersCamp2020.Project.JavaScript.pokemonquiz/)**
 
-Aplikacja została stworzona w oparcui o czysty JavaScript. Nie korzysta z żadnych frameworków oraz bibliotek styli. 
+Aplikacja została stworzona w oparciu o czysty JavaScript. Nie korzysta z żadnych frameworków ani bibliotek styli. 
 
 ### Wykorzystane technologie:
 - JavaScript
@@ -26,7 +26,9 @@ Aplikacja została stworzona w oparcui o czysty JavaScript. Nie korzysta z żadn
 
 ### Narzędzia z jakimi pracowaliśmy:
 - Visual Studio Code
+- Git
 - GitHub Desktop
+- Figma
 
 **Pokemon Quiz** wzorowany był na **Quiz Star Wars** udostępnionym przez **CodersCamp**.
 Projekt jest ukończony.
