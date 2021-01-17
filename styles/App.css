@@ -487,6 +487,7 @@ li.quiz-answer .answer-text {
     box-shadow: 2px 2px 5px black;
     border-radius: 7vh;
     transition: filter 0.1s ease-in-out;
+    text-transform: capitalize;
 }
 
 li.quiz-answer div:hover {
@@ -655,6 +656,7 @@ li.quiz-answer img {
 
 .tableWithResultsQA {
     text-align: center;
+    text-transform: capitalize;
 }
 
 .tableWithResultsQA td {

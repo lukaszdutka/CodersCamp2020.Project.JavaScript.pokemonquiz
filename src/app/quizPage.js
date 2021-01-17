@@ -168,7 +168,7 @@ const updateQuestionCounter = (counterElem, questionNum) => {
 function selectAnswer(questionSet, eventHandler) {
     const answer = getAnswerFromElement(eventHandler);
     if (answer) {
-        questionSet.correctAnswer.value === answer ? correctAnswerSelected(eventHandler, answer, questionSet) : wrongAnswerSelected(eventHandler, answer, questionSet);
+        questionSet.correctAnswer.value.toLowerCase() === answer.toLowerCase() ? correctAnswerSelected(eventHandler, answer, questionSet) : wrongAnswerSelected(eventHandler, answer, questionSet);
     } else {
         throw new Error('Answer was not found')
     }
