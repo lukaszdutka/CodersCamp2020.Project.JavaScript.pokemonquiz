@@ -78,7 +78,7 @@ export async function renderNextQuestion(generator) {
         // listen for an answer selection
         const answersOptions = [...quizBody.querySelector(".quiz-answers-list").children]
         for (let option of answersOptions) {
-            option.addEventListener("mouseup", function selectEventFunc() {
+            option.querySelector('div').addEventListener("mouseup", function selectEventFunc() {
                 selectAnswer(genQuestion, option.querySelector("div"));
             })
         }

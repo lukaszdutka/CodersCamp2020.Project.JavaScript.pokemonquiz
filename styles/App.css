@@ -486,14 +486,21 @@ li.quiz-answer .answer-text {
     margin: 0 auto;
     box-shadow: 2px 2px 5px black;
     border-radius: 7vh;
+    transition: filter 0.1s ease-in-out;
+}
+
+li.quiz-answer div:hover {
+    filter: brightness(1.2);
 }
 
 li.quiz-answer {
     width: 100%;
     margin: 0 auto;
-    cursor: pointer;
 }
 
+li.quiz-answer div {
+    cursor: pointer;
+}
 
 li.quiz-answer img {
     max-height: 25vh;
