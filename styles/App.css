@@ -35,6 +35,11 @@ body {
     cursor: pointer;
 }
 
+.buttonWithText:hover {
+    background-color: var(--yellow);
+    color: var(--optionBlue);
+}
+
 .start-page {
     display: grid;
     padding: 1.5vh 5vw;
@@ -127,6 +132,11 @@ body {
     padding: 0.5% 2%;
     width: 40%;
     border-color: transparent;
+    transition: 0.1s;
+}
+
+#startGameButton:hover {
+    background-color: #6da2ff;
 }
 
 /* ul bottomOfThePageOptions */
@@ -240,8 +250,8 @@ ul.bottomOfThePageOptions li img {
     border: 2px solid black;
     width: 50%;
     font-size: 8vh;
-    margin: auto;
-    height: 15%;
+    margin: auto auto 2% auto;
+    height: 13%;
 }
 
 .helpTitle {
@@ -631,6 +641,12 @@ li.quiz-answer img {
     background-color:var(--optionBlue);
     border-radius: 2vh;
     max-width: 100%;
+    transition: 0.1s;
+    cursor: pointer
+}
+
+#backToStartingPageButton:hover {
+    background-color: #6da2ff;
 }
 
 @media(max-width:850px) {
