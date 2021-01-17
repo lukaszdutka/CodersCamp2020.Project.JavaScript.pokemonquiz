@@ -491,9 +491,11 @@ li.quiz-answer .answer-text {
 li.quiz-answer {
     width: 100%;
     margin: 0 auto;
-    cursor: pointer;
 }
 
+li.quiz-answer div {
+    cursor: pointer;
+}
 
 li.quiz-answer img {
     max-height: 25vh;
