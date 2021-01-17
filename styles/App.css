@@ -432,7 +432,6 @@ div.mode-title {
     color: #303030;
     font-size: 3em;
     font-weight: bold;
-    text-transform: capitalize;
     text-align: center;
 }
 
@@ -487,7 +486,6 @@ li.quiz-answer .answer-text {
     box-shadow: 2px 2px 5px black;
     border-radius: 7vh;
     transition: filter 0.1s ease-in-out;
-    text-transform: capitalize;
 }
 
 li.quiz-answer div:hover {

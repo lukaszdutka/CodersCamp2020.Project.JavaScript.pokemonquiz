@@ -30,7 +30,7 @@ export class QuestionService {
             
         } else if (mode === WHAT_DOES_THIS_POKEMON_LOOK_LIKE ) {
             question = this.getName(answersObj[this.correctAnswerIndex]) 
-            answers = [ answersObj[0].photoUrl, answersObj[1].photoUrl, answersObj[2].photoUrl, answersObj[3].photoUrl ]
+            answers = answersObj.map( (answer) => answer.photoUrl)
             correctAnswer = { value: answersObj[this.correctAnswerIndex].photoUrl, index: this.correctAnswerIndex }
         };
         return shuffleAnswers({
