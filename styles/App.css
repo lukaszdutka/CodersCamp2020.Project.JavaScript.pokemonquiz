@@ -36,8 +36,8 @@ body {
 }
 
 .buttonWithText:hover {
-    background-color: var(--yellow);
-    color: var(--optionBlue);
+    background-color: var(--yellow) !important;
+    color: var(--optionBlue) !important;
 }
 
 .start-page {
