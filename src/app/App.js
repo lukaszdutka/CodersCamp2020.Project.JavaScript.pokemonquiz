@@ -68,6 +68,19 @@ export const App = ({options}) => {
       }  
    });
 
+   // Change color of mode button
+   switch(SELECTED_MODE) {
+      case WHO_IS_THAT_POKEMON:
+         changeColorOfClickedButton('#whoIsThatPokemonOption');
+         break;
+      case WHAT_DOES_THIS_POKEMON_LOOK_LIKE:
+         changeColorOfClickedButton('#whatItLooksLikeOption');
+         break;
+      case WHO_IS_THAT_POKEMON_HARD_MODE:
+         changeColorOfClickedButton('#whoIsThatPokemonHardModeOption');
+         break;
+   }
+
    
    //input (disabled "play" button when input name is empty)
    const inputName = document.querySelector('#enterYourNameInput');
