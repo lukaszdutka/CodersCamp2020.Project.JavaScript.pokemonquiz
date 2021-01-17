@@ -641,6 +641,12 @@ li.quiz-answer img {
     background-color:var(--optionBlue);
     border-radius: 2vh;
     max-width: 100%;
+    transition: 0.1s;
+    cursor: pointer
+}
+
+#backToStartingPageButton:hover {
+    background-color: #6da2ff;
 }
 
 @media(max-width:850px) {

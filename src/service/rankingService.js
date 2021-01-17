@@ -1,4 +1,4 @@
-import { WHAT_DOES_THIS_POKEMON_LOOK_LIKE, WHO_IS_THAT_POKEMON } from "../service/modes";
+import { WHAT_DOES_THIS_POKEMON_LOOK_LIKE, WHO_IS_THAT_POKEMON, WHO_IS_THAT_POKEMON_HARD_MODE } from "../service/modes";
 
 export const rankingService = (mode, user) => {
   const PokemonApiRanking = checkLocalStorage(); //update from localStorage
@@ -10,7 +10,7 @@ export const rankingService = (mode, user) => {
     case WHAT_DOES_THIS_POKEMON_LOOK_LIKE:
       currentMode = PokemonApiRanking.mode2.scores;
     break;
-    case GUESS_THE_TYPE:
+    case WHO_IS_THAT_POKEMON_HARD_MODE:
       currentMode = PokemonApiRanking.mode3.scores;
     break;
     default:
@@ -43,7 +43,7 @@ export const checkLocalStorage = () => {
       scores : []
     },
     mode3: {
-      name : "Guess the type!",
+      name : "Whos that pokemon? (hard mode)",
       scores : []
     }
   }
