@@ -19,20 +19,25 @@ export class QuestionService {
         const pokePromises = pokemonIds.map( id => getPokemonById(id))
         const answersObj = await Promise.all(pokePromises);
         
-        if (mode === WHO_IS_THAT_POKEMON || mode === WHO_IS_THAT_POKEMON_HARD_MODE) {
+        let question
+        let answers
+        let correctAnswer
 
-            return shuffleAnswers({
-                question: answersObj[this.correctAnswerIndex].photoUrl , 
-                answers: answersObj.map((answer) => this.getName(answer)), 
-                correctAnswer: { value: this.capitalize(answersObj[this.correctAnswerIndex].name), index: this.correctAnswerIndex}
-            })
+        if (mode === WHO_IS_THAT_POKEMON || mode === WHO_IS_THAT_POKEMON_HARD_MODE) {
+            question = answersObj[this.correctAnswerIndex].photoUrl 
+            answers = answersObj.map((answer) => this.getName(answer))
+            correctAnswer =  { value: this.getName(answersObj[this.correctAnswerIndex]), index: this.correctAnswerIndex}
+            
         } else if (mode === WHAT_DOES_THIS_POKEMON_LOOK_LIKE ) {
-            return shuffleAnswers({
-                question: this.getName(answersObj[this.correctAnswerIndex]) , 
-                answers: [ answersObj[0].photoUrl, answersObj[1].photoUrl, answersObj[2].photoUrl, answersObj[3].photoUrl ], 
-                correctAnswer: { value: answersObj[this.correctAnswerIndex].photoUrl, index: this.correctAnswerIndex }
-            })
+            question = this.getName(answersObj[this.correctAnswerIndex]) 
+            answers = [ answersObj[0].photoUrl, answersObj[1].photoUrl, answersObj[2].photoUrl, answersObj[3].photoUrl ]
+            correctAnswer = { value: answersObj[this.correctAnswerIndex].photoUrl, index: this.correctAnswerIndex }
         };
+        return shuffleAnswers({
+            question: question, 
+            answers: answers, 
+            correctAnswer: correctAnswer
+        })
     }
 
     checkAnswer(questionObj, userAnswer) {
