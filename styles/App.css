@@ -181,27 +181,27 @@ ul.bottomOfThePageOptions li img {
 
 /* heart animation */
 
-.pikachuImg #heart1 {
+.pikachuImg .heart1 {
     display: inline;
     visibility: hidden;
     animation: animation 3s infinite;
   }
   
-.pikachuImg #heart2 {
+.pikachuImg .heart2 {
     display: inline;
     visibility: hidden;
     animation: animation 3s infinite;
     animation-delay: .2s;
   }
   
-.pikachuImg #heart3 {
+.pikachuImg .heart3 {
     display: inline;
     visibility: hidden;
     animation: hearts 3s infinite;
     animation-delay: .4s;
   }
   
-.pikachuImg #heart4 {
+.pikachuImg .heart4 {
     visibility: hidden;
     animation: heartsBig 3s infinite;
     animation-delay: .6s;
