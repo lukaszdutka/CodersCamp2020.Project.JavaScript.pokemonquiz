@@ -29,6 +29,7 @@ Aplikacja została stworzona w oparciu o czysty JavaScript. Nie korzysta z żadn
 - Git
 - GitHub Desktop
 - Figma
+- Trello
 
 **Pokemon Quiz** wzorowany był na **Quiz Star Wars** udostępnionym przez **CodersCamp**.
 Projekt jest ukończony.

@@ -14,4 +14,4 @@ export const QUIZ_PAGE_STYLES = {
     uncheckedClass: "unchecked"
 }
 
-export const TOTAL_NUM_OF_QUESTIONS = 5;
+export const TOTAL_NUM_OF_QUESTIONS = 30;
