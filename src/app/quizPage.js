@@ -104,10 +104,14 @@ const updateQuestion = (questionElement, questionSet) => {
         questionElement.classList.add(QUIZ_PAGE_STYLES.quizQuestionImageClass);
         const imgElem = createImgElement(questionSet.question); // add img from url
         questionElement.appendChild(imgElem);
+        const answers = document.querySelector('ul.quiz-answers-list');
+        answers.classList.add('answersTypeText')
 
     } else if (CURRENT_MODE.questionType === "text") {
         questionElement.classList.add(QUIZ_PAGE_STYLES.quizQuestionTextClass);
         questionElement.innerText = questionSet.question; // add question as an inner text
+        const answers = document.querySelector('ul.quiz-answers-list');
+        answers.classList.add('answersTypeImage')
     }
 }
 

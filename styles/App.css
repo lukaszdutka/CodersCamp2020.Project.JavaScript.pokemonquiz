@@ -436,7 +436,7 @@ div.quiz-page {
     background-size: cover;
 }
 
-div.quiz-top-bar {
+.quiz-top-bar {
     position: relative;
     justify-self: center;
     display: flex;
@@ -482,14 +482,13 @@ div.mode-title {
     text-align: center;
 }
 
-div.question-image img {
+.question-image img {
     height: 90%;
     margin: 0 auto;
-    display: block;
-    
+    display: block;  
 }
 
-div.question-text {
+.question-text {
     display: block;
     width: 40%;
     margin: 0 auto;
@@ -499,9 +498,10 @@ div.question-text {
     font-size: 6.5vh;
     background-color: var(--optionBlue);
     color: var(--yellow);
+    padding: 1vh 0vh;
 }
 
-ul.quiz-answers-list {
+.quiz-answers-list {
     display: grid;
     margin: 0 20vw;
     grid-template-columns: 50% 50%;
@@ -510,7 +510,7 @@ ul.quiz-answers-list {
     list-style: none;
 }
 
-li.quiz-answer .answer-image {
+.answer-image {
     display: flex;
     justify-content: center;
     border-radius: 4vh;
@@ -522,7 +522,7 @@ li.quiz-answer .answer-image {
 }
 
 
-li.quiz-answer .answer-text {
+.answer-text {
     text-align: center;
     font-size: 3.5vh;
     color: var(--yellow);
@@ -535,20 +535,20 @@ li.quiz-answer .answer-text {
     transition: filter 0.1s ease-in-out;
 }
 
-li.quiz-answer div:hover {
+.quiz-answer div:hover {
     filter: brightness(1.2);
 }
 
-li.quiz-answer {
+.quiz-answer {
     width: 100%;
     margin: 0 auto;
 }
 
-li.quiz-answer div {
+.quiz-answer div {
     cursor: pointer;
 }
 
-li.quiz-answer img {
+.quiz-answer img {
     max-height: 25vh;
 }
 
@@ -632,6 +632,7 @@ li.quiz-answer img {
     align-content: center;
     align-items: space-around;
     justify-content: space-around;
+    font-size: 2.6vh;
 }
 
 #popUpTitleResultsArea {
@@ -773,6 +774,60 @@ li.quiz-answer img {
     #backToStartingPageButton {
         padding: 1.2vh;
     }
+
+    #quiz-body {
+        padding: 0px;
+        height: 100%;
+    }
+
+    .question-image {
+        margin: 0 auto 5vh;
+    }
+
+    .question-image img {
+        width: 60%;
+        height: auto;
+    }
+
+    .answersTypeText {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .answersTypeImage {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        width: 100%;
+        margin: 0;
+        padding-left: 3.5vh;
+        flex: 1 1 auto;
+        align-items: center;
+        align-content: space-around;
+        row-gap: 0
+    }
+
+    .answersTypeText.quiz-answer {
+        width: 95%;
+        margin: 0;
+    }
+
+    .answer-image {
+        width: 90%;
+        margin: 0;
+    }
+
+    .quiz-top-bar {
+        width: 90%;
+    }
+
+    .question-text {
+        width: 90%;
+        margin-bottom: 0;
+        margin: 0 auto ;
+    }
+
 }
 
 @media(orientation:portrait) {
@@ -801,36 +856,10 @@ li.quiz-answer img {
 
     #startGame {
         grid-row: 4;
+        margin: 1vh;
     }
 
     #pikachuImg {
         justify-self: end;
     }
-
-    /* quiz page */
-
-    /* div.quiz-top-bar{
-        width: 90vw;
-        font-size: 2.2vh;
-    } */
-
-    #quiz-body {
-        grid-template-rows: auto 30vh;
-    }
-
-    div.question-image img {
-        /* padding-top: 5vh; */
-        width: 60%;
-        height: auto;
-    }
-
-    ul.quiz-answers-list {
-        grid-template-columns: 100%;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-    }
-
-    li.quiz-answer img {
-        max-height: 15vh;
-    }
-
 }
