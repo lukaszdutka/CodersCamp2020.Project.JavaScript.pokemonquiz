@@ -62,7 +62,7 @@ export const App = ({options}) => {
    });
 
    //ad event listener to the leaderboard button
-   document.querySelector('#leaderboard').addEventListener('click',()=>{
+   document.querySelector('#leaderboard').addEventListener('click', () => {
       if(styleH.display=='none') {
          showAPopUpScreen(document.querySelector('#leaderboardScreen'), 'initial')
       }  
