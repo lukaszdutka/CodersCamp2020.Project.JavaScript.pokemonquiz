@@ -741,6 +741,12 @@ div.mode-title {
     background-color: #6da2ff;
 }
 
+::placeholder { 
+    color: #D61E40;
+    opacity: 1;
+    font-size: .7em;
+  }
+
 @media(max-width:850px) {
     .popUpScreen {
         width: 80vw;
