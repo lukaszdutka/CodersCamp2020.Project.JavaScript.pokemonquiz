@@ -14,7 +14,7 @@ Uczestnicy:
 * [Agata Ludwiczyńska](https://github.com/AgataLudwiczynska)
 * [Mariusz Smarż](https://github.com/mariusz-sm) (Develepment Manager)
 
-**[Live - działająca aplikacja - zagraj i sprawdź czy dobrze znasz Pokemony :)](https://lukaszdutka.github.io/CodersCamp2020.Project.JavaScript.pokemonquiz/)**
+**[Live - działająca aplikacja - zagraj i sprawdź czy dobrze rozpoznajesz Pokemony :)](https://lukaszdutka.github.io/CodersCamp2020.Project.JavaScript.pokemonquiz/)**
 
 Aplikacja została stworzona w oparciu o czysty JavaScript. Nie korzysta z żadnych frameworków ani bibliotek styli. 
 
@@ -40,7 +40,7 @@ Projekt jest ukończony.
 
 #### Wymagania funkcjonalne
 
-1. Tryb quizu (zawierać pokemony z pierwszej generacji):
+1. Tryb quizu (powinien zawierać pokemony z pierwszej generacji):
     - Podane jest zdjęcie pokemona, gracz zaznacza nazwę – 4 opcje
         - Modyfikacja - Trudniejsza wersja – zdjęcie ukazuje tylko kształt pokemona
     - Podana jest nazwa pokemona, gracz ma za zadanie zaznaczyć prawidłowe zdjęcie. 
@@ -71,4 +71,4 @@ Projekt jest ukończony.
     - Pokazywany jest ranking 3 najlepszych wyników.
 11. Brak opcji SETTINGS
 
-# **Pokemon Gotta Catch ’Em All!**
+# **Pokemon! Gotta Catch ’Em All!**
