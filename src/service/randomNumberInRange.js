@@ -30,7 +30,7 @@ export const randomNumberInRange = (min, max, forbiddenNumbersArray = []) => {
 
     const generateIndex = () => {
 
-        return Math.floor(Math.random() * (allPossibleOutcomesNoProhibited.length - 1)); 
+        return Math.floor(Math.random() * allPossibleOutcomesNoProhibited.length); 
     }
 
     const numberIndex = generateIndex();

@@ -15,11 +15,6 @@ export const showStartingPage = () => {
     const helpScreenTemplate = document.querySelector('#help-modal-template'); 
     appScreen.innerHTML += helpScreenTemplate.innerHTML;
 
-    // add leaderboard modal
-    const leaderboardTemplate = document.querySelector('#leaderboard-modal-template');
-    appScreen.innerHTML += leaderboardTemplate.innerHTML;
-    fillLeaderboard(checkLocalStorage());
-
     // pikachuImage
     const pikachuSvgImage = document.querySelector('.replaceMe'); 
     pikachuSvgImage.id = 'pikachuImg';
@@ -108,5 +103,10 @@ export const showStartingPage = () => {
     `;
 
     appScreen.innerHTML += pikachuSvgImage.innerHTML;
+
+    // add leaderboard modal
+    const leaderboardTemplate = document.querySelector('#leaderboard-modal-template');
+    appScreen.innerHTML += leaderboardTemplate.innerHTML;
+    fillLeaderboard(checkLocalStorage());
     
 }

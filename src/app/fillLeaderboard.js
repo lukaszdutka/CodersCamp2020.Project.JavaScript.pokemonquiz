@@ -31,6 +31,5 @@ export const fillLeaderboard = (pokemonApiRanking) => {
         }
 
         changeLeaderboardView();
-
-        modeSelect.addEventListener('change', changeLeaderboardView)
+        modeSelect.addEventListener('change', changeLeaderboardView); 
 }
