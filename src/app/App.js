@@ -86,19 +86,16 @@ export const App = ({options}) => {
    const inputName = document.querySelector('#enterYourNameInput');
    const playButton = document.querySelector("#startGameButton");
    
-   inputName.addEventListener("keyup", () =>{
-      if(inputName.value.length > 0){
-         playButton.disabled = false;
-      }
-      else{
-         playButton.disabled = true;
-      }
-   })
-
    // start the game
    playButton.addEventListener("click", () => {
-      const userName = inputName.value;
-      renderQuizPage(SELECTED_MODE, userName, options.quizMaxTime)
+      if(inputName.value.length > 0) {
+         const userName = inputName.value;
+         renderQuizPage(SELECTED_MODE, userName, options.quizMaxTime)
+      } else {
+         // alert("Enter whatever name you want to play this game :)");
+         inputName.placeholder = "*required (write your name here)";
+      }
+      
    });
 }
 
